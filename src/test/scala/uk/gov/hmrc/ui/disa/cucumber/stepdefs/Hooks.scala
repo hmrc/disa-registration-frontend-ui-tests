@@ -28,7 +28,7 @@ object Hooks extends ScalaDsl with EN with BrowserDriver with Browser {
     Driver.instance.manage().deleteAllCookies()
   }
 
-  After { scenario: Scenario =>
+After { scenario =>
     if (scenario.isFailed) {
       val screenshotName = scenario.getName.replaceAll(" ", "_")
       val screenshot     = driver.asInstanceOf[TakesScreenshot].getScreenshotAs(OutputType.BYTES)
