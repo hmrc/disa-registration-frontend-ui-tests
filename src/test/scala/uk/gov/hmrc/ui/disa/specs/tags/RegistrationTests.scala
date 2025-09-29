@@ -14,19 +14,8 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.disa.cucumber.runner
+package uk.gov.hmrc.ui.disa.specs.tags
 
-import io.cucumber.junit.{Cucumber, CucumberOptions}
-import org.junit.runner.RunWith
+import org.scalatest.Tag
 
-@RunWith(classOf[Cucumber])
-@CucumberOptions(
-  features = Array("src/test/resources/features"),
-  glue = Array("uk.gov.hmrc.ui.disa.cucumber.stepdefs"),
-  plugin = Array("pretty", "html:target/cucumber", "json:target/cucumber.json", "junit:target/test-reports/AllTestsRunner.xml"),
-  tags = "@AllTests"
-)
-class AllTestsRunner {}
-
-object AllTestsRunner extends AllTestsRunner
-
+object RegistrationTests extends Tag("RegistrationTests")

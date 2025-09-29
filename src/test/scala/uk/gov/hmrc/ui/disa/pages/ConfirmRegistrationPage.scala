@@ -14,20 +14,10 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.disa.cucumber.runner
+package uk.gov.hmrc.ui.disa.pages
 
-import io.cucumber.junit.Cucumber
-import io.cucumber.junit.CucumberOptions
-import org.junit.runner.RunWith
+object ConfirmRegistrationPage extends BasePage {
 
-@RunWith(classOf[Cucumber])
-@CucumberOptions(
-  features = Array("src/test/resources/features"),
-  glue = Array("uk.gov.hmrc.ui.disa.cucumber.stepdefs"),
-  plugin = Array("pretty", "html:target/cucumber", "json:target/cucumber.json", "junit:target/test-reports/Runner.xml"),
-  tags = "@Test"
-)
-class Runner {}
+  override val pageUrl: String = baseUrl + "/confirm-registration"
 
-object Runner extends Runner
-
+}
