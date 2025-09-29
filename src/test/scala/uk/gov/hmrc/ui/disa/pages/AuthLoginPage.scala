@@ -22,25 +22,18 @@ import uk.gov.hmrc.ui.disa.conf.TestConfiguration
 object AuthLoginPage extends BasePage {
   override val pageUrl: String = TestConfiguration.url("auth-login-stub") + "/gg-sign-in"
 
-  private val redirectionUrlById: By    = By.id("redirectionUrl")
-  private val affinityGroupById: By     = By.id("affinityGroupSelect")
-  private val authSubmitById: By        = By.id("submit-top")
-  private val presetDropDownById: By    = By.id("presets-dropdown")
-  private val presetSubmitById: By      = By.id("add-preset")
-  private val identifierCTField: By     = By.id("input-4-0-value")
-  private val redirectUrl: String       = TestConfiguration.url("crs-fatca-registration-frontend")
-  //private val identifierCTValue: String = generateUtr(automatchedCtUtr)
+  private val redirectionUrlById: By = By.id("redirectionUrl")
+  private val affinityGroupById: By  = By.id("affinityGroupSelect")
+  private val authSubmitById: By     = By.id("submit-top")
+  private val presetDropDownById: By = By.id("presets-dropdown")
+  private val presetSubmitById: By   = By.id("add-preset")
+  private val identifierCTField: By  = By.id("input-4-0-value")
+  private val redirectUrl: String    = TestConfiguration.url("disa-registration-frontend")
 
   private def loadPage: this.type = {
     get(pageUrl)
     onPage()
     this
-  }
-
-  private def addCtPreset(): Unit = {
-    selectByVisibleText(presetDropDownById, "CT")
-    click(presetSubmitById)
-//    sendKeys(identifierCTField, identifierCTValue)
   }
 
   private def submitAuthPage(): Unit = click(authSubmitById)
@@ -52,8 +45,6 @@ object AuthLoginPage extends BasePage {
     submitAuthPage()
   }
 
-
-
   def loginAsNonAutomatchedOrgAdmin(): RegistrationTypePage.type = {
     submitAuthWithoutEnrolment("Organisation")
     RegistrationTypePage
@@ -63,9 +54,4 @@ object AuthLoginPage extends BasePage {
     submitAuthWithoutEnrolment("Individual")
     RegistrationTypePage
   }
-
-
-
-
-
 }

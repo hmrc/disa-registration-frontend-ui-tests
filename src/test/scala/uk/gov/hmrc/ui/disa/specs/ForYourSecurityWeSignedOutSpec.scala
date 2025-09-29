@@ -26,7 +26,7 @@ class ForYourSecurityWeSignedOutSpec extends BaseSpec {
     Scenario("Individual with NINO", RegistrationTests, ZapTests) {
 
       Given("The user is redirected to the signed out page")
-      AuthLoginPage.loginAsNonAutomatchedIndAdmin()
+      AuthLoginPage.loginAsNonAutomatchedOrgAdmin()
       ForYourSecurityWeSignedYouOutPage.onPage()
       
       Then("The page title should display For your security, we signed you out")
