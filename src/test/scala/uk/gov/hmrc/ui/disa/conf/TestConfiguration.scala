@@ -37,4 +37,7 @@ object TestConfiguration {
   def servicePort(serviceName: String): String = envConfig.getString(s"services.$serviceName.port")
 
   def serviceRoute(serviceName: String): String = envConfig.getString(s"services.$serviceName.productionRoute")
+
+  val serviceUrl = config.getString(s"""services."service-name-frontend".productionRoute""")
+
 }

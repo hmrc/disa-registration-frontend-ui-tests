@@ -19,8 +19,7 @@ package uk.gov.hmrc.ui.disa.pages
 import org.openqa.selenium.By
 
 object RegistrationTypePage extends BasePage {
-  //override val pageUrl: String = baseUrl + "/registration-type"
-  override val pageUrl: String = baseUrl + "/account/sign-out"
+  override val pageUrl: String = baseUrl + "/registration-type"
 
   private val limitedCompanyRadioId = By.id("value")
   private val partnershipRadioId    = By.id("value_1")

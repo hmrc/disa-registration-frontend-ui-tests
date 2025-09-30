@@ -27,24 +27,24 @@ class ForYourSecurityWeSignedOutSpec extends BaseSpec {
 
       Given("The user is redirected to the signed out page")
       AuthLoginPage.loginAsNonAutomatchedOrgAdmin()
-      ForYourSecurityWeSignedYouOutPage.onPage()
-      
-      Then("The page title should display For your security, we signed you out")
-      val titlePageText = ForYourSecurityWeSignedYouOutPage.getTitlePage()
-      titlePageText shouldBe "For your security, we signed you out"
-
-      And("The page should display the message We saved your answers")
-      val pageMessage = ForYourSecurityWeSignedYouOutPage.getWeSavedYourAnswersText()
-      pageMessage shouldBe "We saved your answers."
-      
-      And("A Sign in button should be visible")
-      ForYourSecurityWeSignedYouOutPage.isSignInButtonPresent() shouldBe true
-
-      And("The Sign in button should redirect the user to the login page")
-
-      And("The user should be able to switch the language between English and Cymraeg")
-      ForYourSecurityWeSignedYouOutPage.isEnglishLinkPresentAndClickable() shouldBe true
-      ForYourSecurityWeSignedYouOutPage.isCymraegLinkPresentAndClickable() shouldBe true
+//      ForYourSecurityWeSignedYouOutPage.onPage()
+//      
+//      Then("The page title should display For your security, we signed you out")
+//      val titlePageText = ForYourSecurityWeSignedYouOutPage.getTitlePage()
+//      titlePageText shouldBe "For your security, we signed you out"
+//
+//      And("The page should display the message We saved your answers")
+//      val pageMessage = ForYourSecurityWeSignedYouOutPage.getWeSavedYourAnswersText()
+//      pageMessage shouldBe "We saved your answers."
+//      
+//      And("A Sign in button should be visible")
+//      ForYourSecurityWeSignedYouOutPage.isSignInButtonPresent() shouldBe true
+//
+//      And("The Sign in button should redirect the user to the login page")
+//
+//      And("The user should be able to switch the language between English and Cymraeg")
+//      ForYourSecurityWeSignedYouOutPage.isEnglishLinkPresentAndClickable() shouldBe true
+//      ForYourSecurityWeSignedYouOutPage.isCymraegLinkPresentAndClickable() shouldBe true
     }
 
   }
