@@ -18,12 +18,19 @@ package uk.gov.hmrc.ui.disa.pages
 
 import org.openqa.selenium.By
 
-object ForYourSecurityWeSignedYouOutPage extends BasePage {
-  override val pageUrl: String   = baseUrl + "/account/signed-out"
+object AutoSignOutPage extends BasePage {
+  override val pageUrl: String   = baseUrl + "/account/auto-sign-out"
+
   val weSavedYourAnswersText: By = By.xpath("//p[@class='govuk-body'][position()=1]")
   val h1PageTitleText: By        = By.className("govuk-heading-xl")
   private val englishLink: By    = By.xpath("//span[text()='English']")
-  private val cymraegLink: By    = By.linkText("//span[text()='Cymraeg']")
+  private val cymraegLink: By    = By.xpath("//span[text()='Cymraeg']")
+
+  def loadPage(): this.type = {
+    get(pageUrl)
+    onPage()
+    this
+  }
 
   def getTitlePage(): String = {
     onPage()
