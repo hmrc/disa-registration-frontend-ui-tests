@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.disa.pages
+package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
-import uk.gov.hmrc.ui.disa.conf.TestConfiguration
+import uk.gov.hmrc.ui.conf.TestConfiguration
 
 object AuthLoginPage extends BasePage {
   override val pageUrl: String = TestConfiguration.url("auth-login-stub") + "/gg-sign-in"
@@ -25,9 +25,9 @@ object AuthLoginPage extends BasePage {
   private val redirectionUrlById: By = By.id("redirectionUrl")
   private val affinityGroupById: By  = By.id("affinityGroupSelect")
   private val authSubmitById: By     = By.id("submit-top")
-  private val presetDropDownById: By = By.id("presets-dropdown")
-  private val presetSubmitById: By   = By.id("add-preset")
-  private val identifierCTField: By  = By.id("input-4-0-value")
+//  private val presetDropDownById: By = By.id("presets-dropdown")
+//  private val presetSubmitById: By   = By.id("add-preset")
+//  private val identifierCTField: By  = By.id("input-4-0-value")
   private val redirectUrl: String    = TestConfiguration.url("disa-registration-frontend")
 
   private def loadPage: this.type = {

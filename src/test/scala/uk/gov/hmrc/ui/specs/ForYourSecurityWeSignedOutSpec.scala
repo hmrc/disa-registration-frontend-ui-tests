@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.disa.specs
+package uk.gov.hmrc.ui.specs
 
-import uk.gov.hmrc.ui.disa.pages.*
-import uk.gov.hmrc.ui.disa.specs.tags.*
+import uk.gov.hmrc.ui.pages.*
+import uk.gov.hmrc.ui.specs.tags._
+import uk.gov.hmrc.ui.pages.AuthLoginPage
 
 class ForYourSecurityWeSignedOutSpec extends BaseSpec {
 
@@ -27,8 +28,9 @@ class ForYourSecurityWeSignedOutSpec extends BaseSpec {
 
       Given("The user is redirected to the signed out page")
       AuthLoginPage.loginAsNonAutomatchedOrgAdmin()
+      DisaLandingPage.onPage()
 //      ForYourSecurityWeSignedYouOutPage.onPage()
-//      
+//
 //      Then("The page title should display For your security, we signed you out")
 //      val titlePageText = ForYourSecurityWeSignedYouOutPage.getTitlePage()
 //      titlePageText shouldBe "For your security, we signed you out"
@@ -36,7 +38,7 @@ class ForYourSecurityWeSignedOutSpec extends BaseSpec {
 //      And("The page should display the message We saved your answers")
 //      val pageMessage = ForYourSecurityWeSignedYouOutPage.getWeSavedYourAnswersText()
 //      pageMessage shouldBe "We saved your answers."
-//      
+//
 //      And("A Sign in button should be visible")
 //      ForYourSecurityWeSignedYouOutPage.isSignInButtonPresent() shouldBe true
 //

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.disa.pages
+package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
@@ -35,15 +35,12 @@ object ForYourSecurityWeSignedYouOutPage extends BasePage {
     getText(weSavedYourAnswersText)
   }
 
-  def isSignInButtonPresent(): Boolean = {
+  def isSignInButtonPresent(): Boolean =
     isElementPresent(signInButtonClassName)
-  }
 
-  def isEnglishLinkPresentAndClickable(): Boolean = {
+  def isEnglishLinkPresentAndClickable(): Boolean =
     isLanguageLinkPresentAndClickable(englishLink)
-  }
 
-  def isCymraegLinkPresentAndClickable(): Boolean = {
+  def isCymraegLinkPresentAndClickable(): Boolean =
     isLanguageLinkPresentAndClickable(cymraegLink)
-  }
 }

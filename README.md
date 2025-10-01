@@ -14,10 +14,10 @@ Start Mongo Docker container as follows:
 docker run --rm -d -p 27017:27017 --name mongo percona/percona-server-mongodb:6.0
 ```
 
-Start `<SERVICE_MANAGER_PROFILE>` services as follows:
+Start `DISA Registration` services as follows:
 
 ```bash
-sm2 --start <SERVICE_MANAGER_PROFILE>
+sm2 --start sm2 --start DISA_REGISTRATION_ALL
 ```
 
 ## Tests
