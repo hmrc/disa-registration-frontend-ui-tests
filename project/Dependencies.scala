@@ -12,7 +12,7 @@ object Dependencies {
     // "junit"                % "junit"                  % "4.13.2"   % Test,
     // "com.novocode"         % "junit-interface"        % "0.11"     % Test,
     "uk.gov.hmrc"         %% "ui-test-runner"  % "0.49.0" % Test,
-    "uk.gov.hmrc"         %% "domain-test-play-30"  % "13.0.0" % Test
+    "uk.gov.hmrc"         %% "domain-test-play-30"  % "13.0.0" % Test,
     // "org.scalatestplus"   %% "selenium-4-12"          % "3.2.17.0" % Test,
     // "com.typesafe.play"   %% "play-json-joda"         % "2.10.6"   % Test,
     // "com.typesafe"         % "config"                 % "1.4.3"    % Test,
