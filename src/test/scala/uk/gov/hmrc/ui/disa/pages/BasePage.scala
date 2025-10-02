@@ -36,7 +36,7 @@ trait BasePage extends Matchers with PageObject {
   val countryOption: By   = By.id("country__option--0")
   val backLinkText: By    = By.id("Back")
 
-  val signInButtonClassName: By    = By.className("govuk-button")
+  val signInButtonClassName: By = By.className("govuk-button")
 
   private def fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
     .withTimeout(Duration.ofSeconds(2))
@@ -65,15 +65,13 @@ trait BasePage extends Matchers with PageObject {
     click(partialLinkText)
   }
 
-
   def clickOnSignInButton(): Unit = {
     onPage()
     click(signInButtonClassName)
   }
 
-  def isElementPresent(locator: By): Boolean = {
+  def isElementPresent(locator: By): Boolean =
     Driver.instance.findElements(locator).size() > 0
-  }
 
   def isLanguageLinkPresentAndClickable(locator: By): Boolean = {
     val element = Driver.instance.findElement(locator)

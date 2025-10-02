@@ -23,11 +23,11 @@ class AutoSignOutSpec extends BaseSpec {
 
   Feature("Auto Sign-Out") {
 
-      Scenario("User is automatically signed out after inactivity", RegistrationTests, ZapTests) {
+    Scenario("User is automatically signed out after inactivity", RegistrationTests, ZapTests) {
 
-        Given("The user is redirected to the signed out page")
-        AuthLoginPage.loginAsNonAutomatchedOrgAdmin()
-        AutoSignOutPage.loadPage()
+      Given("The user is redirected to the signed out page")
+      AuthLoginPage.loginAsNonAutomatchedOrgAdmin()
+      AutoSignOutPage.loadPage()
 
 //        Then("The page title should display For your security, we signed you out")
 //        val titlePageText = AutoSignOutPage.getTitlePage()
@@ -37,12 +37,12 @@ class AutoSignOutSpec extends BaseSpec {
 //        val pageMessage = AutoSignOutPage.getWeSavedYourAnswersText()
 //        pageMessage shouldBe "We saved your answers."
 
-        And("A Sign in button should be visible")
-        AutoSignOutPage.isSignInButtonPresent() shouldBe true
+      And("A Sign in button should be visible")
+      AutoSignOutPage.isSignInButtonPresent() shouldBe true
 
 //        And("The user should be able to switch the language between English and Cymraeg")
 //        AutoSignOutPage.isEnglishLinkPresentAndClickable() shouldBe true
 //        AutoSignOutPage.isCymraegLinkPresentAndClickable() shouldBe true
-      }
+    }
   }
 }
