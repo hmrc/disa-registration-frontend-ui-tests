@@ -21,8 +21,8 @@ import org.openqa.selenium.By
 object AutoSignOutPage extends BasePage {
   override val pageUrl: String   = baseUrl + "/account/auto-sign-out"
 
-  val weSavedYourAnswersText: By = By.xpath("//p[@class='govuk-body'][position()=1]")
-  val h1PageTitleText: By        = By.className("govuk-heading-xl")
+  private val weSavedYourAnswersText: By = By.xpath("//p[@class='govuk-body'][position()=1]")
+  private val h1PageTitleText: By        = By.className("govuk-heading-xl")
   private val englishLink: By    = By.xpath("//span[text()='English']")
   private val cymraegLink: By    = By.xpath("//span[text()='Cymraeg']")
 
