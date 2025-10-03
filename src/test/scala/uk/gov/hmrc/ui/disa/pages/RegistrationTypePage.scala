@@ -16,28 +16,6 @@
 
 package uk.gov.hmrc.ui.disa.pages
 
-import org.openqa.selenium.By
-
 object RegistrationTypePage extends BasePage {
   override val pageUrl: String = baseUrl + "/registration-type"
-
-  private val limitedCompanyRadioId = By.id("value")
-  private val partnershipRadioId    = By.id("value_1")
-  private val llpRadioId            = By.id("value_2")
-  private val unincorporatedRadioId = By.id("value_3")
-  private val soleTraderRadioId     = By.id("value_4")
-  private val individualRadioId     = By.id("value_5")
-
-  def registerAs(registrationType: String): Unit = {
-    onPage()
-    click(registrationType match {
-      case "Limited Company"                           => limitedCompanyRadioId
-      case "Partnership"                               => partnershipRadioId
-      case "LLP"                                       => llpRadioId
-      case "Unincorporated"                            => unincorporatedRadioId
-      case "Sole Trader"                               => soleTraderRadioId
-      case "An individual not connected to a business" => individualRadioId
-    })
-    click(submitButtonId)
-  }
 }

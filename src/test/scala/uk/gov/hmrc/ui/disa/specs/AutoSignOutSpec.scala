@@ -29,21 +29,8 @@ class AutoSignOutSpec extends BaseSpec {
       AuthLoginPage.loginAsNonAutomatchedOrgAdmin()
       AutoSignOutPage.loadPage()
 
-//        Then("The page title should display For your security, we signed you out")
-//        val titlePageText = AutoSignOutPage.getTitlePage()
-//        titlePageText shouldBe "For your security, we signed you out"
-
-//        And("The page should display the message We saved your answers")
-//        val pageMessage = AutoSignOutPage.getWeSavedYourAnswersText()
-//        pageMessage shouldBe "We saved your answers."
-
-      And("A Sign in button should be visible")
+      Then("A Sign in button should be visible")
       AutoSignOutPage.isSignInButtonPresent() shouldBe true
-
-//        And("The user should be able to switch the language between English and Cymraeg")
-//        AutoSignOutPage.isEnglishLinkPresentAndClickable() shouldBe true
-//        AutoSignOutPage.isCymraegLinkPresentAndClickable() shouldBe true
     }
   }
-
 }
