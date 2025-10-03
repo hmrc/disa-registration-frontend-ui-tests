@@ -45,4 +45,5 @@ class AutoSignOutSpec extends BaseSpec {
 //        AutoSignOutPage.isCymraegLinkPresentAndClickable() shouldBe true
     }
   }
+
 }
