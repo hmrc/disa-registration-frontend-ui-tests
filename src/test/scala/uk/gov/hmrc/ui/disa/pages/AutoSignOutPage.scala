@@ -15,15 +15,9 @@
  */
 package uk.gov.hmrc.ui.disa.pages
 
-import org.openqa.selenium.By
 
 object AutoSignOutPage extends BasePage {
   override val pageUrl: String = baseUrl + "/account/auto-sign-out"
-
-  private val weSavedYourAnswersText: By = By.xpath("//p[@class='govuk-body'][position()=1]")
-  private val h1PageTitleText: By        = By.className("govuk-heading-xl")
-  private val englishLink: By            = By.xpath("//span[text()='English']")
-  private val cymraegLink: By            = By.xpath("//span[text()='Cymraeg']")
 
   def loadPage(): this.type = {
     get(pageUrl)
@@ -31,22 +25,6 @@ object AutoSignOutPage extends BasePage {
     this
   }
 
-  def getTitlePage(): String = {
-    onPage()
-    getText(h1PageTitleText)
-  }
-
-  def getWeSavedYourAnswersText(): String = {
-    onPage()
-    getText(weSavedYourAnswersText)
-  }
-
   def isSignInButtonPresent(): Boolean =
     isElementPresent(signInButtonClassName)
-
-  def isEnglishLinkPresentAndClickable(): Boolean =
-    isLanguageLinkPresentAndClickable(englishLink)
-
-  def isCymraegLinkPresentAndClickable(): Boolean =
-    isLanguageLinkPresentAndClickable(cymraegLink)
 }

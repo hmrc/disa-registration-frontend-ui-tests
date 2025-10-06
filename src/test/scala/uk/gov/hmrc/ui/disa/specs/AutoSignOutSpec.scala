@@ -16,14 +16,12 @@
 package uk.gov.hmrc.ui.disa.specs
 
 import uk.gov.hmrc.ui.disa.pages.*
-import uk.gov.hmrc.ui.disa.specs.tags.*
 
 class AutoSignOutSpec extends BaseSpec {
 
   Feature("Auto Sign-Out") {
-
-    Scenario("User is automatically signed out after inactivity", RegistrationTests, ZapTests) {
-
+    
+    Scenario("User is automatically signed out after inactivity") {
       Given("The user is redirected to the signed out page")
       AuthLoginPage.loginAsNonAutomatchedOrgAdmin()
       AutoSignOutPage.loadPage()
