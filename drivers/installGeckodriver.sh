@@ -4,7 +4,6 @@ DEFAULT_VERSION="0.21.0"
 
 OS=${1:-linux64}
 GECKO_VERSION=${2:-$DEFAULT_VERSION}
-
 die () {
     echo >&2 "$@"
     exit 1

@@ -9,5 +9,4 @@ object Dependencies {
     "uk.gov.hmrc"         %% "domain-test-play-30" % "13.0.0" % Test,
     "com.vladsch.flexmark" % "flexmark-all"        % "0.64.8" % Test
   )
-
 }
