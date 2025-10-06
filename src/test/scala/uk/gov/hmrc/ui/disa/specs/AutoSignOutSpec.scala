@@ -20,7 +20,7 @@ import uk.gov.hmrc.ui.disa.pages.*
 class AutoSignOutSpec extends BaseSpec {
 
   Feature("Auto Sign-Out") {
-    
+
     Scenario("User is automatically signed out after inactivity") {
       Given("The user is redirected to the signed out page")
       AuthLoginPage.loginAsNonAutomatchedOrgAdmin()

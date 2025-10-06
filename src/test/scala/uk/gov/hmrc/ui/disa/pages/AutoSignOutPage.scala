@@ -15,7 +15,6 @@
  */
 package uk.gov.hmrc.ui.disa.pages
 
-
 object AutoSignOutPage extends BasePage {
   override val pageUrl: String = baseUrl + "/account/auto-sign-out"
 
