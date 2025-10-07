@@ -31,7 +31,6 @@ trait BasePage extends Matchers with PageObject {
   val submitButtonId: By = By.id("submit")
   val yesRadioId: By     = By.id("value")
   val noRadioId: By      = By.id("value-no")
-  val countryOption: By  = By.id("country__option--0")
   val backLinkText: By   = By.id("Back")
 
   val signInButtonClassName: By = By.className("govuk-button")
