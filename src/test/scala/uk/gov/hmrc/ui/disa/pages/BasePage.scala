@@ -32,8 +32,7 @@ trait BasePage extends Matchers with PageObject {
   val yesRadioId: By     = By.id("value")
   val noRadioId: By      = By.id("value-no")
   val backLinkText: By   = By.id("Back")
-
-  val signInButtonClassName: By = By.className("govuk-button")
+  val signInButtonClassName: By = By.partialLinkText("Sign in")
 
   private def fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
     .withTimeout(Duration.ofSeconds(2))
