@@ -27,7 +27,7 @@ import java.time.Duration
 trait BasePage extends Matchers with PageObject {
 
   val pageUrl: String
-  val baseUrl: String           = TestConfiguration.url("disa-registration-frontend") + ""
+  val baseUrl: String           = TestConfiguration.url("disa-registration-frontend")
   val submitButtonId: By        = By.id("submit")
   val yesRadioId: By            = By.id("value")
   val noRadioId: By             = By.id("value-no")
