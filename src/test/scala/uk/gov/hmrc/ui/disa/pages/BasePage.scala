@@ -31,7 +31,6 @@ trait BasePage extends Matchers with PageObject {
   val submitButtonId: By  = By.id("submit")
   val yesRadioId: By      = By.id("value")
   val noRadioId: By       = By.id("value-no")
-  val countryDropdown: By = By.id("country")
   val countryOption: By   = By.id("country__option--0")
   val backLinkText: By    = By.id("Back")
 
@@ -42,12 +41,6 @@ trait BasePage extends Matchers with PageObject {
     .pollingEvery(Duration.ofMillis(200))
 
   def onPage(url: String = this.pageUrl): Unit = fluentWait.until(ExpectedConditions.urlToBe(url))
-
-  def countryAutoSelect(countryName: String): Unit = {
-    click(countryDropdown)
-    sendKeys(countryDropdown, countryName)
-    click(countryOption)
-  }
 
   def onPageSubmitById(): Unit = {
     onPage()
