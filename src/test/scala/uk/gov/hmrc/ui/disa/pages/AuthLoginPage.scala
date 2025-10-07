@@ -44,13 +44,7 @@ object AuthLoginPage extends BasePage {
     submitAuthPage()
   }
 
-  def loginAsNonAutomatchedOrgAdmin(): RegistrationTypePage.type = {
+  def loginAsNonAutomatchedOrgAdmin(): Unit ={
     submitAuthWithoutEnrolment("Organisation")
-    RegistrationTypePage
-  }
-
-  def loginAsNonAutomatchedIndAdmin(): RegistrationTypePage.type = {
-    submitAuthWithoutEnrolment("Individual")
-    RegistrationTypePage
   }
 }
