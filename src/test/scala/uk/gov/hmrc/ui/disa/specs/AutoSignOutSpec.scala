@@ -21,7 +21,7 @@ class AutoSignOutSpec extends BaseSpec {
 
   Feature("Auto Sign-Out") {
 
-    Scenario("User is automatically signed out after inactivity") {
+    Scenario("Verify sign-in button is present on page load") {
       Given("The user is redirected to the signed out page")
       AuthLoginPage.loginAsNonAutomatchedOrgAdmin()
       AutoSignOutPage.loadPage()

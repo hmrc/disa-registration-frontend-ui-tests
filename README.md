@@ -2,7 +2,7 @@
 
 # disa-registration-frontend-ui-tests
 
-<SERVICE_NAME> UI journey tests.
+disa-registration-frontend UI journey tests.
 
 ## Pre-requisites
 
@@ -14,7 +14,7 @@ Start Mongo Docker container as follows:
 docker run --rm -d -p 27017:27017 --name mongo percona/percona-server-mongodb:6.0
 ```
 
-Start `<SERVICE_MANAGER_PROFILE>` services as follows:
+Start `DISA_REGISTRATION_ALL` services as follows:
 
 ```bash
 sm2 --start <SERVICE_MANAGER_PROFILE>
