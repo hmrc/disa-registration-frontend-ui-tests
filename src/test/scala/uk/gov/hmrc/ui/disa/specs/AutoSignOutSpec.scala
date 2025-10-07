@@ -14,25 +14,21 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.specs
+package uk.gov.hmrc.ui.disa.specs
 
-import org.scalatest.featurespec.AnyFeatureSpec
-import org.scalatest.matchers.should.Matchers
-import org.scalatest.{BeforeAndAfterEach, GivenWhenThen}
-import uk.gov.hmrc.selenium.webdriver.{Browser, ScreenshotOnFailure}
+import uk.gov.hmrc.ui.disa.pages.*
 
-trait BaseSpec
-    extends AnyFeatureSpec
-    with GivenWhenThen
-    with Matchers
-    with BeforeAndAfterEach
-    with Browser
-    with ScreenshotOnFailure {
+class AutoSignOutSpec extends BaseSpec {
 
-  override def beforeEach(): Unit =
-    startBrowser()
+  Feature("Auto Sign-Out") {
 
-  override def afterEach(): Unit =
-    quitBrowser()
+    Scenario("Verify sign-in button is present on page load") {
+      Given("The user is redirected to the signed out page")
+      AuthLoginPage.loginAsNonAutomatchedOrgAdmin()
+      AutoSignOutPage.loadPage()
 
+      Then("A Sign in button should be visible")
+      AutoSignOutPage.isSignInButtonPresent() shouldBe true
+    }
+  }
 }
