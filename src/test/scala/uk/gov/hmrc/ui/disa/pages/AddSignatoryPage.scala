@@ -25,6 +25,6 @@ object AddSignatoryPage extends BasePage {
     this
   }
 
-    def isContinueButtonPresent(): Boolean =
-      isElementPresent(continueButtonClassName)
+  def isContinueButtonPresent(): Boolean =
+    isElementPresent(continueButtonClassName)
 }
