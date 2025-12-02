@@ -34,6 +34,7 @@ trait BasePage extends Matchers with PageObject {
   val noRadioId: By             = By.id("value-no")
   val backLinkText: By          = By.id("Back")
   val signInButtonClassName: By = By.partialLinkText("Sign in")
+  val continueButtonClassName: By = By.xpath("//button[@type='submit']")
 
   private def fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
     .withTimeout(Duration.ofSeconds(2))
