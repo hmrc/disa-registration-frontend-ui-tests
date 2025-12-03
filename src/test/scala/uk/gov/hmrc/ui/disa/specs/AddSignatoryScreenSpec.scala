@@ -25,10 +25,15 @@ class AddSignatoryScreenSpec extends BaseSpec {
     Scenario("Verify user can access Add a signatory screen and proceed") {
       Given("Given the user is logged in and on the \"/add-a-signatory\" URL")
       AuthLoginPage.loginAsNonAutomatchedOrgAdmin()
-      AddSignatoryPage.loadPage()
 
-      Then("Then the \"Add\" button should be visible and clickable")
-      AddSignatoryPage.isContinueButtonPresent() shouldBe true
+      When("the user navigates to the Add a Signatory page")
+      AuthLoginPage.navigateTo(AddSignatoryPage.pageUrl)
+
+      Then("the page URL should be correct")
+      AddSignatoryPage.verifyPageUrl() shouldBe true
+
+      And("the page title should be correct")
+      AddSignatoryPage.verifyPageTitle() shouldBe true
     }
   }
 }

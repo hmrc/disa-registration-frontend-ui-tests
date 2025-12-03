@@ -29,12 +29,7 @@ trait BasePage extends Matchers with PageObject {
 
   val pageUrl: String
   val baseUrl: String             = TestConfiguration.url("disa-registration-frontend")
-  val submitButtonId: By          = By.id("submit")
-  val yesRadioId: By              = By.id("value")
-  val noRadioId: By               = By.id("value-no")
-  val backLinkText: By            = By.id("Back")
   val signInButtonClassName: By   = By.partialLinkText("Sign in")
-  val continueButtonClassName: By = By.xpath("//button[@type='submit']")
 
   private def fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
     .withTimeout(Duration.ofSeconds(2))
@@ -42,24 +37,16 @@ trait BasePage extends Matchers with PageObject {
 
   def onPage(url: String = this.pageUrl): Unit = fluentWait.until(ExpectedConditions.urlToBe(url))
 
-  def onPageSubmitById(): Unit = {
-    onPage()
-    click(submitButtonId)
+  def navigateTo(url: String): Unit = {
+    Driver.instance.get(url)
+    onPage(url) 
   }
-
-  def clickOnBackLink(): Unit = {
-    onPage()
-    click(backLinkText)
-  }
+  
+  def goTo(page: BasePage): Unit = navigateTo(page.pageUrl)
 
   def clickOnByPartialLinkText(partialLinkText: By): Unit = {
     onPage()
     click(partialLinkText)
-  }
-
-  def clickOnSignInButton(): Unit = {
-    onPage()
-    click(signInButtonClassName)
   }
 
   def isElementPresent(locator: By): Boolean =
