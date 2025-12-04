@@ -32,7 +32,7 @@ object AuthLoginPage extends BasePage {
 
   private def loadPage: this.type = {
     get(pageUrl)
-    onPage()
+    verifyPageLoaded()
     this
   }
 

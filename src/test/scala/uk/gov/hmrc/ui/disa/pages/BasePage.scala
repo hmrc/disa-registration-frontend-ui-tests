@@ -28,32 +28,27 @@ import java.time.Duration
 trait BasePage extends Matchers with PageObject {
 
   val pageUrl: String
-  val baseUrl: String             = TestConfiguration.url("disa-registration-frontend")
-  val signInButtonClassName: By   = By.partialLinkText("Sign in")
+  val baseUrl: String           = TestConfiguration.url("disa-registration-frontend")
+  val signInButtonClassName: By = By.partialLinkText("Sign in")
 
   private def fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
     .withTimeout(Duration.ofSeconds(2))
     .pollingEvery(Duration.ofMillis(200))
 
-  def onPage(url: String = this.pageUrl): Unit = fluentWait.until(ExpectedConditions.urlToBe(url))
+  def verifyPageLoaded(url: String = this.pageUrl): Unit = fluentWait.until(ExpectedConditions.urlToBe(url))
 
   def navigateTo(url: String): Unit = {
     Driver.instance.get(url)
-    onPage(url) 
+    verifyPageLoaded(url)
   }
-  
+
   def goTo(page: BasePage): Unit = navigateTo(page.pageUrl)
 
   def clickOnByPartialLinkText(partialLinkText: By): Unit = {
-    onPage()
+    verifyPageLoaded()
     click(partialLinkText)
   }
 
   def isElementPresent(locator: By): Boolean =
     Driver.instance.findElements(locator).size() > 0
-
-  def isLanguageLinkPresentAndClickable(locator: By): Boolean = {
-    val element = Driver.instance.findElement(locator)
-    element.isDisplayed && element.isEnabled
-  }
 }

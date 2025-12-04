@@ -21,7 +21,7 @@ object AutoSignOutPage extends BasePage {
 
   def loadPage(): this.type = {
     get(pageUrl)
-    onPage()
+    verifyPageLoaded()
     this
   }
 

@@ -23,16 +23,13 @@ class AddSignatoryScreenSpec extends BaseSpec {
   Feature("Add a Signatory Screen") {
 
     Scenario("Verify user can access Add a signatory screen and proceed") {
-      Given("Given the user is logged in and on the \"/add-a-signatory\" URL")
+      Given("Given the user is logged in as an organisation admin")
       AuthLoginPage.loginAsNonAutomatchedOrgAdmin()
 
       When("the user navigates to the Add a Signatory page")
       AuthLoginPage.navigateTo(AddSignatoryPage.pageUrl)
 
-      Then("the page URL should be correct")
-      AddSignatoryPage.verifyPageUrl() shouldBe true
-
-      And("the page title should be correct")
+      Then("the page title should be correct")
       AddSignatoryPage.verifyPageTitle() shouldBe true
     }
   }
