@@ -24,7 +24,7 @@ class AddSignatoryScreenSpec extends BaseSpec {
 
     Scenario("Verify user can access Add a signatory screen and proceed") {
       Given("Given the user is logged in as an organisation User")
-      AuthLoginPage.loginAsNonAutoMatchedOrgUser()
+      AuthLoginPage.loginAsOrgUser()
 
       When("the user navigates to the Add a Signatory page")
       AuthLoginPage.navigateTo(AddSignatoryPage.pageUrl)
