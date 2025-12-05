@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2024 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,21 +14,15 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.disa.specs
+package uk.gov.hmrc.ui.disa.pages
 
-import uk.gov.hmrc.ui.disa.pages.*
+object AddSignatoryPage extends BasePage {
+  val pageUrl: String   = s"$baseUrl/add-a-signatory"
+  val pageTitle: String = "Add a signatory - Signatories - disa-registration-frontend - GOV.UK"
 
-class AutoSignOutSpec extends BaseSpec {
+  def verifyPageUrl(): Boolean =
+    getCurrentUrl == pageUrl
 
-  Feature("Auto Sign-Out") {
-
-    Scenario("Verify sign-in button is present on page load") {
-      Given("The user is redirected to the signed out page")
-      AuthLoginPage.loginAsOrgUser()
-      AutoSignOutPage.loadPage()
-
-      Then("A Sign in button should be visible")
-      AutoSignOutPage.isSignInButtonPresent() shouldBe true
-    }
-  }
+  def verifyPageTitle(): Boolean =
+    getTitle == pageTitle
 }
