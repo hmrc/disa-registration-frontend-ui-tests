@@ -32,7 +32,7 @@ object AuthLoginPage extends BasePage {
 
   private def loadPage: this.type = {
     get(pageUrl)
-    onPage()
+    verifyPageLoaded()
     this
   }
 
@@ -45,6 +45,6 @@ object AuthLoginPage extends BasePage {
     submitAuthPage()
   }
 
-  def loginAsNonAutomatchedOrgAdmin(): Unit =
+  def loginAsOrgUser(): Unit =
     submitAuthWithoutEnrolment("Organisation")
 }

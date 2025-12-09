@@ -18,17 +18,19 @@ package uk.gov.hmrc.ui.disa.specs
 
 import uk.gov.hmrc.ui.disa.pages.*
 
-class AutoSignOutSpec extends BaseSpec {
+class AddSignatoryScreenSpec extends BaseSpec {
 
-  Feature("Auto Sign-Out") {
+  Feature("Add a Signatory Screen") {
 
-    Scenario("Verify sign-in button is present on page load") {
-      Given("The user is redirected to the signed out page")
+    Scenario("Verify user can access Add a signatory screen and proceed") {
+      Given("Given the user is logged in as an organisation User")
       AuthLoginPage.loginAsOrgUser()
-      AutoSignOutPage.loadPage()
 
-      Then("A Sign in button should be visible")
-      AutoSignOutPage.isSignInButtonPresent() shouldBe true
+      When("the user navigates to the Add a Signatory page")
+      AuthLoginPage.navigateTo(AddSignatoryPage.pageUrl)
+
+      Then("the page title should be correct")
+      AddSignatoryPage.verifyPageTitle() shouldBe true
     }
   }
 }
