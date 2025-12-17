@@ -16,8 +16,8 @@
 
 package uk.gov.hmrc.ui.disa.pages
 
-import org.openqa.selenium.{By, WebDriver}
 import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait, Wait}
+import org.openqa.selenium.{By, WebDriver}
 import org.scalatest.matchers.should.Matchers
 import uk.gov.hmrc.selenium.component.PageObject
 import uk.gov.hmrc.selenium.webdriver.Driver
