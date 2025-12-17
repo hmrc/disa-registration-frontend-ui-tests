@@ -25,7 +25,9 @@ class AutoSignOutSpec extends BaseSpec {
     Scenario("Verify sign-in button is present on page load") {
       Given("The user is redirected to the signed out page")
       AuthLoginPage.loginAsOrgUser()
-      AutoSignOutPage.loadPage()
+
+      When("the user navigates to the AutoSignOutPage page")
+      AuthLoginPage.navigateTo(AutoSignOutPage.pageUrl)
 
       Then("A Sign in button should be visible")
       AutoSignOutPage.isSignInButtonPresent() shouldBe true

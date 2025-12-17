@@ -38,7 +38,6 @@ trait BasePage extends Matchers with PageObject {
   def verifyPageLoaded(url: String = this.pageUrl): Unit = fluentWait.until(ExpectedConditions.urlToBe(url))
 
   def navigateTo(url: String): Unit = {
-    println("-----url---" + url)
     Driver.instance.get(url)
     verifyPageLoaded(url)
   }
