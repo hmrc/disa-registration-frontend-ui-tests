@@ -25,9 +25,6 @@ object AuthLoginPage extends BasePage {
   private val redirectionUrlById: By = By.id("redirectionUrl")
   private val affinityGroupById: By  = By.id("affinityGroupSelect")
   private val authSubmitById: By     = By.id("submit-top")
-  private val presetDropDownById: By = By.id("presets-dropdown")
-  private val presetSubmitById: By   = By.id("add-preset")
-  private val identifierCTField: By  = By.id("input-4-0-value")
   private val redirectUrl: String    = TestConfiguration.url("disa-registration-frontend")
 
   private def loadPage: this.type = {
