@@ -27,4 +27,3 @@ object OrganisationTradingNamePage extends BasePage {
   def verifyPageTitle(title: String): Boolean =
     getTitle == pageTitle
 }
-
