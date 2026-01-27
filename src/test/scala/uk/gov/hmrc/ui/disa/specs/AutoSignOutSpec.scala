@@ -17,14 +17,16 @@
 package uk.gov.hmrc.ui.disa.specs
 
 import uk.gov.hmrc.ui.disa.pages.*
+import uk.gov.hmrc.ui.disa.pages.AuthLoginPage.generateRandomZReference
 
 class AutoSignOutSpec extends BaseSpec {
 
   Feature("Auto Sign-Out") {
 
     Scenario("Verify sign-in button is present on page load") {
+      val zReference: String = generateRandomZReference()
       Given("The user is redirected to the signed out page")
-      AuthLoginPage.loginAsOrgUser()
+      AuthLoginPage.loginAsOrgUser(zReference)
 
       When("the user navigates to the AutoSignOutPage page")
       AuthLoginPage.navigateTo(AutoSignOutPage.pageUrl)

@@ -16,8 +16,18 @@
 
 package uk.gov.hmrc.ui.disa.pages
 
-object IsaProductsCheckYourAnswersPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/isa-products-check-your-answers"
-  val pageTitle: String = "Check your answers - ISA products - disa-registration-frontend - GOV.UK"
+import org.openqa.selenium.By
 
+object ISAProductsPage extends BasePage {
+  val pageUrl: String                       = s"$baseUrl/isa-products"
+  val pageTitle: String                     =
+    "Which ISA products does your organisation offer? - ISA products - disa-registration-frontend - GOV.UK"
+  private val innovativeFinanceCheckBox: By = By.id("value_4")
+  private val cashISACheckBox: By           = By.id("value_0")
+
+  def selectISAProductsAndContinue(): Unit = {
+    selectCheckbox(innovativeFinanceCheckBox)
+    selectCheckbox(cashISACheckBox)
+    clickSaveAndContinue()
+  }
 }

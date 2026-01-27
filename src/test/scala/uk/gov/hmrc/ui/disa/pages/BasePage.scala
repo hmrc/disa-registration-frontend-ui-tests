@@ -22,14 +22,24 @@ import org.scalatest.matchers.should.Matchers
 import uk.gov.hmrc.selenium.component.PageObject
 import uk.gov.hmrc.selenium.webdriver.Driver
 import uk.gov.hmrc.ui.disa.conf.TestConfiguration
+import uk.gov.hmrc.ui.disa.pages.PeerToPeerLoansPage.{getCurrentUrl, getTitle}
 
 import java.time.Duration
 
 trait BasePage extends Matchers with PageObject {
 
   val pageUrl: String
-  val baseUrl: String           = TestConfiguration.url("disa-registration-frontend")
-  val signInButtonClassName: By = By.partialLinkText("Sign in")
+  val baseUrl: String                        = TestConfiguration.url("disa-registration-frontend")
+  val signInButtonClassName: By              = By.partialLinkText("Sign in")
+  val generateRandomZReference: () => String = () => ZReferenceGenerator.generate()
+  val saveAndContinueButton: By              = By.xpath("//button[contains(text(),'Save and continue')]")
+  val signOutButton: By                      = By.xpath("//a[contains(text(),'Sign out')]")
+
+  def verifyPageUrl(): Boolean =
+    getCurrentUrl == pageUrl
+
+  def verifyPageTitle(pageTitle: String): Boolean =
+    getTitle == pageTitle
 
   private def fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
     .withTimeout(Duration.ofSeconds(2))
@@ -51,4 +61,27 @@ trait BasePage extends Matchers with PageObject {
 
   def isElementPresent(locator: By): Boolean =
     Driver.instance.findElements(locator).size() > 0
+
+  def clickSaveAndContinue(): Unit =
+    click(saveAndContinueButton)
+
+  def signOut(): Unit =
+    click(signOutButton)
+}
+
+object ZReferenceGenerator {
+  private val usedRefs = scala.collection.mutable.Set[String]()
+  private val random   = new scala.util.Random()
+  private val badRefs  = Set("1400", "1500", "1503")
+
+  def generate(): String = {
+    val ref =
+      Iterator
+        .continually(f"${random.nextInt(9999)}%04d")
+        .find(r => !usedRefs.contains(r) && !badRefs.contains(r))
+        .get
+
+    usedRefs += ref
+    s"Z$ref"
+  }
 }

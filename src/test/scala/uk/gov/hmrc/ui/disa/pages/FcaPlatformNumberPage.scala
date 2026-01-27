@@ -16,14 +16,18 @@
 
 package uk.gov.hmrc.ui.disa.pages
 
-object PeerToPeerLoans extends BasePage {
-  val pageUrl: String   = s"$baseUrl/peer-to-peer-loans"
-  val pageTitle: String =
-    "Which platform does your organisation use to offer peer-to-peer loans? - ISA products - disa-registration-frontend - GOV.UK"
+import org.openqa.selenium.By
+import uk.gov.hmrc.ui.disa.pages.InnovativeFinancialProductsPage.clickSaveAndContinue
 
-  def verifyPageUrl(): Boolean =
-    getCurrentUrl == pageUrl
+object FcaPlatformNumberPage extends BasePage {
+  val pageUrl: String             = s"$baseUrl/fca-platform-number"
+  val pageTitle: String           =
+    "What is the FCA, FRN of PlatformName? - ISA products - disa-registration-frontend - GOV.UK"
+  val platformNumberTextField: By = By.id("value")
 
-  def verifyPageTitle(title: String): Boolean =
-    getTitle == pageTitle
+  def enterFCAPlatformNumberAndContinue(): Unit = {
+    sendKeys(platformNumberTextField, "1234567")
+    clickSaveAndContinue()
+  }
+
 }
