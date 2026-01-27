@@ -38,8 +38,16 @@ trait BasePage extends Matchers with PageObject {
   def verifyPageUrl(): Boolean =
     getCurrentUrl == pageUrl
 
-  def verifyPageTitle(pageTitle: String): Boolean =
-    getTitle == pageTitle
+  def verifyPageTitle(pageTitle: String, url: String): Boolean = {
+    verifyPageLoaded(url)
+    val actualTitle = getTitle
+    if (actualTitle != pageTitle) {
+      println(s"[Title Mismatch] Expected: '$pageTitle' | Actual: '$actualTitle'")
+      false
+    } else {
+      true
+    }
+  }
 
   private def fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
     .withTimeout(Duration.ofSeconds(2))

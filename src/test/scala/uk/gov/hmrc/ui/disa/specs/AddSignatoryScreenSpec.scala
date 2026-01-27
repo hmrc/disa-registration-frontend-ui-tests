@@ -32,7 +32,7 @@ class AddSignatoryScreenSpec extends BaseSpec {
       AuthLoginPage.navigateTo(AddSignatoryPage.pageUrl)
 
       Then("the page title should be correct")
-      AddSignatoryPage.verifyPageTitle(AddSignatoryPage.pageTitle) shouldBe true
+      AddSignatoryPage.verifyPageTitle(AddSignatoryPage.pageTitle, AddSignatoryPage.pageUrl) shouldBe true
     }
   }
 }

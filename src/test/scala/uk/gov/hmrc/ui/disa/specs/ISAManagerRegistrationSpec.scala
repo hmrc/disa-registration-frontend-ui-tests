@@ -29,13 +29,16 @@ class ISAManagerRegistrationSpec extends BaseSpec {
       AuthLoginPage.loginAsOrgUser(zReference)
 
       Then("the ISA products page title should be correct")
-      ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle) shouldBe true
+      ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
 
       When("the user selects ISA products and click on 'save and continue' button")
       ISAProductsPage.selectISAProductsAndContinue()
 
       Then("the Innovative Financial Products Page title should be correct")
-      InnovativeFinancialProductsPage.verifyPageTitle(InnovativeFinancialProductsPage.pageTitle) shouldBe true
+      InnovativeFinancialProductsPage.verifyPageTitle(
+        InnovativeFinancialProductsPage.pageTitle,
+        InnovativeFinancialProductsPage.pageUrl
+      ) shouldBe true
 
       When(
         "the user selects 'Peer-to-peer loans using a platform with 36H permissions' and click on 'save and continue' button"
@@ -43,19 +46,25 @@ class ISAManagerRegistrationSpec extends BaseSpec {
       InnovativeFinancialProductsPage.selectInnovativeProductsIncludingPlatformWith36HPermissionsAndContinue()
 
       Then("the Peer To Peer Loans Page title should be correct")
-      PeerToPeerLoansPage.verifyPageTitle(PeerToPeerLoansPage.pageTitle) shouldBe true
+      PeerToPeerLoansPage.verifyPageTitle(PeerToPeerLoansPage.pageTitle, PeerToPeerLoansPage.pageUrl) shouldBe true
 
       When("the user enters the platform organization used and click on 'save and continue' button")
       PeerToPeerLoansPage.enterPlatformNameAndContinue()
 
       Then("the FCA Platform Number Page title should be correct")
-      FcaPlatformNumberPage.verifyPageTitle(FcaPlatformNumberPage.pageTitle) shouldBe true
+      FcaPlatformNumberPage.verifyPageTitle(
+        FcaPlatformNumberPage.pageTitle,
+        FcaPlatformNumberPage.pageUrl
+      ) shouldBe true
 
       When("the user enters the FCA platform number and click on 'save and continue' button")
       FcaPlatformNumberPage.enterFCAPlatformNumberAndContinue()
 
       Then("the ISA Products Check your Answers Page title should be correct")
-      IsaProductsCheckYourAnswersPage.verifyPageTitle(IsaProductsCheckYourAnswersPage.pageTitle) shouldBe true
+      IsaProductsCheckYourAnswersPage.verifyPageTitle(
+        IsaProductsCheckYourAnswersPage.pageTitle,
+        IsaProductsCheckYourAnswersPage.pageUrl
+      ) shouldBe true
 
     }
 
@@ -65,13 +74,16 @@ class ISAManagerRegistrationSpec extends BaseSpec {
       AuthLoginPage.loginAsOrgUser(zReference)
 
       Then("the ISA products page title should be correct")
-      ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle) shouldBe true
+      ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
 
       When("the user selects ISA products and click on 'save and continue' button")
       ISAProductsPage.selectISAProductsAndContinue()
 
       Then("the Innovative Financial Products Page title should be correct")
-      InnovativeFinancialProductsPage.verifyPageTitle(InnovativeFinancialProductsPage.pageTitle) shouldBe true
+      InnovativeFinancialProductsPage.verifyPageTitle(
+        InnovativeFinancialProductsPage.pageTitle,
+        InnovativeFinancialProductsPage.pageUrl
+      ) shouldBe true
 
       When(
         "the user selects any option other than 'Peer-to-peer loans using a platform with 36H permissions' and click on 'save and continue' button"
@@ -79,7 +91,10 @@ class ISAManagerRegistrationSpec extends BaseSpec {
       InnovativeFinancialProductsPage.selectInnovativeProductsWithoutPlatformWith36HPermissionsAndContinue()
 
       Then("the ISA Products Check your Answers Page title should be correct")
-      IsaProductsCheckYourAnswersPage.verifyPageTitle(IsaProductsCheckYourAnswersPage.pageTitle) shouldBe true
+      IsaProductsCheckYourAnswersPage.verifyPageTitle(
+        IsaProductsCheckYourAnswersPage.pageTitle,
+        IsaProductsCheckYourAnswersPage.pageUrl
+      ) shouldBe true
     }
   }
 }
