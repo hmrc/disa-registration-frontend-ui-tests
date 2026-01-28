@@ -26,7 +26,7 @@ object FcaPlatformNumberPage extends BasePage {
   val platformNumberTextField: By = By.id("value")
 
   def enterFCAPlatformNumberAndContinue(): Unit = {
-    sendKeys(platformNumberTextField, "1234567")
+    sendKeys(platformNumberTextField, generate7DigitString())
     clickSaveAndContinue()
   }
 

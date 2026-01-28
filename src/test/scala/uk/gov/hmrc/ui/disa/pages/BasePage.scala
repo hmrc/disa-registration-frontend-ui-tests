@@ -25,6 +25,7 @@ import uk.gov.hmrc.ui.disa.conf.TestConfiguration
 import uk.gov.hmrc.ui.disa.pages.PeerToPeerLoansPage.{getCurrentUrl, getTitle}
 
 import java.time.Duration
+import scala.util.Random
 
 trait BasePage extends Matchers with PageObject {
 
@@ -75,6 +76,9 @@ trait BasePage extends Matchers with PageObject {
 
   def signOut(): Unit =
     click(signOutButton)
+
+  def generate7DigitString(): String =
+    f"${Random.nextInt(10000000)}%07d"
 }
 
 object ZReferenceGenerator {
