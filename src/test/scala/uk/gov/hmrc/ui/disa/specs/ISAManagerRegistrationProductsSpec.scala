@@ -19,7 +19,7 @@ package uk.gov.hmrc.ui.disa.specs
 import uk.gov.hmrc.ui.disa.pages.*
 import uk.gov.hmrc.ui.disa.pages.AuthLoginPage.generateRandomZReference
 
-class ISAManagerRegistrationSpec extends BaseSpec {
+class ISAManagerRegistrationProductsSpec extends BaseSpec {
 
   Feature("ISA manager Registration") {
 
