@@ -20,10 +20,4 @@ object OrganisationTradingNamePage extends BasePage {
   val pageUrl: String   = s"$baseUrl/trading-name"
   val pageTitle: String =
     " What is your organisation’s trading name? - Organisation details - disa-registration-frontend - GOV.UK"
-
-  def verifyPageUrl(): Boolean =
-    getCurrentUrl == pageUrl
-
-  def verifyPageTitle(title: String): Boolean =
-    getTitle == pageTitle
 }

@@ -25,9 +25,13 @@ object AuthLoginPage extends BasePage {
   private val redirectionUrlById: By = By.id("redirectionUrl")
   private val affinityGroupById: By  = By.id("affinityGroupSelect")
   private val authSubmitById: By     = By.id("submit-top")
-  private val redirectUrl: String    = TestConfiguration.url("disa-registration-frontend")
+  private val enrolmentKey: By       = By.id("enrolment[0].name")
+  private val identifierName: By     = By.id("input-0-0-name")
+  private val identifierValue: By    = By.id("input-0-0-value")
+  private val baseUrl: String        = TestConfiguration.url("disa-registration-frontend")
 
   private def loadPage: this.type = {
+
     get(pageUrl)
     verifyPageLoaded()
     this
@@ -35,13 +39,16 @@ object AuthLoginPage extends BasePage {
 
   private def submitAuthPage(): Unit = click(authSubmitById)
 
-  private def submitAuthWithoutEnrolment(affinityGroup: String): Unit = {
+  private def submitAuthWithoutEnrolment(zReference: String): Unit = {
     loadPage
-    sendKeys(redirectionUrlById, redirectUrl)
-    selectByVisibleText(affinityGroupById, affinityGroup)
+    sendKeys(redirectionUrlById, s"$baseUrl/isa-products")
+    selectByVisibleText(affinityGroupById, "Organisation")
+    sendKeys(enrolmentKey, "HMRC-DISA-ORG")
+    sendKeys(identifierName, "ZRef")
+    sendKeys(identifierValue, zReference)
     submitAuthPage()
   }
 
-  def loginAsOrgUser(): Unit =
-    submitAuthWithoutEnrolment("Organisation")
+  def loginAsOrgUser(zReference: String): Unit =
+    submitAuthWithoutEnrolment(zReference)
 }

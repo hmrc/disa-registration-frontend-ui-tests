@@ -16,14 +16,24 @@
 
 package uk.gov.hmrc.ui.disa.pages
 
+import org.openqa.selenium.By
+import uk.gov.hmrc.ui.disa.pages.ISAProductsPage.selectCheckbox
+
 object InnovativeFinancialProductsPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/innovative-financial-products"
-  val pageTitle: String =
+  val pageUrl: String                   = s"$baseUrl/innovative-financial-products"
+  val pageTitle: String                 =
     "Which types of innovative finance products will your organisation offer? - ISA products - disa-registration-frontend - GOV.UK"
+  val peerToPeerLoansUsingAPlatform: By = By.id("value_1")
+  val crowdFundedDebentures: By         = By.id("value_2")
 
-  def verifyPageUrl(): Boolean =
-    getCurrentUrl == pageUrl
+  def selectInnovativeProductsIncludingPlatformWith36HPermissionsAndContinue(): Unit = {
+    selectCheckbox(peerToPeerLoansUsingAPlatform)
+    selectCheckbox(crowdFundedDebentures)
+    clickSaveAndContinue()
+  }
 
-  def verifyPageTitle(title: String): Boolean =
-    getTitle == pageTitle
+  def selectInnovativeProductsWithoutPlatformWith36HPermissionsAndContinue(): Unit = {
+    selectCheckbox(crowdFundedDebentures)
+    clickSaveAndContinue()
+  }
 }
