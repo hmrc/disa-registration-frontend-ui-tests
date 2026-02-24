@@ -25,13 +25,9 @@ object AuthLoginPage extends BasePage {
   private val redirectionUrlById: By = By.id("redirectionUrl")
   private val affinityGroupById: By  = By.id("affinityGroupSelect")
   private val authSubmitById: By     = By.id("submit-top")
-  private val enrolmentKey: By       = By.id("enrolment[0].name")
-  private val identifierName: By     = By.id("input-0-0-name")
-  private val identifierValue: By    = By.id("input-0-0-value")
   private val baseUrl: String        = TestConfiguration.url("disa-registration-frontend")
 
   private def loadPage: this.type = {
-
     get(pageUrl)
     verifyPageLoaded()
     this
@@ -39,26 +35,12 @@ object AuthLoginPage extends BasePage {
 
   private def submitAuthPage(): Unit = click(authSubmitById)
 
-  private def submitAuthWithZRef(zReference: String): Unit = {
-    loadPage
-    sendKeys(redirectionUrlById, s"$baseUrl/isa-products")
-    selectByVisibleText(affinityGroupById, "Organisation")
-    sendKeys(enrolmentKey, "HMRC-DISA-ORG")
-    sendKeys(identifierName, "ZRef")
-    sendKeys(identifierValue, zReference)
-    submitAuthPage()
-  }
-
-  private def submitAuthWithoutZRef(): Unit = {
+  private def submitAuth(): Unit = {
     loadPage
     sendKeys(redirectionUrlById, s"$baseUrl/isa-products")
     selectByVisibleText(affinityGroupById, "Organisation")
     submitAuthPage()
   }
-
-  def loginAsAnExistingUser(zReference: String): Unit =
-    submitAuthWithZRef(zReference)
-
-  def loginAsAFreshUser(): Unit =
-    submitAuthWithoutZRef()
+  def loginAsAFreshUser(): Unit  =
+    submitAuth()
 }
