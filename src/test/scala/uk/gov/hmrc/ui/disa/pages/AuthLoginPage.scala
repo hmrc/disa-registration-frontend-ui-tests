@@ -39,7 +39,7 @@ object AuthLoginPage extends BasePage {
 
   private def submitAuthPage(): Unit = click(authSubmitById)
 
-  private def submitAuthWithoutEnrolment(zReference: String): Unit = {
+  private def submitAuthWithZRef(zReference: String): Unit = {
     loadPage
     sendKeys(redirectionUrlById, s"$baseUrl/isa-products")
     selectByVisibleText(affinityGroupById, "Organisation")
@@ -49,6 +49,16 @@ object AuthLoginPage extends BasePage {
     submitAuthPage()
   }
 
-  def loginAsOrgUser(zReference: String): Unit =
-    submitAuthWithoutEnrolment(zReference)
+  private def submitAuthWithoutZRef(): Unit = {
+    loadPage
+    sendKeys(redirectionUrlById, s"$baseUrl/isa-products")
+    selectByVisibleText(affinityGroupById, "Organisation")
+    submitAuthPage()
+  }
+
+  def loginAsAnExistingUser(zReference: String): Unit =
+    submitAuthWithZRef(zReference)
+
+  def loginAsAFreshUser(): Unit =
+    submitAuthWithoutZRef()
 }

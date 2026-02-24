@@ -51,7 +51,7 @@ trait BasePage extends Matchers with PageObject {
     }
   }
 
-  def verifyPageHeader(pageHeaderText: String, url: String): Boolean = {
+  def verifyPageLoadedWithHeader(pageHeaderText: String, url: String): Boolean = {
     verifyPageLoaded(url)
     val actualHeader = getText(pageHeader)
     if (actualHeader != pageHeaderText) {

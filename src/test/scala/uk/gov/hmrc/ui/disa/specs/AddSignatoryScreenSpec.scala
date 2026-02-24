@@ -26,7 +26,7 @@ class AddSignatoryScreenSpec extends BaseSpec {
     Scenario("Verify user can access Add a signatory screen and proceed") {
       val zReference: String = generateRandomZReference()
       Given("Given the user is logged in as an organisation User")
-      AuthLoginPage.loginAsOrgUser(zReference)
+      AuthLoginPage.loginAsAnExistingUser(zReference)
 
       Then("the ISA products page title should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true

@@ -17,7 +17,6 @@
 package uk.gov.hmrc.ui.disa.specs
 
 import uk.gov.hmrc.ui.disa.pages.*
-import uk.gov.hmrc.ui.disa.pages.AuthLoginPage.generateRandomZReference
 
 class SignOutSpec extends BaseSpec {
 
@@ -26,9 +25,8 @@ class SignOutSpec extends BaseSpec {
     Scenario(
       "Verify 'saved answers sign out page' displayed correctly for the users who already saved answers and logs out"
     ) {
-      val zReference: String = generateRandomZReference()
       Given("Given the ISA manager is logged in as an organisation User")
-      AuthLoginPage.loginAsOrgUser(zReference)
+      AuthLoginPage.loginAsAFreshUser()
 
       Then("The ISA products page title should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
@@ -51,7 +49,7 @@ class SignOutSpec extends BaseSpec {
       SavedAnswersSignOutPage.navigateTo(SavedAnswersSignOutPage.pageUrl)
 
       Then("The user directed to the sign out page which state the user answers were saved")
-      SavedAnswersSignOutPage.verifyPageHeader(
+      SavedAnswersSignOutPage.verifyPageLoadedWithHeader(
         SavedAnswersSignOutPage.pageHeaderText,
         SavedAnswersSignOutPage.pageUrl
       ) shouldBe true
@@ -60,9 +58,8 @@ class SignOutSpec extends BaseSpec {
     Scenario(
       "Verify 'sign out page' displayed correctly for the users who logs out without saving any answer"
     ) {
-      val zReference: String = generateRandomZReference()
       Given("Given the ISA manager is logged in as an organisation User")
-      AuthLoginPage.loginAsOrgUser(zReference)
+      AuthLoginPage.loginAsAFreshUser()
 
       Then("The ISA products page title should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
@@ -77,7 +74,7 @@ class SignOutSpec extends BaseSpec {
       SignOutPage.navigateTo(SignOutPage.pageUrl)
 
       Then("The user directed to the sign out page which state the user answers were saved")
-      SignOutPage.verifyPageHeader(
+      SignOutPage.verifyPageLoadedWithHeader(
         SignOutPage.pageHeaderText,
         SignOutPage.pageUrl
       ) shouldBe true
