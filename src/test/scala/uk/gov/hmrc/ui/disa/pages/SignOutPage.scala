@@ -16,15 +16,10 @@
 
 package uk.gov.hmrc.ui.disa.pages
 
-object AutoSignOutPage extends BasePage {
-  override val pageUrl: String = baseUrl + "/account/auto-sign-out"
+object SignOutPage extends BasePage {
+  val pageUrl: String = baseUrl + "/account/sign-out?updatesInSession=false"
 
-  def loadPage(): this.type = {
-    get(pageUrl)
-    verifyPageLoaded()
-    this
-  }
+  val pageHeaderText: String =
+    "We have signed you out"
 
-  def isSignInButtonPresent(): Boolean =
-    isElementPresent(signInButtonClassName)
 }
