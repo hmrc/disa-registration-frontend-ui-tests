@@ -17,16 +17,17 @@
 package uk.gov.hmrc.ui.disa.specs
 
 import uk.gov.hmrc.ui.disa.pages.*
-import uk.gov.hmrc.ui.disa.pages.AuthLoginPage.generateRandomZReference
 
 class AddSignatoryScreenSpec extends BaseSpec {
 
   Feature("Add a Signatory Screen") {
 
     Scenario("Verify user can access Add a signatory screen and proceed") {
-      val zReference: String = generateRandomZReference()
       Given("Given the user is logged in as an organisation User")
-      AuthLoginPage.loginAsOrgUser(zReference)
+      AuthLoginPage.loginAsAFreshUser()
+
+      Then("the ISA products page title should be correct")
+      ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
 
       When("the user navigates to the Add a Signatory page")
       AuthLoginPage.navigateTo(AddSignatoryPage.pageUrl)

@@ -17,16 +17,14 @@
 package uk.gov.hmrc.ui.disa.specs
 
 import uk.gov.hmrc.ui.disa.pages.*
-import uk.gov.hmrc.ui.disa.pages.AuthLoginPage.generateRandomZReference
 
 class ISAManagerRegistrationProductsSpec extends BaseSpec {
 
   Feature("ISA manager Registration") {
 
     Scenario("Verify ISA Manager registration Journey") {
-      val zReference: String = generateRandomZReference()
       Given("Given the ISA manager is logged in as an organisation User")
-      AuthLoginPage.loginAsOrgUser(zReference)
+      AuthLoginPage.loginAsAFreshUser()
 
       Then("the ISA products page title should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
@@ -69,9 +67,8 @@ class ISAManagerRegistrationProductsSpec extends BaseSpec {
     }
 
     Scenario("Verify ISA Manager registration Journey without peer to peer loans using a platform") {
-      val zReference: String = generateRandomZReference()
       Given("Given the ISA manager is logged in as an organisation User")
-      AuthLoginPage.loginAsOrgUser(zReference)
+      AuthLoginPage.loginAsAFreshUser()
 
       Then("the ISA products page title should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true

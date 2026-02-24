@@ -35,6 +35,7 @@ trait BasePage extends Matchers with PageObject {
   val generateRandomZReference: () => String = () => ZReferenceGenerator.generate()
   val saveAndContinueButton: By              = By.xpath("//button[contains(text(),'Save and continue')]")
   val signOutButton: By                      = By.xpath("//a[contains(text(),'Sign out')]")
+  val pageHeader: By                         = By.xpath("//h1")
 
   def verifyPageUrl(): Boolean =
     getCurrentUrl == pageUrl
@@ -44,6 +45,17 @@ trait BasePage extends Matchers with PageObject {
     val actualTitle = getTitle
     if (actualTitle != pageTitle) {
       println(s"[Title Mismatch] Expected: '$pageTitle' | Actual: '$actualTitle'")
+      false
+    } else {
+      true
+    }
+  }
+
+  def verifyPageLoadedWithHeader(pageHeaderText: String, url: String): Boolean = {
+    verifyPageLoaded(url)
+    val actualHeader = getText(pageHeader)
+    if (actualHeader != pageHeaderText) {
+      println(s"[Header Mismatch] Expected: '$pageHeaderText' | Actual: '$actualHeader'")
       false
     } else {
       true
