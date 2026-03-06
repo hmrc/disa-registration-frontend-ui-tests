@@ -26,7 +26,7 @@ class SignOutSpec extends BaseSpec {
       "Verify 'saved answers sign out page' displayed correctly for the users who already saved answers and logs out"
     ) {
       Given("Given the ISA manager is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser()
+      AuthLoginPage.loginAsAFreshUser("/isa-products")
 
       Then("The ISA products page title should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
@@ -59,7 +59,7 @@ class SignOutSpec extends BaseSpec {
       "Verify 'sign out page' displayed correctly for the users who logs out without saving any answer"
     ) {
       Given("Given the ISA manager is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser()
+      AuthLoginPage.loginAsAFreshUser("/isa-products")
 
       Then("The ISA products page title should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
