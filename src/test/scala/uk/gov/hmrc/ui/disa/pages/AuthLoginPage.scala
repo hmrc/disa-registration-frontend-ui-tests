@@ -35,12 +35,12 @@ object AuthLoginPage extends BasePage {
 
   private def submitAuthPage(): Unit = click(authSubmitById)
 
-  private def submitAuth(): Unit = {
+  private def submitAuth(redirectionUrl: String): Unit = {
     loadPage
-    sendKeys(redirectionUrlById, s"$baseUrl/isa-products")
+    sendKeys(redirectionUrlById, s"$baseUrl$redirectionUrl")
     selectByVisibleText(affinityGroupById, "Organisation")
     submitAuthPage()
   }
-  def loginAsAFreshUser(): Unit  =
-    submitAuth()
+  def loginAsAFreshUser(redirectionUrl: String): Unit  =
+    submitAuth(redirectionUrl)
 }
