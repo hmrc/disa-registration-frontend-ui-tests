@@ -60,7 +60,7 @@ class SignOutSpec extends BaseSpec {
     Scenario(
       "Verify 'sign out page' displayed correctly for the users who logs out without saving any answer"
     ) {
-      Given("Given the ISA manager is logged in as an organisation User")
+      Given("the ISA manager is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/isa-products")
 
       Then("The 'ISA Products' page title & url should be correct")

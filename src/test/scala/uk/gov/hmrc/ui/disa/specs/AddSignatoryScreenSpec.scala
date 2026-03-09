@@ -23,7 +23,7 @@ class AddSignatoryScreenSpec extends BaseSpec {
   Feature("Add a Signatory Screen") {
 
     Scenario("Verify user can access Add a signatory screen and proceed") {
-      Given("Given the user is logged in as an organisation User")
+      Given("the user is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/isa-products")
 
       Then("the 'ISA products' page title should be correct")

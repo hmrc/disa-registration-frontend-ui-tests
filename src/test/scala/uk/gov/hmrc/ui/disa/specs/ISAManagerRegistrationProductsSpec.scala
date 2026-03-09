@@ -23,7 +23,7 @@ class ISAManagerRegistrationProductsSpec extends BaseSpec {
   Feature("ISA manager Registration") {
 
     Scenario("Verify ISA Manager registration Journey") {
-      Given("Given the ISA manager is logged in as an organisation User")
+      Given("the ISA manager is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/isa-products")
 
       Then("the 'ISA Products' page title & url should be correct")
@@ -67,7 +67,7 @@ class ISAManagerRegistrationProductsSpec extends BaseSpec {
     }
 
     Scenario("Verify ISA Manager registration Journey without peer to peer loans using a platform") {
-      Given("Given the ISA manager is logged in as an organisation User")
+      Given("the ISA manager is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/isa-products")
 
       Then("the 'ISA Products' page title & url should be correct")
