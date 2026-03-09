@@ -26,13 +26,13 @@ object InnovativeFinancialProductsPage extends BasePage {
   val peerToPeerLoansUsingAPlatform: By = By.id("value_1")
   val crowdFundedDebentures: By         = By.id("value_2")
 
-  def selectInnovativeProductsIncludingPlatformWith36HPermissionsAndContinue(): Unit = {
+  def selectInnovativeProductsIncludingPlatformWith36HPermissionsThenClickContinue(): Unit = {
     selectCheckbox(peerToPeerLoansUsingAPlatform)
     selectCheckbox(crowdFundedDebentures)
     clickSaveAndContinue()
   }
 
-  def selectInnovativeProductsWithoutPlatformWith36HPermissionsAndContinue(): Unit = {
+  def selectInnovativeProductsWithoutPlatformWith36HPermissionsThenClickContinue(): Unit = {
     selectCheckbox(crowdFundedDebentures)
     clickSaveAndContinue()
   }

@@ -20,14 +20,14 @@ import org.openqa.selenium.By
 import uk.gov.hmrc.ui.disa.pages.DeclarationForIsaManagersPage.baseUrl
 
 object FinancialOrganisationPage extends BasePage {
-  val pageUrl: String                        = s"$baseUrl/financial-organisation"
-  val pageTitle: String                      = "Financial organisation - Certificates of authority - disa-registration-frontend - GOV.UK"
-  private val aBuildingSocietyCheckBox: By   = By.id("value_3")
-  private val anInsuranceCompanyCheckBox: By = By.id("value_5")
+  val pageUrl: String                      = s"$baseUrl/financial-organisation"
+  val pageTitle: String                    = "Financial organisation - Certificates of authority - disa-registration-frontend - GOV.UK"
+  private val buildingSocietyCheckBox: By  = By.id("value_3")
+  private val insuranceCompanyCheckBox: By = By.id("value_5")
 
-  def selectFinancialOrganizationSaveAndContinue(): Unit = {
-    selectCheckbox(aBuildingSocietyCheckBox)
-    selectCheckbox(anInsuranceCompanyCheckBox)
+  def selectFinancialOrganizationThenClickSaveAndContinue(): Unit = {
+    selectCheckbox(buildingSocietyCheckBox)
+    selectCheckbox(insuranceCompanyCheckBox)
     clickSaveAndContinue()
   }
 }

@@ -27,7 +27,7 @@ object FcaArticlesPage extends BasePage {
   private val article14CheckBox: By   = By.id("value_0")
   private val article51ZACheckBox: By = By.id("value_8")
 
-  def selectFACArticlesSaveAndContinue(): Unit = {
+  def selectFACArticlesThenClickSaveAndContinue(): Unit = {
     selectCheckbox(article14CheckBox)
     selectCheckbox(article51ZACheckBox)
     clickSaveAndContinue()

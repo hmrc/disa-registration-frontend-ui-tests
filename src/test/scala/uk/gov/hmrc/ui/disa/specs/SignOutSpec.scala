@@ -25,16 +25,16 @@ class SignOutSpec extends BaseSpec {
     Scenario(
       "Verify 'saved answers sign out page' displayed correctly for the users who already saved answers and logs out"
     ) {
-      Given("Given the ISA manager is logged in as an organisation User")
+      Given("the ISA manager is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/isa-products")
 
-      Then("The ISA products page title should be correct")
+      Then("The 'ISA Products' page title & url should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
 
       When("The user selects ISA products and click on 'save and continue' button")
-      ISAProductsPage.selectISAProductsAndContinue()
+      ISAProductsPage.selectISAProductsThenClickContinue()
 
-      Then("The Innovative Financial Products Page title should be correct")
+      Then("The 'Innovative Financial Products' page title & url should be correct")
       InnovativeFinancialProductsPage.verifyPageTitle(
         InnovativeFinancialProductsPage.pageTitle,
         InnovativeFinancialProductsPage.pageUrl
@@ -45,10 +45,12 @@ class SignOutSpec extends BaseSpec {
 
       /** Below step needed to add manually as the landing page port is incorrect when navigating from the previous page
         */
-      When("The user navigates to correct sign out page manually")
+      When("The user navigates to correct 'Sign Out' page manually")
       SavedAnswersSignOutPage.navigateTo(SavedAnswersSignOutPage.pageUrl)
 
-      Then("The user directed to the sign out page which state the user answers were saved")
+      Then(
+        "The user directed to the 'Sign Out' page which state the user answers were saved and verify page title & url"
+      )
       SavedAnswersSignOutPage.verifyPageLoadedWithHeader(
         SavedAnswersSignOutPage.pageHeaderText,
         SavedAnswersSignOutPage.pageUrl
@@ -61,7 +63,7 @@ class SignOutSpec extends BaseSpec {
       Given("Given the ISA manager is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/isa-products")
 
-      Then("The ISA products page title should be correct")
+      Then("The 'ISA Products' page title & url should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
 
       When("The user clicks on sign out link")
@@ -70,10 +72,12 @@ class SignOutSpec extends BaseSpec {
       /** Below step needed to added manually as the landing page port is incorrect when navigating from the previous
         * page
         */
-      When("The user navigates to correct sign out page manually")
+      When("The user navigates to correct 'Sign Out' page manually")
       SignOutPage.navigateTo(SignOutPage.pageUrl)
 
-      Then("The user directed to the sign out page which state the user answers were saved")
+      Then(
+        "The user directed to the 'Sign Out' page which state the user answers were saved and verify page title & url"
+      )
       SignOutPage.verifyPageLoadedWithHeader(
         SignOutPage.pageHeaderText,
         SignOutPage.pageUrl

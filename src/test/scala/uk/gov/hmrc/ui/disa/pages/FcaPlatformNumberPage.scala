@@ -25,7 +25,7 @@ object FcaPlatformNumberPage extends BasePage {
     "What is the FCA, FRN of PlatformName? - ISA products - disa-registration-frontend - GOV.UK"
   val platformNumberTextField: By = By.id("value")
 
-  def enterFCAPlatformNumberAndContinue(): Unit = {
+  def enterFCAPlatformNumberThenClickContinue(): Unit = {
     sendKeys(platformNumberTextField, generate7DigitString())
     clickSaveAndContinue()
   }

@@ -25,7 +25,7 @@ object ISAProductsPage extends BasePage {
   private val innovativeFinanceCheckBox: By = By.id("value_4")
   private val cashISACheckBox: By           = By.id("value_0")
 
-  def selectISAProductsAndContinue(): Unit = {
+  def selectISAProductsThenClickContinue(): Unit = {
     selectCheckbox(innovativeFinanceCheckBox)
     selectCheckbox(cashISACheckBox)
     clickSaveAndContinue()

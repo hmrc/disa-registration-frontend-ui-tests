@@ -25,7 +25,7 @@ object PeerToPeerLoansPage extends BasePage {
     "Which platform does your organisation use to offer peer-to-peer loans? - ISA products - disa-registration-frontend - GOV.UK"
   val platformNameTextField: By = By.id("value")
 
-  def enterPlatformNameAndContinue(): Unit = {
+  def enterPlatformNameThenClickContinue(): Unit = {
     sendKeys(platformNameTextField, "PlatformName")
     clickSaveAndContinue()
   }

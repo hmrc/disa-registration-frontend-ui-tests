@@ -23,10 +23,10 @@ class ISAManagerEligibilitySpec extends BaseSpec {
   Feature("ISA manager eligibility check") {
 
     Scenario("Verify ISA Manager eligibility Journey when they have certificate of authority") {
-      Given("Given the ISA manager is logged in as an organisation User")
+      Given("the ISA manager is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/eligibility-to-manage-isas")
 
-      Then("the Eligibility To Manage Isas Page title should be correct")
+      Then("the 'Eligibility To Manage ISAs' Page title & url should be correct")
       EligibilityToManageIsasPage.verifyPageTitle(
         EligibilityToManageIsasPage.pageTitle,
         EligibilityToManageIsasPage.pageUrl
@@ -35,7 +35,7 @@ class ISAManagerEligibilitySpec extends BaseSpec {
       When("the user click on 'Continue' button")
       EligibilityToManageIsasPage.clickContinue()
 
-      Then("the certificates of authority Page title should be correct")
+      Then("the 'Certificates Of Authority' Page title & url should be correct")
       CertificatesOfAuthorityPage.verifyPageTitle(
         CertificatesOfAuthorityPage.pageTitle,
         CertificatesOfAuthorityPage.pageUrl
@@ -46,13 +46,13 @@ class ISAManagerEligibilitySpec extends BaseSpec {
       )
       CertificatesOfAuthorityPage.selectYesAndContinue()
 
-      Then("the fca articles Page title should be correct")
+      Then("the 'FCA Articles' Page title & url should be correct")
       FcaArticlesPage.verifyPageTitle(FcaArticlesPage.pageTitle, FcaArticlesPage.pageUrl) shouldBe true
 
       When("the user selects FCA articles and click on 'save and continue' button")
-      FcaArticlesPage.selectFACArticlesSaveAndContinue()
+      FcaArticlesPage.selectFACArticlesThenClickSaveAndContinue()
 
-      Then("the Certificates Of Authority Check Your Answers Page title should be correct")
+      Then("the 'Certificates Of Authority Check Your Answers' Page title should be correct")
       CertificatesOfAuthorityCheckYourAnswersPage.verifyPageTitle(
         CertificatesOfAuthorityCheckYourAnswersPage.pageTitle,
         CertificatesOfAuthorityCheckYourAnswersPage.pageUrl
@@ -60,10 +60,10 @@ class ISAManagerEligibilitySpec extends BaseSpec {
     }
 
     Scenario("Verify ISA Manager eligibility Journey when they don't have certificate of authority") {
-      Given("Given the ISA manager is logged in as an organisation User")
+      Given("the ISA manager is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/eligibility-to-manage-isas")
 
-      Then("the Eligibility To Manage Isas Page title should be correct")
+      Then("the 'Eligibility To Manage ISAs' Page title & url should be correct")
       EligibilityToManageIsasPage.verifyPageTitle(
         EligibilityToManageIsasPage.pageTitle,
         EligibilityToManageIsasPage.pageUrl
@@ -72,7 +72,7 @@ class ISAManagerEligibilitySpec extends BaseSpec {
       When("the user click on 'Continue' button")
       EligibilityToManageIsasPage.clickContinue()
 
-      Then("the certificates of authority Page title should be correct")
+      Then("the 'Certificates Of Authority' Page title & url should be correct")
       CertificatesOfAuthorityPage.verifyPageTitle(
         CertificatesOfAuthorityPage.pageTitle,
         CertificatesOfAuthorityPage.pageUrl
@@ -83,16 +83,16 @@ class ISAManagerEligibilitySpec extends BaseSpec {
       )
       CertificatesOfAuthorityPage.selectNoAndContinue()
 
-      Then("the financial organisation Page title should be correct")
+      Then("the 'Financial Organisation' Page title & url should be correct")
       FinancialOrganisationPage.verifyPageTitle(
         FinancialOrganisationPage.pageTitle,
         FinancialOrganisationPage.pageUrl
       ) shouldBe true
 
-      When("the user selects financial organizations and click on 'save and continue' button")
-      FinancialOrganisationPage.selectFinancialOrganizationSaveAndContinue()
+      When("the user selects financial organisations and click on 'save and continue' button")
+      FinancialOrganisationPage.selectFinancialOrganizationThenClickSaveAndContinue()
 
-      Then("the Certificates Of Authority Check Your Answers Page title should be correct")
+      Then("the 'Certificates Of Authority Check Your Answers' Page title & url should be correct")
       CertificatesOfAuthorityCheckYourAnswersPage.verifyPageTitle(
         CertificatesOfAuthorityCheckYourAnswersPage.pageTitle,
         CertificatesOfAuthorityCheckYourAnswersPage.pageUrl
