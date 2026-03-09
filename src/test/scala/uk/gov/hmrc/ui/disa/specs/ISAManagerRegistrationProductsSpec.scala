@@ -23,16 +23,16 @@ class ISAManagerRegistrationProductsSpec extends BaseSpec {
   Feature("ISA manager Registration") {
 
     Scenario("Verify ISA Manager registration Journey") {
-      Given("Given the ISA manager is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser()
+      Given("the ISA manager is logged in as an organisation User")
+      AuthLoginPage.loginAsAFreshUser("/isa-products")
 
-      Then("the ISA products page title should be correct")
+      Then("the 'ISA Products' page title & url should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
 
       When("the user selects ISA products and click on 'save and continue' button")
-      ISAProductsPage.selectISAProductsAndContinue()
+      ISAProductsPage.selectISAProductsThenClickContinue()
 
-      Then("the Innovative Financial Products Page title should be correct")
+      Then("the 'Innovative Financial Products' Page title & url should be correct")
       InnovativeFinancialProductsPage.verifyPageTitle(
         InnovativeFinancialProductsPage.pageTitle,
         InnovativeFinancialProductsPage.pageUrl
@@ -41,24 +41,24 @@ class ISAManagerRegistrationProductsSpec extends BaseSpec {
       When(
         "the user selects 'Peer-to-peer loans using a platform with 36H permissions' and click on 'save and continue' button"
       )
-      InnovativeFinancialProductsPage.selectInnovativeProductsIncludingPlatformWith36HPermissionsAndContinue()
+      InnovativeFinancialProductsPage.selectInnovativeProductsIncludingPlatformWith36HPermissionsThenClickContinue()
 
-      Then("the Peer To Peer Loans Page title should be correct")
+      Then("the 'Peer To Peer Loans' page title & url should be correct")
       PeerToPeerLoansPage.verifyPageTitle(PeerToPeerLoansPage.pageTitle, PeerToPeerLoansPage.pageUrl) shouldBe true
 
       When("the user enters the platform organization used and click on 'save and continue' button")
-      PeerToPeerLoansPage.enterPlatformNameAndContinue()
+      PeerToPeerLoansPage.enterPlatformNameThenClickContinue()
 
-      Then("the FCA Platform Number Page title should be correct")
+      Then("the 'FCA Platform Number' page title & url should be correct")
       FcaPlatformNumberPage.verifyPageTitle(
         FcaPlatformNumberPage.pageTitle,
         FcaPlatformNumberPage.pageUrl
       ) shouldBe true
 
       When("the user enters the FCA platform number and click on 'save and continue' button")
-      FcaPlatformNumberPage.enterFCAPlatformNumberAndContinue()
+      FcaPlatformNumberPage.enterFCAPlatformNumberThenClickContinue()
 
-      Then("the ISA Products Check your Answers Page title should be correct")
+      Then("the 'ISA Products Check your Answers' page title should & url be correct")
       IsaProductsCheckYourAnswersPage.verifyPageTitle(
         IsaProductsCheckYourAnswersPage.pageTitle,
         IsaProductsCheckYourAnswersPage.pageUrl
@@ -67,16 +67,16 @@ class ISAManagerRegistrationProductsSpec extends BaseSpec {
     }
 
     Scenario("Verify ISA Manager registration Journey without peer to peer loans using a platform") {
-      Given("Given the ISA manager is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser()
+      Given("the ISA manager is logged in as an organisation User")
+      AuthLoginPage.loginAsAFreshUser("/isa-products")
 
-      Then("the ISA products page title should be correct")
+      Then("the 'ISA Products' page title & url should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
 
       When("the user selects ISA products and click on 'save and continue' button")
-      ISAProductsPage.selectISAProductsAndContinue()
+      ISAProductsPage.selectISAProductsThenClickContinue()
 
-      Then("the Innovative Financial Products Page title should be correct")
+      Then("the 'Innovative Financial Products' page title & url should be correct")
       InnovativeFinancialProductsPage.verifyPageTitle(
         InnovativeFinancialProductsPage.pageTitle,
         InnovativeFinancialProductsPage.pageUrl
@@ -85,9 +85,9 @@ class ISAManagerRegistrationProductsSpec extends BaseSpec {
       When(
         "the user selects any option other than 'Peer-to-peer loans using a platform with 36H permissions' and click on 'save and continue' button"
       )
-      InnovativeFinancialProductsPage.selectInnovativeProductsWithoutPlatformWith36HPermissionsAndContinue()
+      InnovativeFinancialProductsPage.selectInnovativeProductsWithoutPlatformWith36HPermissionsThenClickContinue()
 
-      Then("the ISA Products Check your Answers Page title should be correct")
+      Then("the 'ISA Products Check your Answers' page title & url should be correct")
       IsaProductsCheckYourAnswersPage.verifyPageTitle(
         IsaProductsCheckYourAnswersPage.pageTitle,
         IsaProductsCheckYourAnswersPage.pageUrl

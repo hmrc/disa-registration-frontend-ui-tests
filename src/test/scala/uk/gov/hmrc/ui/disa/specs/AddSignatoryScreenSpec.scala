@@ -23,13 +23,13 @@ class AddSignatoryScreenSpec extends BaseSpec {
   Feature("Add a Signatory Screen") {
 
     Scenario("Verify user can access Add a signatory screen and proceed") {
-      Given("Given the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser()
+      Given("the user is logged in as an organisation User")
+      AuthLoginPage.loginAsAFreshUser("/isa-products")
 
-      Then("the ISA products page title should be correct")
+      Then("the 'ISA products' page title should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
 
-      When("the user navigates to the Add a Signatory page")
+      When("the user navigates to the 'Add a Signatory' page")
       AuthLoginPage.navigateTo(AddSignatoryPage.pageUrl)
 
       Then("the page title should be correct")

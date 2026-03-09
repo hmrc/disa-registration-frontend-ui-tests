@@ -34,6 +34,7 @@ trait BasePage extends Matchers with PageObject {
   val signInButtonClassName: By              = By.partialLinkText("Sign in")
   val generateRandomZReference: () => String = () => ZReferenceGenerator.generate()
   val saveAndContinueButton: By              = By.xpath("//button[contains(text(),'Save and continue')]")
+  val continueButton: By                     = By.xpath("//a[contains(text(),'Continue')]")
   val signOutButton: By                      = By.xpath("//a[contains(text(),'Sign out')]")
   val pageHeader: By                         = By.xpath("//h1")
 
@@ -85,6 +86,9 @@ trait BasePage extends Matchers with PageObject {
 
   def clickSaveAndContinue(): Unit =
     click(saveAndContinueButton)
+
+  def clickContinue(): Unit =
+    click(continueButton)
 
   def signOut(): Unit =
     click(signOutButton)
