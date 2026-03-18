@@ -19,5 +19,5 @@ package uk.gov.hmrc.ui.disa.pages
 object DeclarationForIsaManagersPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/declaration-for-isa-managers"
   val pageTitle: String =
-    "Declaration for registering and enrolling ISA managers - Submit answers - disa-registration-frontend - GOV.UK"
+    "Declaration for registering and enrolling ISA managers - Submit answers - Manage ISAs - GOV.UK"
 }

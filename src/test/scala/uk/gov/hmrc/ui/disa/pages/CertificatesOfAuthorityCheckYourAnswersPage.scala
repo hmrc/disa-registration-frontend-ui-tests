@@ -21,5 +21,5 @@ import uk.gov.hmrc.ui.disa.pages.DeclarationForIsaManagersPage.baseUrl
 object CertificatesOfAuthorityCheckYourAnswersPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/certificates-of-authority-check-your-answers"
   val pageTitle: String =
-    "Check your certificates of authority - Certificates of authority - disa-registration-frontend - GOV.UK"
+    "Check your certificates of authority - Certificates of authority - Manage ISAs - GOV.UK"
 }

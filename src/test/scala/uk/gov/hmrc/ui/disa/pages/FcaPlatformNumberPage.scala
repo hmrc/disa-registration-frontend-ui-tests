@@ -22,7 +22,7 @@ import uk.gov.hmrc.ui.disa.pages.InnovativeFinancialProductsPage.clickSaveAndCon
 object FcaPlatformNumberPage extends BasePage {
   val pageUrl: String             = s"$baseUrl/fca-platform-number"
   val pageTitle: String           =
-    "What is the FCA, FRN of PlatformName? - ISA products - disa-registration-frontend - GOV.UK"
+    "What is the FCA, FRN of PlatformName? - ISA products - Manage ISAs - GOV.UK"
   val platformNumberTextField: By = By.id("value")
 
   def enterFCAPlatformNumberThenClickContinue(): Unit = {

@@ -23,7 +23,7 @@ import uk.gov.hmrc.ui.disa.pages.FcaPlatformNumberPage.clickSaveAndContinue
 object CertificatesOfAuthorityPage extends BasePage {
   val pageUrl: String         = s"$baseUrl/certificates-of-authority"
   val pageTitle: String       =
-    "Certificates of authority which apply to your organisation - Certificates of authority - disa-registration-frontend - GOV.UK"
+    "Certificates of authority which apply to your organisation - Certificates of authority - Manage ISAs - GOV.UK"
   private val yesCheckBox: By = By.id("value_0")
   private val noCheckBox: By  = By.id("value_1")
 

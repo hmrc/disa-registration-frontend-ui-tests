@@ -18,6 +18,6 @@ package uk.gov.hmrc.ui.disa.pages
 
 object AddSignatoryPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/add-a-signatory"
-  val pageTitle: String = "Add a signatory - Signatories - disa-registration-frontend - GOV.UK"
+  val pageTitle: String = "Add a signatory - Signatories - Manage ISAs - GOV.UK"
 
 }
