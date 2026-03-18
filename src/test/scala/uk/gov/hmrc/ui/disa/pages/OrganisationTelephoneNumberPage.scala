@@ -17,6 +17,7 @@
 package uk.gov.hmrc.ui.disa.pages
 
 object OrganisationTelephoneNumberPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/add-liaison-officer"
-  val pageTitle: String = "Add liaison officer - Liaison officers - Manage ISAs - GOV.UK"
+  val pageUrl: String   = s"$baseUrl/organisation-telephone-number"
+  val pageTitle: String =
+    "What is the telephone number of your organisation? - Organisation details - Manage ISAs - GOV.UK"
 }
