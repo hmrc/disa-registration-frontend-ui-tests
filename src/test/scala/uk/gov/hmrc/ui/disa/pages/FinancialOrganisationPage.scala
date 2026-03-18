@@ -21,7 +21,7 @@ import uk.gov.hmrc.ui.disa.pages.DeclarationForIsaManagersPage.baseUrl
 
 object FinancialOrganisationPage extends BasePage {
   val pageUrl: String                      = s"$baseUrl/financial-organisation"
-  val pageTitle: String                    = "Financial organisation - Certificates of authority - disa-registration-frontend - GOV.UK"
+  val pageTitle: String                    = "Financial organisation - Certificates of authority - Manage ISAs - GOV.UK"
   private val buildingSocietyCheckBox: By  = By.id("value_3")
   private val insuranceCompanyCheckBox: By = By.id("value_5")
 

@@ -19,5 +19,5 @@ package uk.gov.hmrc.ui.disa.pages
 object FirmReferenceNumberPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/firm-reference-number"
   val pageTitle: String =
-    "Financial Conduct Authority (FCA) Firm Reference Number (FRN) - Organisation details - disa-registration-frontend - GOV.UK"
+    "Financial Conduct Authority (FCA) Firm Reference Number (FRN) - Organisation details - Manage ISAs - GOV.UK"
 }

@@ -22,7 +22,7 @@ import uk.gov.hmrc.ui.disa.pages.InnovativeFinancialProductsPage.clickSaveAndCon
 object PeerToPeerLoansPage extends BasePage {
   val pageUrl: String           = s"$baseUrl/peer-to-peer-loans"
   val pageTitle: String         =
-    "Which platform does your organisation use to offer peer-to-peer loans? - ISA products - disa-registration-frontend - GOV.UK"
+    "Which platform does your organisation use to offer peer-to-peer loans? - ISA products - Manage ISAs - GOV.UK"
   val platformNameTextField: By = By.id("value")
 
   def enterPlatformNameThenClickContinue(): Unit = {
