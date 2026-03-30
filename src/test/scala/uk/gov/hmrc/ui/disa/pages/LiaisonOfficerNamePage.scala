@@ -18,9 +18,9 @@ package uk.gov.hmrc.ui.disa.pages
 
 import uk.gov.hmrc.ui.disa.pages.SignOutPage.baseUrl
 
-object RegisteredAddressCorrespondencePage {
-  val pageUrl: String   = s"$baseUrl/registered-address-correspondence"
+object LiaisonOfficerNamePage {
+  val pageUrl: String   = s"$baseUrl/liaison-officer-name"
   val pageTitle: String =
-    "Do you want us to use the registered address to send you letters? - Organisation details - Manage ISAs - GOV.UK"
+    "What is the full name of the liaison officer? - Liaison officers - Manage ISAs - GOV.UK"
 
 }
