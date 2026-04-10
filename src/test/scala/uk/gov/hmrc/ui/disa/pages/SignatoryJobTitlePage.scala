@@ -16,11 +16,11 @@
 
 package uk.gov.hmrc.ui.disa.pages
 
-import uk.gov.hmrc.ui.disa.pages.DeclarationForIsaManagersPage.baseUrl
+import uk.gov.hmrc.ui.disa.pages.SignOutPage.baseUrl
 
-object RemoveSignatoryPage extends BasePage {
-  val pageUrl: String = s"$baseUrl/remove-signatory"
+object SignatoryJobTitlePage {
+  val pageUrl: String = s"$baseUrl/signatory-job-title"
 
-  def pageTitle(signatoryName: String): String =
-    s"Are you sure you want to remove $signatoryName as a signatory? - Signatories - Manage ISAs - GOV.UK"
+  def pageTitle(name: String): String =
+    s"What is the job title of $name within the organisation? - Signatories - Manage ISAs - GOV.UK"
 }
