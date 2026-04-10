@@ -18,6 +18,6 @@ package uk.gov.hmrc.ui.disa.pages
 
 object SignatoryNamePage extends BasePage {
   val pageUrl: String   = s"$baseUrl/signatory-name"
-  val pageTitle: String = " What is the full name of the signatory? - Signatories - Manage ISAs - GOV.UK"
+  val pageTitle: String = "What is the full name of the signatory? - Signatories - Manage ISAs - GOV.UK"
 
 }
