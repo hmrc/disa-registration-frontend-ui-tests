@@ -20,7 +20,7 @@ import uk.gov.hmrc.ui.disa.pages.SignOutPage.baseUrl
 
 object AddedLiaisonOfficersPage {
   val pageUrl: String                                            = s"$baseUrl/added-liaison-officers"
-  def pageTitleForSingleOfficers(officerCount: String): String   =
+  def pageTitleForaSingleOfficer(officerCount: String): String   =
     "You have added a liaison officer - Liaison officers - Manage ISAs - GOV.UK"
   def pageTitleForMultipleOfficers(officerCount: String): String =
     s"You have added $officerCount liaison officer - Liaison officers - Manage ISAs - GOV.UK"
