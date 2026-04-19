@@ -16,11 +16,20 @@
 
 package uk.gov.hmrc.ui.disa.pages
 
+import org.openqa.selenium.By
 import uk.gov.hmrc.ui.disa.pages.SignOutPage.baseUrl
 
-object LiaisonOfficerCommunicationPage {
+object LiaisonOfficerCommunicationPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/liaison-officer-communication"
   val pageTitle: String =
-    "How should we communicate with larry scott hudson? - Liaison officers - Manage ISAs - GOV.UK"
+    "How should we communicate with Liaison One? - Liaison officers - Manage ISAs - GOV.UK"
+  val byEmail: By       = By.id("value_0")
+  val byPhone: By       = By.id("value_1")
+  val byPost: By        = By.id("value_2")
 
+  def selectCommunicationModes(): Unit = {
+    selectCheckbox(byEmail)
+    selectCheckbox(byPhone)
+    selectCheckbox(byPost)
+  }
 }

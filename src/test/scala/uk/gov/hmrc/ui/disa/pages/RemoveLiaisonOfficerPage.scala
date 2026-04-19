@@ -21,5 +21,5 @@ import uk.gov.hmrc.ui.disa.pages.DeclarationForIsaManagersPage.baseUrl
 object RemoveLiaisonOfficerPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/remove-liaison-officer"
   val pageTitle: String =
-    "Are you sure you want to remove Larry the harry as a liaison officer? - Liaison officers - Manage ISAs - GOV.UK"
+    "Are you sure you want to remove Liaison One as a liaison officer? - Liaison officers - Manage ISAs - GOV.UK"
 }
