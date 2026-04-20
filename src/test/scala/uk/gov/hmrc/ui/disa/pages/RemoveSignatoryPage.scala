@@ -21,6 +21,6 @@ import uk.gov.hmrc.ui.disa.pages.DeclarationForIsaManagersPage.baseUrl
 object RemoveSignatoryPage extends BasePage {
   val pageUrl: String = s"$baseUrl/remove-signatory"
 
-  def pageTitle(signatoryName: String): String =
-    s"Are you sure you want to remove $signatoryName as a signatory? - Signatories - Manage ISAs - GOV.UK"
+  val pageTitle: String =
+    "Are you sure you want to remove Signatory One as a signatory? - Signatories - Manage ISAs - GOV.UK"
 }

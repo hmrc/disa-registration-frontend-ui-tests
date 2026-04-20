@@ -18,9 +18,9 @@ package uk.gov.hmrc.ui.disa.pages
 
 import uk.gov.hmrc.ui.disa.pages.SignOutPage.baseUrl
 
-object SignatoryJobTitlePage {
+object SignatoryJobTitlePage extends BasePage {
   val pageUrl: String = s"$baseUrl/signatory-job-title"
 
-  def pageTitle(name: String): String =
-    s"What is the job title of $name within the organisation? - Signatories - Manage ISAs - GOV.UK"
+  val pageTitle: String =
+    "What is the job title of Signatory One within the organisation? - Signatories - Manage ISAs - GOV.UK"
 }

@@ -15,12 +15,13 @@
  */
 
 package uk.gov.hmrc.ui.disa.pages
+
 import org.openqa.selenium.By
 
-object AddSignatoryPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/add-a-signatory"
-  val pageTitle: String = "Add a signatory - Signatories - Manage ISAs - GOV.UK"
+object TaskListPage extends BasePage {
+  val pageUrl: String   = s"$baseUrl/task-list"
+  val pageTitle: String = "Task List - Manage ISAs - GOV.UK"
 
-  def clickAddSignatory(): Unit =
-    click(By.linkText("Add a signatory"))
+  def clickSignatories(): Unit =
+    click(By.linkText("Signatories"))
 }
