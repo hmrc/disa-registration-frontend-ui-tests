@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.disa.pages
 
 import uk.gov.hmrc.ui.disa.pages.SignOutPage.baseUrl
 
-object ChangeSignatoryJobTitlePage extends BasePage{
+object ChangeSignatoryJobTitlePage extends BasePage {
   val pageUrl: String = s"$baseUrl/change-signatory-job-title"
 
   val pageTitle: String =

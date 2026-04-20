@@ -99,6 +99,7 @@ class AddSignatoryScreenSpec extends BaseSpec {
         CheckAddedSignatoryPage.pageTitle,
         CheckAddedSignatoryPage.pageUrl
       ) shouldBe true
+
     }
 
     Scenario("Verify user can access multiple signatories screen and then remove one") {
@@ -220,6 +221,15 @@ class AddSignatoryScreenSpec extends BaseSpec {
 
       Then("the user is navigated to the 'added-signatory' page")
       AddedSignatoriesPage.verifyPageTitle(AddedSignatoriesPage.pageTitle, AddedSignatoriesPage.pageUrl) shouldBe true
+
+      When("the user clicks on No radio button on 'added-signatory' page ")
+      AddedSignatoriesPage.clickRadioButton("No")
+
+      When("the user clicks on Save and continue button on 'added-signatory' page ")
+      AddedSignatoriesPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Task-list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
     }
   }
