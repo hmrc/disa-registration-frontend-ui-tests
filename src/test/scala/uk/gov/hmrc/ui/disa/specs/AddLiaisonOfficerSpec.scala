@@ -29,17 +29,8 @@ class AddLiaisonOfficerSpec extends BaseSpec {
       Then("the 'ISA products' page title should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
 
-      When("the user navigates to the 'Add a liaison officer' page")
-      AuthLoginPage.navigateTo(AddLiaisonOfficerPage.pageUrl)
-
-      Then("the page title should be correct")
-      AddLiaisonOfficerPage.verifyPageTitle(
-        AddLiaisonOfficerPage.pageTitle,
-        AddLiaisonOfficerPage.pageUrl
-      ) shouldBe true
-
-      When("User clicks on Add a Liaison officer button")
-      AddLiaisonOfficerPage.clickAddLiaisonOfficer()
+      When("the user navigates to the 'liaison officer name' page")
+      AuthLoginPage.navigateTo(LiaisonOfficerNamePage.pageUrl)
 
       Then("the user is navigated to the 'liaison-officer-name' page")
       LiaisonOfficerNamePage.verifyPageTitle(
@@ -134,17 +125,8 @@ class AddLiaisonOfficerSpec extends BaseSpec {
       Then("the 'ISA products' page title should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
 
-      When("the user navigates to the 'Add a liaison officer' page")
-      AuthLoginPage.navigateTo(AddLiaisonOfficerPage.pageUrl)
-
-      Then("the page title should be correct")
-      AddLiaisonOfficerPage.verifyPageTitle(
-        AddLiaisonOfficerPage.pageTitle,
-        AddLiaisonOfficerPage.pageUrl
-      ) shouldBe true
-
-      When("User clicks on Add a Liaison officer button")
-      AddLiaisonOfficerPage.clickAddLiaisonOfficer()
+      When("the user navigates to the 'liaison officer name' page")
+      AuthLoginPage.navigateTo(LiaisonOfficerNamePage.pageUrl)
 
       Then("the user is navigated to the 'liaison-officer-name' page")
       LiaisonOfficerNamePage.verifyPageTitle(
