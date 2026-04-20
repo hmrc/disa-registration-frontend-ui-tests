@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.disa.pages
 
 import uk.gov.hmrc.ui.disa.pages.SignOutPage.baseUrl
 
-object LiaisonOfficerNamePage {
+object LiaisonOfficerNamePage extends BasePage {
   val pageUrl: String   = s"$baseUrl/liaison-officer-name"
   val pageTitle: String =
     "What is the full name of the liaison officer? - Liaison officers - Manage ISAs - GOV.UK"

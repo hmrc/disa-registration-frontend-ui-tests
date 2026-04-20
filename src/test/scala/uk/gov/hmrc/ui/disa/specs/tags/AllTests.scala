@@ -14,15 +14,14 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.disa.pages
+package uk.gov.hmrc.ui.disa.specs.tags
 
-import org.openqa.selenium.By
+import org.scalatest.Tag
 
-object AddLiaisonOfficerPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/add-liaison-officer"
-  val pageTitle: String = "Add liaison officer - Liaison officers - Manage ISAs - GOV.UK"
+object AllTests extends Tag("AllTests")
 
-  def clickAddLiaisonOfficer(): Unit =
-    click(By.linkText("Add a liaison officer"))
+object LOJourney extends Tag("LOJourney")
 
-}
+object WIP extends Tag("WIP")
+
+object BrowserStack extends Tag("BrowserStack")

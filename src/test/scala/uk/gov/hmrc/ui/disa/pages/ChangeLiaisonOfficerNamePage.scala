@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 HM Revenue & Customs
+ * Copyright 2026 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,13 +16,11 @@
 
 package uk.gov.hmrc.ui.disa.pages
 
-import org.openqa.selenium.By
+import uk.gov.hmrc.ui.disa.pages.SignOutPage.baseUrl
 
-object AddLiaisonOfficerPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/add-liaison-officer"
-  val pageTitle: String = "Add liaison officer - Liaison officers - Manage ISAs - GOV.UK"
-
-  def clickAddLiaisonOfficer(): Unit =
-    click(By.linkText("Add a liaison officer"))
+object ChangeLiaisonOfficerNamePage extends BasePage {
+  val pageUrl: String   = s"$baseUrl/change-liaison-officer-name"
+  val pageTitle: String =
+    "What is the full name of the liaison officer? - Liaison officers - Manage ISAs - GOV.UK"
 
 }

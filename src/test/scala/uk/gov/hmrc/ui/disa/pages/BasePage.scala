@@ -26,6 +26,7 @@ import uk.gov.hmrc.ui.disa.pages.PeerToPeerLoansPage.{getCurrentUrl, getTitle}
 
 import java.time.Duration
 import scala.util.Random
+import scala.jdk.CollectionConverters.CollectionHasAsScala
 
 trait BasePage extends Matchers with PageObject {
 
@@ -42,7 +43,7 @@ trait BasePage extends Matchers with PageObject {
     getCurrentUrl == pageUrl
 
   def verifyPageTitle(pageTitle: String, url: String): Boolean = {
-    verifyPageLoaded(url)
+    verifyPageLoadedId(url)
     val actualTitle = getTitle
     if (actualTitle != pageTitle) {
       println(s"[Title Mismatch] Expected: '$pageTitle' | Actual: '$actualTitle'")
@@ -74,12 +75,25 @@ trait BasePage extends Matchers with PageObject {
     verifyPageLoaded(url)
   }
 
+  def verifyPageLoadedId(url: String = this.pageUrl): Unit = fluentWait.until(ExpectedConditions.urlMatches(url))
+
   def goTo(page: BasePage): Unit = navigateTo(page.pageUrl)
 
-  def clickOnByPartialLinkText(partialLinkText: By): Unit = {
+  def enterText(id: String, textToEnter: String): Unit =
+    sendKeys(By.id(id), textToEnter)
+
+  def clickOnByPartialLinkText(partialLinkText: String): Unit = {
     verifyPageLoaded()
-    click(partialLinkText)
+    click(By.partialLinkText(partialLinkText))
   }
+
+  def clickOnChangeOrRemoveLinks(button: String): Unit = {
+    val locator = By.xpath(s"//*[contains(@href, '$button')]")
+    click(locator)
+  }
+
+  def clickRadioButton(text: String): Unit =
+    Driver.instance.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 
   def isElementPresent(locator: By): Boolean =
     Driver.instance.findElements(locator).size() > 0

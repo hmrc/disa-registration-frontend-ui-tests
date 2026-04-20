@@ -16,13 +16,8 @@
 
 package uk.gov.hmrc.ui.disa.pages
 
-import org.openqa.selenium.By
-
-object AddLiaisonOfficerPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/add-liaison-officer"
-  val pageTitle: String = "Add liaison officer - Liaison officers - Manage ISAs - GOV.UK"
-
-  def clickAddLiaisonOfficer(): Unit =
-    click(By.linkText("Add a liaison officer"))
-
+object ChangeLiaisonOfficerEmailPage extends BasePage {
+  val pageUrl: String   = s"$baseUrl/change-liaison-officer-email"
+  val pageTitle: String =
+    "What is the email address of Changed user? - Liaison officers - Manage ISAs - GOV.UK"
 }
