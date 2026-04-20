@@ -87,7 +87,7 @@ trait BasePage extends Matchers with PageObject {
     click(By.partialLinkText(partialLinkText))
   }
 
-  def clickOnChangeOrRemoveLinks(button: String): Unit = {
+  def clickOnLinks(button: String): Unit = {
     val locator = By.xpath(s"//*[contains(@href, '$button')]")
     click(locator)
   }

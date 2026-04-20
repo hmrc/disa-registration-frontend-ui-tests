@@ -17,6 +17,7 @@
 package uk.gov.hmrc.ui.disa.specs
 
 import uk.gov.hmrc.ui.disa.pages.*
+import uk.gov.hmrc.ui.disa.specs.tags.WIP
 
 class AddLiaisonOfficerSpec extends BaseSpec {
 
@@ -79,7 +80,7 @@ class AddLiaisonOfficerSpec extends BaseSpec {
       ) shouldBe true
 
       When("the user clicks on change link for name value ")
-      CheckAddedLiaisonOfficerPage.clickOnChangeOrRemoveLinks("change-liaison-officer-name")
+      CheckAddedLiaisonOfficerPage.clickOnLinks("change-liaison-officer-name")
 
       Then("the user is navigated to the 'change-liaison-officer-name' page")
       ChangeLiaisonOfficerNamePage.verifyPageTitle(
@@ -98,7 +99,7 @@ class AddLiaisonOfficerSpec extends BaseSpec {
       ) shouldBe true
 
       When("the user clicks on change link for email value ")
-      CheckAddedLiaisonOfficerPage.clickOnChangeOrRemoveLinks("change-liaison-officer-email")
+      CheckAddedLiaisonOfficerPage.clickOnLinks("change-liaison-officer-email")
 
       Then("the user is navigated to the 'liaison-officer-email' page")
       ChangeLiaisonOfficerEmailPage.verifyPageTitle(
@@ -245,7 +246,7 @@ class AddLiaisonOfficerSpec extends BaseSpec {
       ) shouldBe true
 
       When("the user clicks on remove link for the added user ")
-      CheckAddedLiaisonOfficerPage.clickOnChangeOrRemoveLinks("remove-liaison-officer")
+      CheckAddedLiaisonOfficerPage.clickOnLinks("remove-liaison-officer")
 
       Then("the user is navigated to the 'remove-liaison-officer' page")
       RemoveLiaisonOfficerPage.verifyPageTitle(
@@ -266,7 +267,7 @@ class AddLiaisonOfficerSpec extends BaseSpec {
       ) shouldBe true
 
       When("the user clicks on remove link for the added user ")
-      CheckAddedLiaisonOfficerPage.clickOnChangeOrRemoveLinks("remove-liaison-officer")
+      CheckAddedLiaisonOfficerPage.clickOnLinks("remove-liaison-officer")
 
       Then("the user is navigated to the 'remove-liaison-officer' page")
       RemoveLiaisonOfficerPage.verifyPageTitle(
