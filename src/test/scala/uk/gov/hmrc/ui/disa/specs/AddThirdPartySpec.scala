@@ -56,9 +56,9 @@ class AddThirdPartySpec extends BaseSpec {
       ThirdPartyDetailsPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'third party manage' page")
-      ThirdPartyManagePage.verifyPageTitle(
-        ThirdPartyManagePage.pageTitle,
-        ThirdPartyManagePage.pageUrl
+      ThirdPartyManageISAsPage.verifyPageTitle(
+        ThirdPartyManageISAsPage.pageTitle,
+        ThirdPartyManageISAsPage.pageUrl
       ) shouldBe true
 
     }
