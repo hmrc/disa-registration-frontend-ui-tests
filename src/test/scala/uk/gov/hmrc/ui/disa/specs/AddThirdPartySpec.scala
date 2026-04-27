@@ -30,24 +30,35 @@ class AddThirdPartySpec extends BaseSpec {
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
 
       When("the user navigates to the 'manage third party' page")
-      AuthLoginPage.navigateTo(ThirdPartyManagePage.pageUrl)
+      AuthLoginPage.navigateTo(ThirdPartyProductManagePage.pageUrl)
 
       Then("the user is navigated to the 'manage third party' page")
-      ThirdPartyManagePage.verifyPageTitle(
-        ThirdPartyManagePage.pageTitle,
-        ThirdPartyManagePage.pageUrl
+      ThirdPartyProductManagePage.verifyPageTitle(
+        ThirdPartyProductManagePage.pageTitle,
+        ThirdPartyProductManagePage.pageUrl
       ) shouldBe true
 
       Then("the user clicks on yes radio button on 'Manage third party' page ")
-      ThirdPartyManagePage.clickRadioButton("Yes")
+      ThirdPartyProductManagePage.clickRadioButton("Yes")
 
       Then("the user clicks on save and continue button on 'Manage third party' page ")
-      ThirdPartyManagePage.clickSaveAndContinue()
+      ThirdPartyProductManagePage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'third party details' page")
       ThirdPartyDetailsPage.verifyPageTitle(
         ThirdPartyDetailsPage.pageTitle,
         ThirdPartyDetailsPage.pageUrl
+      ) shouldBe true
+
+      When("the user enters the Third party org name and FRN and clicks on Save and continue button")
+      ThirdPartyDetailsPage.enterText("thirdPartyName", "ThirdParty")
+      ThirdPartyDetailsPage.enterText("frn", "777333")
+      ThirdPartyDetailsPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'third party manage' page")
+      ThirdPartyManageISAsPage.verifyPageTitle(
+        ThirdPartyManageISAsPage.pageTitle,
+        ThirdPartyManageISAsPage.pageUrl
       ) shouldBe true
 
     }
