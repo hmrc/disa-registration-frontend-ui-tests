@@ -38,10 +38,10 @@ class AddThirdPartySpec extends BaseSpec {
         ThirdPartyProductManagePage.pageUrl
       ) shouldBe true
 
-      Then("the user clicks on yes radio button on 'ISA products managed by third party' page ")
+      Then(
+        "the user clicks on yes radio button and then click save and continue on 'ISA products managed by third party' page "
+      )
       ThirdPartyProductManagePage.clickRadioButton("Yes")
-
-      Then("the user clicks on save and continue button on 'ISA products managed by third party' page ")
       ThirdPartyProductManagePage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Third party organisations details' page")
@@ -61,10 +61,10 @@ class AddThirdPartySpec extends BaseSpec {
         ThirdPartyManageISAsPage.pageUrl
       ) shouldBe true
 
-      Then("the user clicks on yes radio button on 'ISA returns and reporting managed by third party' page ")
+      Then(
+        "the user clicks on yes radio button and then click on save and continue buttonn  on 'ISA returns and reporting managed by third party' page "
+      )
       ThirdPartyManageISAsPage.clickRadioButton("Yes")
-
-      Then("the user clicks on save and continue button on 'ISA returns and reporting managed by third party' page ")
       ThirdPartyManageISAsPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Investor funds used for ISA products managed by third party' page")
