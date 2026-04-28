@@ -29,22 +29,22 @@ class AddThirdPartySpec extends BaseSpec {
       Then("the 'ISA products' page title should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
 
-      When("the user navigates to the 'manage third party' page")
+      When("the user navigates to the 'ISA products managed by third party' page")
       AuthLoginPage.navigateTo(ThirdPartyProductManagePage.pageUrl)
 
-      Then("the user is navigated to the 'manage third party' page")
+      Then("the user is navigated to the 'ISA products managed by third party' page")
       ThirdPartyProductManagePage.verifyPageTitle(
         ThirdPartyProductManagePage.pageTitle,
         ThirdPartyProductManagePage.pageUrl
       ) shouldBe true
 
-      Then("the user clicks on yes radio button on 'Manage third party' page ")
+      Then("the user clicks on yes radio button on 'ISA products managed by third party' page ")
       ThirdPartyProductManagePage.clickRadioButton("Yes")
 
-      Then("the user clicks on save and continue button on 'Manage third party' page ")
+      Then("the user clicks on save and continue button on 'ISA products managed by third party' page ")
       ThirdPartyProductManagePage.clickSaveAndContinue()
 
-      Then("the user is navigated to the 'third party details' page")
+      Then("the user is navigated to the 'Third party organisations details' page")
       ThirdPartyDetailsPage.verifyPageTitle(
         ThirdPartyDetailsPage.pageTitle,
         ThirdPartyDetailsPage.pageUrl
@@ -55,10 +55,22 @@ class AddThirdPartySpec extends BaseSpec {
       ThirdPartyDetailsPage.enterText("frn", "777333")
       ThirdPartyDetailsPage.clickSaveAndContinue()
 
-      Then("the user is navigated to the 'third party manage' page")
+      Then("the user is navigated to the 'ISA returns and reporting managed by third party' page")
       ThirdPartyManageISAsPage.verifyPageTitle(
         ThirdPartyManageISAsPage.pageTitle,
         ThirdPartyManageISAsPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on yes radio button on 'ISA returns and reporting managed by third party' page ")
+      ThirdPartyManageISAsPage.clickRadioButton("Yes")
+
+      Then("the user clicks on save and continue button on 'ISA returns and reporting managed by third party' page ")
+      ThirdPartyManageISAsPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Investor funds used for ISA products managed by third party' page")
+      ThirdPartyManageISAsPage.verifyPageTitle(
+        ThirdPartyInvestorFundsPage.pageTitle,
+        ThirdPartyInvestorFundsPage.pageUrl
       ) shouldBe true
 
     }
