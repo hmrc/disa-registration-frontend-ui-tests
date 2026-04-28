@@ -73,6 +73,20 @@ class AddThirdPartySpec extends BaseSpec {
         ThirdPartyInvestorFundsPage.pageUrl
       ) shouldBe true
 
+      Then(
+        "the user clicks on yes radio button and then click on save and continue button  on 'Investor funds used for ISA products managed by third party' page "
+      )
+      ThirdPartyInvestorFundsPage.clickRadioButton("Yes")
+      ThirdPartyInvestorFundsPage.clickSaveAndContinue()
+
+      Then(
+        "the user is navigated to the 'What percentage of Investor funds used for ISA products managed by third party' page"
+      )
+      ThirdPartyManageISAsPage.verifyPageTitle(
+        ThirdPartyPercentageOfInvestorFundsPage.pageTitle,
+        ThirdPartyPercentageOfInvestorFundsPage.pageUrl
+      ) shouldBe true
+
     }
 
   }

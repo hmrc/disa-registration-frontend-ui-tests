@@ -1,0 +1,23 @@
+/*
+ * Copyright 2025 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package uk.gov.hmrc.ui.disa.pages
+
+object ThirdPartyPercentageOfInvestorFundsPage extends BasePage {
+  val pageUrl: String   = s"$baseUrl/percentage-of-investor-funds-used"
+  val pageTitle: String =
+    "What percentage of investor funds will be paid to ThirdParty as commissions or incentives? - Third party organisations - Manage ISAs - GOV.UK"
+}
