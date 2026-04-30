@@ -62,7 +62,7 @@ class AddThirdPartySpec extends BaseSpec {
       ) shouldBe true
 
       Then(
-        "the user clicks on yes radio button and then click on save and continue buttonn  on 'ISA returns and reporting managed by third party' page "
+        "the user clicks on yes radio button and then click on save and continue button  on 'ISA returns and reporting managed by third party' page "
       )
       ThirdPartyManageISAsPage.clickRadioButton("Yes")
       ThirdPartyManageISAsPage.clickSaveAndContinue()
@@ -100,7 +100,7 @@ class AddThirdPartySpec extends BaseSpec {
       When("the user clicks on change link for third party details")
       CheckAddedThirdPartyPage.clickOnLinks("change-third-party-details")
 
-      Then("the user is navigated to the 'change-third-party-details' page")
+      Then("the user is navigated to the 'change third party details' page")
       ChangeThirdPartyDetailsPage.verifyPageTitle(
         ChangeThirdPartyDetailsPage.pageTitle,
         ChangeThirdPartyDetailsPage.pageUrl
@@ -141,7 +141,7 @@ class AddThirdPartySpec extends BaseSpec {
       When("the user clicks on change link for percentage of investor funds used")
       CheckAddedThirdPartyPage.clickOnLinks("change-percentage-of-investor-funds-used")
 
-      Then("the user is navigated to the 'change-percentage-of-investor-funds-used' page")
+      Then("the user is navigated to the 'change percentage of investor funds used' page")
       ChangeThirdPartyPercentageOfInvestorFundsPage.verifyPageTitle(
         ChangeThirdPartyPercentageOfInvestorFundsPage.pageTitle,
         ChangeThirdPartyPercentageOfInvestorFundsPage.pageUrl
@@ -157,10 +157,10 @@ class AddThirdPartySpec extends BaseSpec {
         CheckAddedThirdPartyPage.pageUrl
       ) shouldBe true
 
-      When("the user clicks on change link for investor funds used my third party")
+      When("the user clicks on change link for investor funds used by third party")
       CheckAddedThirdPartyPage.clickOnLinks("change-investor-funds-used-by-third-party")
 
-      Then("the user is navigated to the 'manage ISA monthly reporting' page")
+      Then("the user is navigated to the 'change investor funds used by third party' page")
       ChangeThirdPartyInvestorFundsPage.verifyPageTitle(
         ChangeThirdPartyInvestorFundsPage.pageTitle,
         ChangeThirdPartyInvestorFundsPage.pageUrl
