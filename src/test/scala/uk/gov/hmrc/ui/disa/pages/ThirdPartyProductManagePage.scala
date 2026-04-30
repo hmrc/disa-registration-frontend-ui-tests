@@ -19,6 +19,6 @@ package uk.gov.hmrc.ui.disa.pages
 object ThirdPartyProductManagePage extends BasePage {
   val pageUrl: String   = s"$baseUrl/products-managed-by-third-party"
   val pageTitle: String =
-    "Are any of your ISA products managed by third party organisations? - Third party organisations - Manage ISAs - GOV.UK"
+    "Are any of your ISA products managed by third-party organisations? - Third-party organisations - Manage ISAs - GOV.UK"
 
 }

@@ -87,7 +87,100 @@ class AddThirdPartySpec extends BaseSpec {
         ThirdPartyPercentageOfInvestorFundsPage.pageUrl
       ) shouldBe true
 
-    }
+      When("the user enters the percentage value and clicks on Save and continue button")
+      ThirdPartyPercentageOfInvestorFundsPage.enterText("value", "20")
+      ThirdPartyPercentageOfInvestorFundsPage.clickSaveAndContinue()
 
+      Then("the user is navigated to the 'Check added third party org' page")
+      CheckAddedThirdPartyPage.verifyPageTitle(
+        CheckAddedThirdPartyPage.pageTitle,
+        CheckAddedThirdPartyPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on change link for third party details")
+      CheckAddedThirdPartyPage.clickOnLinks("change-third-party-details")
+
+      Then("the user is navigated to the 'change-third-party-details' page")
+      ChangeThirdPartyDetailsPage.verifyPageTitle(
+        ChangeThirdPartyDetailsPage.pageTitle,
+        ChangeThirdPartyDetailsPage.pageUrl
+      ) shouldBe true
+
+      Then("the user changes the third party details value  and clicks on Save and continue button")
+      ChangeThirdPartyDetailsPage.enterText("thirdPartyName", "ThirdPartyChanged")
+      ChangeThirdPartyDetailsPage.enterText("frn", "7777777")
+      ChangeThirdPartyDetailsPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check added third party org' page")
+      CheckAddedThirdPartyPage.verifyPageTitle(
+        CheckAddedThirdPartyPage.pageTitle,
+        CheckAddedThirdPartyPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on change link for manage ISA monthly reporting")
+      CheckAddedThirdPartyPage.clickOnLinks("change-isa-returns-managed-by-third-party")
+
+      Then("the user is navigated to the 'manage ISA monthly reporting' page")
+      ChangeThirdPartyManageISAsPage.verifyPageTitle(
+        ChangeThirdPartyManageISAsPage.pageTitle,
+        ChangeThirdPartyManageISAsPage.pageUrl
+      ) shouldBe true
+
+      Then(
+        "the user clicks on No radio button and then click on save and continue button  on 'ISA returns and reporting managed by third party' page "
+      )
+      ChangeThirdPartyManageISAsPage.clickRadioButton("No")
+      ChangeThirdPartyManageISAsPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check added third party org' page")
+      CheckAddedThirdPartyPage.verifyPageTitle(
+        CheckAddedThirdPartyPage.pageTitle,
+        CheckAddedThirdPartyPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on change link for percentage of investor funds used")
+      CheckAddedThirdPartyPage.clickOnLinks("change-percentage-of-investor-funds-used")
+
+      Then("the user is navigated to the 'change-percentage-of-investor-funds-used' page")
+      ChangeThirdPartyPercentageOfInvestorFundsPage.verifyPageTitle(
+        ChangeThirdPartyPercentageOfInvestorFundsPage.pageTitle,
+        ChangeThirdPartyPercentageOfInvestorFundsPage.pageUrl
+      ) shouldBe true
+
+      Then("the user changes the third party details value  and clicks on Save and continue button")
+      ChangeThirdPartyPercentageOfInvestorFundsPage.enterText("value", "40")
+      ChangeThirdPartyPercentageOfInvestorFundsPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check added third party org' page")
+      CheckAddedThirdPartyPage.verifyPageTitle(
+        CheckAddedThirdPartyPage.pageTitle,
+        CheckAddedThirdPartyPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on change link for investor funds used my third party")
+      CheckAddedThirdPartyPage.clickOnLinks("change-investor-funds-used-by-third-party")
+
+      Then("the user is navigated to the 'manage ISA monthly reporting' page")
+      ChangeThirdPartyInvestorFundsPage.verifyPageTitle(
+        ChangeThirdPartyInvestorFundsPage.pageTitle,
+        ChangeThirdPartyInvestorFundsPage.pageUrl
+      ) shouldBe true
+
+      Then(
+        "the user clicks on No radio button and then click on save and continue button  on 'ISA returns and reporting managed by third party' page "
+      )
+      ChangeThirdPartyInvestorFundsPage.clickRadioButton("No")
+      ChangeThirdPartyInvestorFundsPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check added third party org' page")
+      CheckAddedThirdPartyPage.verifyPageTitle(
+        CheckAddedThirdPartyPage.pageTitle,
+        CheckAddedThirdPartyPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on save and continue button on 'Check added third party org' page")
+      CheckAddedThirdPartyPage.clickSaveAndContinue()
+
+    }
   }
 }

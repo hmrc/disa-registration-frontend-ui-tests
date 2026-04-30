@@ -19,6 +19,6 @@ package uk.gov.hmrc.ui.disa.pages
 object ThirdPartyInvestorFundsPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/investor-funds-used-by-third-party"
   val pageTitle: String =
-    "Will any investor funds be used to pay fees, commissions, or incentives for managing or marketing ISA products to ThirdParty? - Third party organisations - Manage ISAs - GOV.UK"
+    "Will any investor funds be used to pay fees, commissions, or incentives for managing or marketing ISA products to ThirdParty? - Third-party organisations - Manage ISAs - GOV.UK"
 
 }

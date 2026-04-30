@@ -19,6 +19,6 @@ package uk.gov.hmrc.ui.disa.pages
 object ThirdPartyDetailsPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/third-party-details"
   val pageTitle: String =
-    "Third party organisation details - Third party organisations - Manage ISAs - GOV.UK"
+    "Third-party organisation details - Third-party organisations - Manage ISAs - GOV.UK"
 
 }
