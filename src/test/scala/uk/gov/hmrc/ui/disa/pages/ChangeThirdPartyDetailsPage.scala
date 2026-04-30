@@ -16,9 +16,9 @@
 
 package uk.gov.hmrc.ui.disa.pages
 
-object ThirdPartyManageISAsPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/isa-returns-managed-by-third-party"
+object ChangeThirdPartyDetailsPage extends BasePage {
+  val pageUrl: String   = s"$baseUrl/change-third-party-details"
   val pageTitle: String =
-    "Will ThirdParty manage your ISA returns and reporting? - Third-party organisations - Manage ISAs - GOV.UK"
+    "Third-party organisation details - Third-party organisations - Manage ISAs - GOV.UK"
 
 }

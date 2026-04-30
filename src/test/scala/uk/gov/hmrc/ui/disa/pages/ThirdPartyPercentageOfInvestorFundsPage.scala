@@ -19,5 +19,5 @@ package uk.gov.hmrc.ui.disa.pages
 object ThirdPartyPercentageOfInvestorFundsPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/percentage-of-investor-funds-used"
   val pageTitle: String =
-    "What percentage of investor funds will be paid to ThirdParty as commissions or incentives? - Third party organisations - Manage ISAs - GOV.UK"
+    "What percentage of investor funds will be paid to ThirdParty as commissions or incentives? - Third-party organisations - Manage ISAs - GOV.UK"
 }
