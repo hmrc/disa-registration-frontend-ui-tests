@@ -43,5 +43,5 @@ class CreateLtdCompanySpec extends BaseSpec {
       BVLockOutPage.verifyPageTitle(BVLockOutPage.pageTitle, BVLockOutPage.pageUrl) shouldBe true
 
     }
-}
+  }
 }
