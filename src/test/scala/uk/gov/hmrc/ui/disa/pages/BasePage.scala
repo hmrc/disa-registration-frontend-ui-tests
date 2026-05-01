@@ -92,6 +92,9 @@ trait BasePage extends Matchers with PageObject {
     click(locator)
   }
 
+  def clickSubmit(): Unit =
+    Driver.instance.findElement(By.id("submit-top")).click()
+
   def clickRadioButton(text: String): Unit =
     Driver.instance.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 

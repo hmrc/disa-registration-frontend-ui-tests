@@ -24,10 +24,10 @@ class AddThirdPartySpec extends BaseSpec {
 
     Scenario("1.Verify user can add third party organisations") {
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/isa-products")
+      AuthLoginPage.loginAsAFreshUser("/start")
 
-      Then("the 'ISA products' page title should be correct")
-      ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
       When("the user navigates to the 'ISA products managed by third party' page")
       AuthLoginPage.navigateTo(ThirdPartyProductManagePage.pageUrl)

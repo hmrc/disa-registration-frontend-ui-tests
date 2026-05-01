@@ -17,6 +17,7 @@
 package uk.gov.hmrc.ui.disa.pages
 
 import org.openqa.selenium.By
+import uk.gov.hmrc.selenium.webdriver.Driver
 import uk.gov.hmrc.ui.disa.conf.TestConfiguration
 
 object AuthLoginPage extends BasePage {
@@ -41,6 +42,18 @@ object AuthLoginPage extends BasePage {
     selectByVisibleText(affinityGroupById, "Organisation")
     submitAuthPage()
   }
-  def loginAsAFreshUser(redirectionUrl: String): Unit  =
+
+  def launchAuthPage(redirectionUrl: String): Unit = {
+    loadPage
+    sendKeys(redirectionUrlById, s"$baseUrl$redirectionUrl")
+    selectByVisibleText(affinityGroupById, "Organisation")
+
+  }
+
+  def loginAsAFreshUser(redirectionUrl: String): Unit =
     submitAuth(redirectionUrl)
+
+  def enterCredId(credId: String): Unit =
+    Driver.instance.findElement(By.id("authorityId")).sendKeys(credId)
+
 }
