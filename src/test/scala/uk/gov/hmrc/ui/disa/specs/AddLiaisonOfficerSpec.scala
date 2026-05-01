@@ -24,10 +24,10 @@ class AddLiaisonOfficerSpec extends BaseSpec {
 
     Scenario("1.Verify user can add a Liaison Officer and then able to edit the added liaison officer") {
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/isa-products")
+      AuthLoginPage.loginAsAFreshUser("/start")
 
-      Then("the 'ISA products' page title should be correct")
-      ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
       When("the user navigates to the 'liaison officer name' page")
       AuthLoginPage.navigateTo(LiaisonOfficerNamePage.pageUrl)
@@ -120,13 +120,13 @@ class AddLiaisonOfficerSpec extends BaseSpec {
 
     Scenario("2.Verify user can add more than one Liaison Officers and then remove one") {
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/isa-products")
+      AuthLoginPage.loginAsAFreshUser("/start")
 
-      Then("the 'ISA products' page title should be correct")
-      ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
       When("the user navigates to the 'liaison officer name' page")
-      AuthLoginPage.navigateTo(LiaisonOfficerNamePage.pageUrl)
+      LiaisonOfficerNamePage.navigateTo(LiaisonOfficerNamePage.pageUrl)
 
       Then("the user is navigated to the 'liaison-officer-name' page")
       LiaisonOfficerNamePage.verifyPageTitle(

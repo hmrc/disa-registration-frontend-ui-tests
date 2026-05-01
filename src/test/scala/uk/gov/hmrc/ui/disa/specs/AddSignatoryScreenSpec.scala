@@ -25,13 +25,7 @@ class AddSignatoryScreenSpec extends BaseSpec {
     Scenario("1.Verify user can access Add a signatory and edit the name and title") {
 
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/isa-products")
-
-      Then("the 'ISA products' page title should be correct")
-      ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
-
-      When("the user navigates to the 'Task List' page")
-      AuthLoginPage.navigateTo(TaskListPage.pageUrl)
+      AuthLoginPage.loginAsAFreshUser("/start")
 
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
@@ -105,13 +99,7 @@ class AddSignatoryScreenSpec extends BaseSpec {
     Scenario("Verify user can access multiple signatories screen and then remove one") {
 
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/isa-products")
-
-      Then("the 'ISA products' page title should be correct")
-      ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
-
-      When("the user navigates to the 'Task List' page")
-      AuthLoginPage.navigateTo(TaskListPage.pageUrl)
+      AuthLoginPage.loginAsAFreshUser("/start")
 
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
