@@ -22,7 +22,8 @@ class AddThirdPartySpec extends BaseSpec {
 
   Feature("Add third party details") {
 
-    Scenario("1.Verify user can add Third party organisations") {
+    Scenario("1.Verify user can add Third party organisations and edit the details ") {
+
       Given("the user is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/start")
 
@@ -261,14 +262,14 @@ class AddThirdPartySpec extends BaseSpec {
       CheckAddedThirdPartyPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'added third party organisation' page")
-      AddedThirdPartyPage.verifyPageTitle(
-        AddedThirdPartyPage.pageTitle,
-        AddedThirdPartyPage.pageUrl
+      AddedThirdPartiesPage.verifyPageTitle(
+        AddedThirdPartiesPage.pageTitle,
+        AddedThirdPartiesPage.pageUrl
       ) shouldBe true
 
       Then("the user clicks on yes radio button and then save and continue on 'added third party organisation' page ")
-      AddedThirdPartyPage.clickRadioButton("Yes")
-      AddedThirdPartyPage.clickSaveAndContinue()
+      AddedThirdPartiesPage.clickRadioButton("Yes")
+      AddedThirdPartiesPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Third party organisations details' page")
       ThirdPartyDetailsPage.verifyPageTitle(
@@ -327,13 +328,13 @@ class AddThirdPartySpec extends BaseSpec {
       CheckAddedThirdPartyPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'added third party organisation' page")
-      AddedThirdPartyPage.verifyPageTitle(
-        AddedThirdPartyPage.pageTitleTwo,
-        AddedThirdPartyPage.pageUrl
+      AddedThirdPartiesPage.verifyPageTitle(
+        AddedThirdPartiesPage.pageTitleTwo,
+        AddedThirdPartiesPage.pageUrl
       ) shouldBe true
 
       When("the user clicks on remove link for the added third party organisation ")
-      AddedThirdPartyPage.clickOnLinks("remove-third-party-organisation")
+      AddedThirdPartiesPage.clickOnLinks("remove-third-party-organisation")
 
       Then("the user is navigated to the 'remove third party organisation' page")
       RemoveThirdPartyPage.verifyPageTitle(
@@ -346,13 +347,13 @@ class AddThirdPartySpec extends BaseSpec {
       RemoveThirdPartyPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'added third party' page with two organisations listed")
-      AddedThirdPartyPage.verifyPageTitle(
-        AddedThirdPartyPage.pageTitleTwo,
-        AddedThirdPartyPage.pageUrl
+      AddedThirdPartiesPage.verifyPageTitle(
+        AddedThirdPartiesPage.pageTitleTwo,
+        AddedThirdPartiesPage.pageUrl
       ) shouldBe true
 
       When("the user clicks on remove link for the added third party organisation ")
-      AddedThirdPartyPage.clickOnLinks("remove-third-party-organisation")
+      AddedThirdPartiesPage.clickOnLinks("remove-third-party-organisation")
 
       Then("the user is navigated to the 'remove third party organisation' page")
       RemoveThirdPartyPage.verifyPageTitle(
@@ -365,9 +366,9 @@ class AddThirdPartySpec extends BaseSpec {
       RemoveThirdPartyPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'added third party' page with one organisation listed")
-      AddedThirdPartyPage.verifyPageTitle(
-        AddedThirdPartyPage.pageTitle,
-        AddedThirdPartyPage.pageUrl
+      AddedThirdPartiesPage.verifyPageTitle(
+        AddedThirdPartiesPage.pageTitle,
+        AddedThirdPartiesPage.pageUrl
       ) shouldBe true
 
     }

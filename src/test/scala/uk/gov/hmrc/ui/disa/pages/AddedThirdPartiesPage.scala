@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.disa.pages
 
 import uk.gov.hmrc.ui.disa.pages.SignOutPage.baseUrl
 
-object AddedThirdPartyPage extends BasePage {
+object AddedThirdPartiesPage extends BasePage {
   val pageUrl: String      = s"$baseUrl/added-third-parties"
   val pageTitle: String    = "You have added a third-party organisation - Third-party organisations - Manage ISAs - GOV.UK"
   val pageTitleTwo: String =
