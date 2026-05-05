@@ -22,7 +22,8 @@ class AddThirdPartySpec extends BaseSpec {
 
   Feature("Add third party details") {
 
-    Scenario("1.Verify user can add third party organisations") {
+    Scenario("1.Verify user can add Third party organisations and edit the details ") {
+
       Given("the user is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/start")
 
@@ -180,6 +181,195 @@ class AddThirdPartySpec extends BaseSpec {
 
       Then("the user clicks on save and continue button on 'Check added third party org' page")
       CheckAddedThirdPartyPage.clickSaveAndContinue()
+
+    }
+    Scenario("2.Verify user can add more than one Third party organisations and then remove one") {
+      Given("the user is logged in as an organisation User")
+      AuthLoginPage.loginAsAFreshUser("/start")
+
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      When("the user navigates to the 'ISA products managed by third party' page")
+      AuthLoginPage.navigateTo(ThirdPartyProductManagePage.pageUrl)
+
+      Then("the user is navigated to the 'ISA products managed by third party' page")
+      ThirdPartyProductManagePage.verifyPageTitle(
+        ThirdPartyProductManagePage.pageTitle,
+        ThirdPartyProductManagePage.pageUrl
+      ) shouldBe true
+
+      Then(
+        "the user clicks on yes radio button and then click save and continue on 'ISA products managed by third party' page "
+      )
+      ThirdPartyProductManagePage.clickRadioButton("Yes")
+      ThirdPartyProductManagePage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Third party organisations details' page")
+      ThirdPartyDetailsPage.verifyPageTitle(
+        ThirdPartyDetailsPage.pageTitle,
+        ThirdPartyDetailsPage.pageUrl
+      ) shouldBe true
+
+      When("the user enters the Third party org name and FRN and clicks on Save and continue button")
+      ThirdPartyDetailsPage.enterText("thirdPartyName", "ThirdParty")
+      ThirdPartyDetailsPage.enterText("frn", "777333")
+      ThirdPartyDetailsPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'ISA returns and reporting managed by third party' page")
+      ThirdPartyManageISAsPage.verifyPageTitle(
+        ThirdPartyManageISAsPage.pageTitle,
+        ThirdPartyManageISAsPage.pageUrl
+      ) shouldBe true
+
+      Then(
+        "the user clicks on yes radio button and then click on save and continue button  on 'ISA returns and reporting managed by third party' page "
+      )
+      ThirdPartyManageISAsPage.clickRadioButton("Yes")
+      ThirdPartyManageISAsPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Investor funds used for ISA products managed by third party' page")
+      ThirdPartyManageISAsPage.verifyPageTitle(
+        ThirdPartyInvestorFundsPage.pageTitle,
+        ThirdPartyInvestorFundsPage.pageUrl
+      ) shouldBe true
+
+      Then(
+        "the user clicks on yes radio button and then click on save and continue button  on 'Investor funds used for ISA products managed by third party' page "
+      )
+      ThirdPartyInvestorFundsPage.clickRadioButton("Yes")
+      ThirdPartyInvestorFundsPage.clickSaveAndContinue()
+
+      Then(
+        "the user is navigated to the 'What percentage of Investor funds used for ISA products managed by third party' page"
+      )
+      ThirdPartyManageISAsPage.verifyPageTitle(
+        ThirdPartyPercentageOfInvestorFundsPage.pageTitle,
+        ThirdPartyPercentageOfInvestorFundsPage.pageUrl
+      ) shouldBe true
+
+      When("the user enters the percentage value and clicks on Save and continue button")
+      ThirdPartyPercentageOfInvestorFundsPage.enterText("value", "20")
+      ThirdPartyPercentageOfInvestorFundsPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check added third party org' page")
+      CheckAddedThirdPartyPage.verifyPageTitle(
+        CheckAddedThirdPartyPage.pageTitle,
+        CheckAddedThirdPartyPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on save and continue button on 'Check added third party org' page")
+      CheckAddedThirdPartyPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'added third party organisation' page")
+      AddedThirdPartiesPage.verifyPageTitle(
+        AddedThirdPartiesPage.pageTitle,
+        AddedThirdPartiesPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on yes radio button and then save and continue on 'added third party organisation' page ")
+      AddedThirdPartiesPage.clickRadioButton("Yes")
+      AddedThirdPartiesPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Third party organisations details' page")
+      ThirdPartyDetailsPage.verifyPageTitle(
+        ThirdPartyDetailsPage.pageTitle,
+        ThirdPartyDetailsPage.pageUrl
+      ) shouldBe true
+
+      When("the user enters the Third party org name and FRN and clicks on Save and continue button")
+      ThirdPartyDetailsPage.enterText("thirdPartyName", "ThirdParty")
+      ThirdPartyDetailsPage.enterText("frn", "777333")
+      ThirdPartyDetailsPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'ISA returns and reporting managed by third party' page")
+      ThirdPartyManageISAsPage.verifyPageTitle(
+        ThirdPartyManageISAsPage.pageTitle,
+        ThirdPartyManageISAsPage.pageUrl
+      ) shouldBe true
+
+      Then(
+        "the user clicks on yes radio button and then click on save and continue button  on 'ISA returns and reporting managed by third party' page "
+      )
+      ThirdPartyManageISAsPage.clickRadioButton("Yes")
+      ThirdPartyManageISAsPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Investor funds used for ISA products managed by third party' page")
+      ThirdPartyManageISAsPage.verifyPageTitle(
+        ThirdPartyInvestorFundsPage.pageTitle,
+        ThirdPartyInvestorFundsPage.pageUrl
+      ) shouldBe true
+
+      Then(
+        "the user clicks on yes radio button and then click on save and continue button  on 'Investor funds used for ISA products managed by third party' page "
+      )
+      ThirdPartyInvestorFundsPage.clickRadioButton("Yes")
+      ThirdPartyInvestorFundsPage.clickSaveAndContinue()
+
+      Then(
+        "the user is navigated to the 'What percentage of Investor funds used for ISA products managed by third party' page"
+      )
+      ThirdPartyManageISAsPage.verifyPageTitle(
+        ThirdPartyPercentageOfInvestorFundsPage.pageTitle,
+        ThirdPartyPercentageOfInvestorFundsPage.pageUrl
+      ) shouldBe true
+
+      When("the user enters the percentage value and clicks on Save and continue button")
+      ThirdPartyPercentageOfInvestorFundsPage.enterText("value", "20")
+      ThirdPartyPercentageOfInvestorFundsPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check added third party org' page")
+      CheckAddedThirdPartyPage.verifyPageTitle(
+        CheckAddedThirdPartyPage.pageTitle,
+        CheckAddedThirdPartyPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on save and continue button on 'Check added third party org' page")
+      CheckAddedThirdPartyPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'added third party organisation' page")
+      AddedThirdPartiesPage.verifyPageTitle(
+        AddedThirdPartiesPage.pageTitleTwo,
+        AddedThirdPartiesPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on remove link for the added third party organisation ")
+      AddedThirdPartiesPage.clickOnLinks("remove-third-party-organisation")
+
+      Then("the user is navigated to the 'remove third party organisation' page")
+      RemoveThirdPartyPage.verifyPageTitle(
+        RemoveThirdPartyPage.pageTitle,
+        RemoveThirdPartyPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on no radio button on 'remove third party organisation' page ")
+      RemoveThirdPartyPage.clickRadioButton("No")
+      RemoveThirdPartyPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'added third party' page with two organisations listed")
+      AddedThirdPartiesPage.verifyPageTitle(
+        AddedThirdPartiesPage.pageTitleTwo,
+        AddedThirdPartiesPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on remove link for the added third party organisation ")
+      AddedThirdPartiesPage.clickOnLinks("remove-third-party-organisation")
+
+      Then("the user is navigated to the 'remove third party organisation' page")
+      RemoveThirdPartyPage.verifyPageTitle(
+        RemoveThirdPartyPage.pageTitle,
+        RemoveThirdPartyPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on Yes radio button on 'remove third party organisation' page ")
+      RemoveThirdPartyPage.clickRadioButton("Yes")
+      RemoveThirdPartyPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'added third party' page with one organisation listed")
+      AddedThirdPartiesPage.verifyPageTitle(
+        AddedThirdPartiesPage.pageTitle,
+        AddedThirdPartiesPage.pageUrl
+      ) shouldBe true
 
     }
   }
