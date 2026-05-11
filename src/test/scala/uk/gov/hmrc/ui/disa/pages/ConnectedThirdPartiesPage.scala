@@ -25,9 +25,14 @@ object ConnectedThirdPartiesPage extends BasePage {
     By.xpath("/html/body/div/main/div/div/form/div/fieldset/div[2]/div[1]/input")
   private val secondThirdPartyOrgCheckBox: By =
     By.xpath("/html/body/div/main/div/div/form/div/fieldset/div[2]/div[2]/input")
+  private val thirdThirdPartyOrgCheckBox: By  =
+    By.xpath("/html/body/div/main/div/div/form/div/fieldset/div[2]/div[3]/input")
 
   def selectConnectedOrg(): Unit = {
     selectCheckbox(firstThirdPartyOrgCheckBox)
     selectCheckbox(secondThirdPartyOrgCheckBox)
   }
+
+  def selectThirdOrg(): Unit =
+    selectCheckbox(thirdThirdPartyOrgCheckBox)
 }

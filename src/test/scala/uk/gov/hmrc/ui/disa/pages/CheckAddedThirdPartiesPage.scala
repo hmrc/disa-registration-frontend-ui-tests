@@ -1,5 +1,5 @@
 /*
- * Copyright 2026 HM Revenue & Customs
+ * Copyright 2025 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,13 +16,9 @@
 
 package uk.gov.hmrc.ui.disa.pages
 
-import uk.gov.hmrc.ui.disa.pages.SignOutPage.baseUrl
+object CheckAddedThirdPartiesPage extends BasePage {
+  val pageUrl: String   = s"$baseUrl/check-added-third-parties"
+  val pageTitle: String =
+    "Check added third-party organisations - Manage ISAs - GOV.UK"
 
-object AddedThirdPartiesPage extends BasePage {
-  val pageUrl: String        = s"$baseUrl/added-third-parties"
-  val pageTitle: String      = "You have added a third-party organisation - Third-party organisations - Manage ISAs - GOV.UK"
-  val pageTitleTwo: String   =
-    "You have added 2 third-party organisations - Third-party organisations - Manage ISAs - GOV.UK"
-  val pageTitleThree: String =
-    "You have added 3 third-party organisations - Third-party organisations - Manage ISAs - GOV.UK"
 }
