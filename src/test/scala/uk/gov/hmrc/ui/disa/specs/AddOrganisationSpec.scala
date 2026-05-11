@@ -59,7 +59,6 @@ class AddOrganisationSpec extends BaseSpec {
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-
     }
 
   }
