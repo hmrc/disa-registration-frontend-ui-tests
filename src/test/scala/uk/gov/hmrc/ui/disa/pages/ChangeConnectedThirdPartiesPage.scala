@@ -19,8 +19,8 @@ package uk.gov.hmrc.ui.disa.pages
 import org.openqa.selenium.By
 
 object ChangeConnectedThirdPartiesPage extends BasePage {
-  val pageUrl: String                         = s"$baseUrl/change-connected-third-parties"
-  val pageTitle: String                       = "Connected organisations - Third-party organisations - Manage ISAs - GOV.UK"
+  val pageUrl: String   = s"$baseUrl/change-connected-third-parties"
+  val pageTitle: String = "Connected organisations - Third-party organisations - Manage ISAs - GOV.UK"
 
   private val secondThirdPartyOrgCheckBox: By =
     By.xpath("/html/body/div/main/div/div/form/div/fieldset/div[2]/div[2]/input")
