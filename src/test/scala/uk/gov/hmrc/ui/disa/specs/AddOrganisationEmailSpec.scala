@@ -17,9 +17,8 @@
 package uk.gov.hmrc.ui.disa.specs
 
 import uk.gov.hmrc.ui.disa.pages.*
-import uk.gov.hmrc.ui.disa.specs.tags.WIP
 
-class AddOrganisationSpec extends BaseSpec {
+class AddOrganisationEmailSpec extends BaseSpec {
 
   Feature("Add an organisation") {
 
@@ -56,9 +55,35 @@ class AddOrganisationSpec extends BaseSpec {
       OrganisationEmailVerificationCodePage.enterText("value", "ABCDEF")
       OrganisationEmailVerificationCodePage.clickSaveAndContinue()
 
+      Then("the user is navigated to the 'Organisation Email CYA' page")
+      OrganisationEmailCheckYourAnswersPage.verifyPageTitle(
+        OrganisationEmailCheckYourAnswersPage.pageTitle,
+        OrganisationEmailCheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on change link for change organisation email address")
+      OrganisationEmailCheckYourAnswersPage.clickOnLinks("change-organisation-email-address")
+
+      Then("the user is navigated to the 'Change Organisation Email address' page")
+      OrganisationEmailCheckYourAnswersPage.verifyPageTitle(
+        ChangeOrganisationEmailAddressPage.pageTitle,
+        ChangeOrganisationEmailAddressPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on Save and continue button")
+      ChangeOrganisationEmailAddressPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Organisation Email CYA' page")
+      OrganisationEmailCheckYourAnswersPage.verifyPageTitle(
+        OrganisationEmailCheckYourAnswersPage.pageTitle,
+        OrganisationEmailCheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on Confirm and Save button")
+      OrganisationEmailCheckYourAnswersPage.clickConfirmAndSave()
+
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
-
     }
 
   }
