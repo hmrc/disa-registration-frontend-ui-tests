@@ -17,9 +17,8 @@
 package uk.gov.hmrc.ui.disa.specs
 
 import uk.gov.hmrc.ui.disa.pages.*
-import uk.gov.hmrc.ui.disa.specs.tags.WIP
 
-class AddOrganisationSpec extends BaseSpec {
+class AddOrganisationEmailSpec extends BaseSpec {
 
   Feature("Add an organisation") {
 
