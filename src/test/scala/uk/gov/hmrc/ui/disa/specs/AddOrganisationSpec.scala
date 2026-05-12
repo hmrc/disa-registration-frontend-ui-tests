@@ -56,9 +56,17 @@ class AddOrganisationSpec extends BaseSpec {
       OrganisationEmailVerificationCodePage.enterText("value", "ABCDEF")
       OrganisationEmailVerificationCodePage.clickSaveAndContinue()
 
+      Then("the user is navigated to the 'Organisation Email CYA' page")
+      OrganisationEmailCheckYourAnswersPage.verifyPageTitle(
+        OrganisationEmailCheckYourAnswersPage.pageTitle,
+        OrganisationEmailCheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on Confirm and Save button")
+      OrganisationEmailCheckYourAnswersPage.clickConfirmAndSave()
+
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
-
     }
 
   }
