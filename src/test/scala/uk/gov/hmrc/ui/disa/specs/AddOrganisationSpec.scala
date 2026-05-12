@@ -62,6 +62,24 @@ class AddOrganisationSpec extends BaseSpec {
         OrganisationEmailCheckYourAnswersPage.pageUrl
       ) shouldBe true
 
+      When("the user clicks on change link for change organisation email address")
+      OrganisationEmailCheckYourAnswersPage.clickOnLinks("change-organisation-email-address")
+
+      Then("the user is navigated to the 'Change Organisation Email address' page")
+      OrganisationEmailCheckYourAnswersPage.verifyPageTitle(
+        ChangeOrganisationEmailAddressPage.pageTitle,
+        ChangeOrganisationEmailAddressPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on Save and continue button")
+      ChangeOrganisationEmailAddressPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Organisation Email CYA' page")
+      OrganisationEmailCheckYourAnswersPage.verifyPageTitle(
+        OrganisationEmailCheckYourAnswersPage.pageTitle,
+        OrganisationEmailCheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
       Then("the user clicks on Confirm and Save button")
       OrganisationEmailCheckYourAnswersPage.clickConfirmAndSave()
 
