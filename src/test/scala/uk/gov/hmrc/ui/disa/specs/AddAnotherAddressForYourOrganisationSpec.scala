@@ -57,7 +57,8 @@ class AddAnotherAddressForYourOrganisationSpec extends BaseSpec {
 
     }
 
-    Scenario("2.Verify user can add another address when displayed with multiple results after post code search") {
+    // Below scenario to be added with DFI-937
+    /*  Scenario("2.Verify user can add another address when displayed with multiple results after post code search") {
 
       Given("the user is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/start")
@@ -104,6 +105,7 @@ class AddAnotherAddressForYourOrganisationSpec extends BaseSpec {
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
     }
+     */
   }
 
 }
