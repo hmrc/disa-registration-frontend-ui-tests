@@ -19,7 +19,7 @@ package uk.gov.hmrc.ui.disa.pages
 import uk.gov.hmrc.ui.disa.pages.SignOutPage.baseUrl
 
 object ConfirmationPage extends BasePage {
-  val pageUrl: String        = s"$baseUrl/confirmation"
-  val pageApplicationTitle: String      = "Application submitted - Manage ISAs - GOV.UK"
-  val pageEnrolmentTitle: String       = "Enrolment completed - Manage ISAs - GOV.UK"
+  val pageUrl: String              = s"$baseUrl/confirmation"
+  val pageApplicationTitle: String = "Application submitted - Manage ISAs - GOV.UK"
+  val pageEnrolmentTitle: String   = "Enrolment completed - Manage ISAs - GOV.UK"
 }
