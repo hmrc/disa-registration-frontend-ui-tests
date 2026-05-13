@@ -18,8 +18,8 @@ package uk.gov.hmrc.ui.disa.pages
 
 import uk.gov.hmrc.ui.disa.pages.SignOutPage.baseUrl
 
-object AddAnotherAddressForYourOrganisationPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/add-another-address"
-  val pageTitle: String = "Add another address for your organisation - Organisation details - Manage ISAs - GOV.UK"
+object ChooseAnotherAddressForYourOrganisationPage extends BasePage {
+  val pageUrl: String   = s"$baseUrl/choose-address"
+  val pageTitle: String = "Choose the correct address - Organisation details - Manage ISAs - GOV.UK"
 
 }
