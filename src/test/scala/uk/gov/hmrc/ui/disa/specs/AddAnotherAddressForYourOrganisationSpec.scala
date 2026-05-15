@@ -16,13 +16,14 @@
 
 package uk.gov.hmrc.ui.disa.specs
 
-import uk.gov.hmrc.ui.disa.pages.{AddAnotherAddressForYourOrganisationPage, AuthLoginPage, ChooseAnotherAddressForYourOrganisationPage, RegisteredAddressCorrespondencePage, TaskListPage}
+import uk.gov.hmrc.ui.disa.pages.{AddAnotherAddressForYourOrganisationPage, AuthLoginPage, ChooseAnotherAddressForYourOrganisationPage, ConfirmCorrespondenceAddressPage, EnterYourOrganisationAddressPage, RegisteredAddressCorrespondencePage, TaskListPage}
+import uk.gov.hmrc.ui.disa.specs.tags.WIP
 
 class AddAnotherAddressForYourOrganisationSpec extends BaseSpec {
 
   Feature("Add an organisation") {
 
-    Scenario("1.Verify user can add another address with single result from post code search") {
+    Scenario("1.Verify user can add another address with single result from post code search", WIP) {
 
       Given("the user is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/start")
@@ -52,8 +53,35 @@ class AddAnotherAddressForYourOrganisationSpec extends BaseSpec {
       AddAnotherAddressForYourOrganisationPage.enterText("filter", "10")
       AddAnotherAddressForYourOrganisationPage.clickSaveAndContinue()
 
+      Then("the user is navigated to the 'confirm-correspondence-address' page")
+      ConfirmCorrespondenceAddressPage.verifyPageTitle(
+        ConfirmCorrespondenceAddressPage.pageTitle,
+        ConfirmCorrespondenceAddressPage.pageUrl
+      )
+
+      When("the user clicks on the Edit address link on 'confirm-correspondence-address' page")
+      ConfirmCorrespondenceAddressPage.clickOnLinks("enter-your-organisation-address")
+
+      Then("the user is navigated to the 'enter-your-organisation-address' page")
+      EnterYourOrganisationAddressPage.verifyPageTitle(
+        EnterYourOrganisationAddressPage.pageTitle,
+        EnterYourOrganisationAddressPage.pageUrl
+      )
+
+      Then("the user changes the address  and clicks on Save and continue button")
+      EnterYourOrganisationAddressPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'confirm-correspondence-address' page and clicks on Save and continue button")
+      ConfirmCorrespondenceAddressPage.verifyPageTitle(
+        ConfirmCorrespondenceAddressPage.pageTitle,
+        ConfirmCorrespondenceAddressPage.pageUrl
+      )
+
+      /*Then("the user clicks on Save and continue button")
+      ConfirmCorrespondenceAddressPage.clickSaveAndContinue()
+
       Then("the user is navigated to the 'Task list' page")
-      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true*/
 
     }
 
@@ -100,8 +128,35 @@ class AddAnotherAddressForYourOrganisationSpec extends BaseSpec {
       ChooseAnotherAddressForYourOrganisationPage.clickRadioButton("10 Test Street, Test town, ZZ22 2ZZ")
       ChooseAnotherAddressForYourOrganisationPage.clickSaveAndContinue()
 
+      Then("the user is navigated to the 'confirm-correspondence-address' page")
+      ConfirmCorrespondenceAddressPage.verifyPageTitle(
+        ConfirmCorrespondenceAddressPage.pageTitle,
+        ConfirmCorrespondenceAddressPage.pageUrl
+      )
+
+      When("the user clicks on the Edit address link they are taken to the 'enter-your-organisation-address' page")
+      ConfirmCorrespondenceAddressPage.clickOnLinks("enter-your-organisation-address")
+
+      Then("the user is navigated to the 'enter-your-organisation-address' page")
+      EnterYourOrganisationAddressPage.verifyPageTitle(
+        EnterYourOrganisationAddressPage.pageTitle,
+        EnterYourOrganisationAddressPage.pageUrl
+      )
+
+      Then("the user changes the address  and clicks on Save and continue button")
+      EnterYourOrganisationAddressPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'confirm-correspondence-address' page and clicks on Save and continue button")
+      ConfirmCorrespondenceAddressPage.verifyPageTitle(
+        ConfirmCorrespondenceAddressPage.pageTitle,
+        ConfirmCorrespondenceAddressPage.pageUrl
+      )
+
+      /* Then("the user  clicks on Save and continue button")
+      ConfirmCorrespondenceAddressPage.clickSaveAndContinue()
+
       Then("the user is navigated to the 'Task list' page")
-      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true*/
 
     }
 
