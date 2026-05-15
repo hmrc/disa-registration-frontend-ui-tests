@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.ui.disa.specs
 
-import uk.gov.hmrc.ui.disa.pages.{AddAnotherAddressForYourOrganisationPage, AuthLoginPage, ChooseAnotherAddressForYourOrganisationPage, RegisteredAddressCorrespondencePage, TaskListPage}
+import uk.gov.hmrc.ui.disa.pages.{AddAnotherAddressForYourOrganisationPage, AuthLoginPage, ChooseAnotherAddressForYourOrganisationPage, ConfirmCorrespondenceAddressPage, EnterYourOrganisationAddressPage, RegisteredAddressCorrespondencePage, TaskListPage}
 
 class AddAnotherAddressForYourOrganisationSpec extends BaseSpec {
 
@@ -36,7 +36,7 @@ class AddAnotherAddressForYourOrganisationSpec extends BaseSpec {
       AuthLoginPage.navigateTo(RegisteredAddressCorrespondencePage.pageUrl)
 
       Then(
-        "the user clicks on the No radio button and then clicks on save and continue buttonon 'registered-address-correspondence' page"
+        "the user clicks on the No radio button and then clicks on save and continue button 'registered-address-correspondence' page"
       )
       RegisteredAddressCorrespondencePage.clickRadioButton("No")
       RegisteredAddressCorrespondencePage.clickSaveAndContinue()
@@ -99,6 +99,141 @@ class AddAnotherAddressForYourOrganisationSpec extends BaseSpec {
       )
       ChooseAnotherAddressForYourOrganisationPage.clickRadioButton("10 Test Street, Test town, ZZ22 2ZZ")
       ChooseAnotherAddressForYourOrganisationPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+    }
+
+    Scenario("3.Verify user can edit and add another address with single result from post code search") {
+
+      Given("the user is logged in as an organisation User")
+      AuthLoginPage.loginAsAFreshUser("/start")
+
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      /* we need to put steps to add org details when navigation is available. */
+
+      When("the user navigates to the 'Registered address correspondence' page")
+      AuthLoginPage.navigateTo(RegisteredAddressCorrespondencePage.pageUrl)
+
+      Then(
+        "the user clicks on the No radio button and then clicks on save and continue button 'registered-address-correspondence' page"
+      )
+      RegisteredAddressCorrespondencePage.clickRadioButton("No")
+      RegisteredAddressCorrespondencePage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'add-another-address' page")
+      AddAnotherAddressForYourOrganisationPage.verifyPageTitle(
+        AddAnotherAddressForYourOrganisationPage.pageTitle,
+        AddAnotherAddressForYourOrganisationPage.pageUrl
+      ) shouldBe true
+
+      Then("the user enters the postcode value and clicks on save and continue on 'add-another-address' page")
+      AddAnotherAddressForYourOrganisationPage.enterText("postcode", "ZZ11 1ZZ")
+      AddAnotherAddressForYourOrganisationPage.enterText("filter", "10")
+      AddAnotherAddressForYourOrganisationPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'confirm-correspondence-address' page")
+      ConfirmCorrespondenceAddressPage.verifyPageTitle(
+        ConfirmCorrespondenceAddressPage.pageTitle,
+        ConfirmCorrespondenceAddressPage.pageUrl
+      )
+
+      When("the user clicks on the Edit address link they are taken to the 'enter-your-organisation-address' page")
+      ConfirmCorrespondenceAddressPage.clickOnLinks("edit-address")
+
+      Then("the user is navigated to the 'enter-your-organisation-address' page")
+      EnterYourOrganisationAddressPage.verifyPageTitle(
+        EnterYourOrganisationAddressPage.pageTitle,
+        EnterYourOrganisationAddressPage.pageUrl
+      )
+
+      Then("the user enters the address line 2 value and clicks on Save and continue button")
+      EnterYourOrganisationAddressPage.enterText("addressLine2", "1")
+      EnterYourOrganisationAddressPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'confirm-correspondence-address' page and clicks on Save and continue button")
+      ConfirmCorrespondenceAddressPage.verifyPageTitle(
+        ConfirmCorrespondenceAddressPage.pageTitle,
+        ConfirmCorrespondenceAddressPage.pageUrl
+      )
+      ConfirmCorrespondenceAddressPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+    }
+
+    Scenario("4.Verify user can edit and add another address with multiple results after post code search") {
+
+      Given("the user is logged in as an organisation User")
+      AuthLoginPage.loginAsAFreshUser("/start")
+
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      /* we need to put steps to add org details when navigation is available. */
+
+      When("the user navigates to the 'Registered address correspondence' page")
+      AuthLoginPage.navigateTo(RegisteredAddressCorrespondencePage.pageUrl)
+
+      Then(
+        "the user clicks on the No radio button and then clicks on save and continue button 'registered-address-correspondence' page"
+      )
+      RegisteredAddressCorrespondencePage.clickRadioButton("No")
+      RegisteredAddressCorrespondencePage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'add-another-address' page")
+      AddAnotherAddressForYourOrganisationPage.verifyPageTitle(
+        AddAnotherAddressForYourOrganisationPage.pageTitle,
+        AddAnotherAddressForYourOrganisationPage.pageUrl
+      ) shouldBe true
+
+      Then(
+        "the user enters the postcode value which results in multiple results and clicks on save and continue 'add-another-address' page"
+      )
+      AddAnotherAddressForYourOrganisationPage.enterText("postcode", "ZZ22 2ZZ")
+      AddAnotherAddressForYourOrganisationPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'choose-address' page")
+      ChooseAnotherAddressForYourOrganisationPage.verifyPageTitle(
+        ChooseAnotherAddressForYourOrganisationPage.pageTitle,
+        ChooseAnotherAddressForYourOrganisationPage.pageUrl
+      ) shouldBe true
+
+      Then(
+        "the user clicks on 1st address radio button and then click on save and continue button on 'Choose address' page "
+      )
+      ChooseAnotherAddressForYourOrganisationPage.clickRadioButton("10 Test Street, Test town, ZZ22 2ZZ")
+      ChooseAnotherAddressForYourOrganisationPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'confirm-correspondence-address' page")
+      ConfirmCorrespondenceAddressPage.verifyPageTitle(
+        ConfirmCorrespondenceAddressPage.pageTitle,
+        ConfirmCorrespondenceAddressPage.pageUrl
+      )
+
+      When("the user clicks on the Edit address link they are taken to the 'enter-your-organisation-address' page")
+      ConfirmCorrespondenceAddressPage.clickOnLinks("edit-address")
+
+      Then("the user is navigated to the 'enter-your-organisation-address' page")
+      EnterYourOrganisationAddressPage.verifyPageTitle(
+        EnterYourOrganisationAddressPage.pageTitle,
+        EnterYourOrganisationAddressPage.pageUrl
+      )
+
+      Then("the user enters the address line 2 value and clicks on Save and continue button")
+      EnterYourOrganisationAddressPage.enterText("addressLine2", "1")
+      EnterYourOrganisationAddressPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'confirm-correspondence-address' page and clicks on Save and continue button")
+      ConfirmCorrespondenceAddressPage.verifyPageTitle(
+        ConfirmCorrespondenceAddressPage.pageTitle,
+        ConfirmCorrespondenceAddressPage.pageUrl
+      )
+      ConfirmCorrespondenceAddressPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
