@@ -18,12 +18,13 @@ package uk.gov.hmrc.ui.disa.specs
 
 import uk.gov.hmrc.ui.disa.pages.*
 
-
 class AddOrganizationDetailsSpec extends BaseSpec {
 
   Feature("Add an organisation") {
 
-    Scenario("1.Verify user can add organisation details as registered to manage ISAs with HMRC and then edits details") {
+    Scenario(
+      "1.Verify user can add organisation details as registered to manage ISAs with HMRC and then edits details"
+    ) {
 
       Given("the user is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/start")
@@ -35,7 +36,10 @@ class AddOrganizationDetailsSpec extends BaseSpec {
       AuthLoginPage.navigateTo(RegisteredIsaManagerPage.pageUrl)
 
       Then("the user is navigated to the 'Registered ISA Manager' page")
-      RegisteredIsaManagerPage.verifyPageTitle(RegisteredIsaManagerPage.pageTitle, RegisteredIsaManagerPage.pageUrl) shouldBe true
+      RegisteredIsaManagerPage.verifyPageTitle(
+        RegisteredIsaManagerPage.pageTitle,
+        RegisteredIsaManagerPage.pageUrl
+      ) shouldBe true
 
       Then(
         "the user clicks on the Yes radio button and then clicks on save and continue button on 'Registered ISA Manager' page"
@@ -44,14 +48,22 @@ class AddOrganizationDetailsSpec extends BaseSpec {
       RegisteredIsaManagerPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Organisation Z reference number' page")
-      OrganisationZReferenceNumberPage.verifyPageTitle(OrganisationZReferenceNumberPage.pageTitle, OrganisationZReferenceNumberPage.pageUrl) shouldBe true
+      OrganisationZReferenceNumberPage.verifyPageTitle(
+        OrganisationZReferenceNumberPage.pageTitle,
+        OrganisationZReferenceNumberPage.pageUrl
+      ) shouldBe true
 
-      Then("the user enters the Z reference value and clicks on save and continue on 'Organisation Z reference number' page")
+      Then(
+        "the user enters the Z reference value and clicks on save and continue on 'Organisation Z reference number' page"
+      )
       OrganisationZReferenceNumberPage.enterText("value", "Z1234")
       OrganisationZReferenceNumberPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Trading using different name' page")
-      TradingUsingDifferentNamePage.verifyPageTitle(TradingUsingDifferentNamePage.pageTitle, TradingUsingDifferentNamePage.pageUrl) shouldBe true
+      TradingUsingDifferentNamePage.verifyPageTitle(
+        TradingUsingDifferentNamePage.pageTitle,
+        TradingUsingDifferentNamePage.pageUrl
+      ) shouldBe true
 
       Then(
         "the user clicks on the Yes radio button and then clicks on save and continue button on 'Trading using different name' page"
@@ -60,21 +72,30 @@ class AddOrganizationDetailsSpec extends BaseSpec {
       TradingUsingDifferentNamePage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Organisation trading name' page")
-      OrganisationTradingNamePage.verifyPageTitle(OrganisationTradingNamePage.pageTitle, OrganisationTradingNamePage.pageUrl) shouldBe true
+      OrganisationTradingNamePage.verifyPageTitle(
+        OrganisationTradingNamePage.pageTitle,
+        OrganisationTradingNamePage.pageUrl
+      ) shouldBe true
 
       Then("the user enters the trading name and clicks on save and continue on 'Organisation Z reference number' page")
       OrganisationTradingNamePage.enterText("value", "Trading org")
       OrganisationTradingNamePage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Firm reference number' page")
-      FirmReferenceNumberPage.verifyPageTitle(FirmReferenceNumberPage.pageTitle, FirmReferenceNumberPage.pageUrl) shouldBe true
+      FirmReferenceNumberPage.verifyPageTitle(
+        FirmReferenceNumberPage.pageTitle,
+        FirmReferenceNumberPage.pageUrl
+      ) shouldBe true
 
       When("the user enters the Firm reference number and clicks on save and continue on 'Firm reference number' page")
       FirmReferenceNumberPage.enterText("value", "7777777")
       FirmReferenceNumberPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Registered address correspondence' page")
-      RegisteredAddressCorrespondencePage.verifyPageTitle(RegisteredAddressCorrespondencePage.pageTitle, RegisteredAddressCorrespondencePage.pageUrl) shouldBe true
+      RegisteredAddressCorrespondencePage.verifyPageTitle(
+        RegisteredAddressCorrespondencePage.pageTitle,
+        RegisteredAddressCorrespondencePage.pageUrl
+      ) shouldBe true
 
       Then(
         "the user clicks on the No radio button and then clicks on save and continue button on 'registered-address-correspondence' page"
@@ -121,14 +142,20 @@ class AddOrganizationDetailsSpec extends BaseSpec {
       ConfirmCorrespondenceAddressPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Organisation telephone number' page")
-      OrganisationTelephoneNumberPage.verifyPageTitle(OrganisationTelephoneNumberPage.pageTitle, OrganisationTelephoneNumberPage.pageUrl) shouldBe true
+      OrganisationTelephoneNumberPage.verifyPageTitle(
+        OrganisationTelephoneNumberPage.pageTitle,
+        OrganisationTelephoneNumberPage.pageUrl
+      ) shouldBe true
 
       Then("the user enters the telephone number and clicks on save and continue on 'add-another-address' page")
       OrganisationTelephoneNumberPage.enterText("value", "07777 777 777")
       OrganisationTelephoneNumberPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Organisation details check your answers' page")
-      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(OrganisationDetailsCheckYourAnswersPage.pageTitle, OrganisationDetailsCheckYourAnswersPage.pageUrl) shouldBe true
+      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
+        OrganisationDetailsCheckYourAnswersPage.pageTitle,
+        OrganisationDetailsCheckYourAnswersPage.pageUrl
+      ) shouldBe true
 
       When("the user clicks on change link for Change Trading name")
       OrganisationDetailsCheckYourAnswersPage.clickOnLinks("change-trading-name")
@@ -144,7 +171,10 @@ class AddOrganizationDetailsSpec extends BaseSpec {
       ChangeOrganisationTradingNamePage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Organisation details check your answers' page")
-      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(OrganisationDetailsCheckYourAnswersPage.pageTitle, OrganisationDetailsCheckYourAnswersPage.pageUrl) shouldBe true
+      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
+        OrganisationDetailsCheckYourAnswersPage.pageTitle,
+        OrganisationDetailsCheckYourAnswersPage.pageUrl
+      ) shouldBe true
 
       When("the user clicks on change link for Change FCA number")
       OrganisationDetailsCheckYourAnswersPage.clickOnLinks("change-firm-reference-number")
@@ -160,7 +190,10 @@ class AddOrganizationDetailsSpec extends BaseSpec {
       ChangeOrganisationTradingNamePage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Organisation details check your answers' page")
-      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(OrganisationDetailsCheckYourAnswersPage.pageTitle, OrganisationDetailsCheckYourAnswersPage.pageUrl) shouldBe true
+      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
+        OrganisationDetailsCheckYourAnswersPage.pageTitle,
+        OrganisationDetailsCheckYourAnswersPage.pageUrl
+      ) shouldBe true
 
       When("the user clicks on change link for Change organisation Telephone number")
       OrganisationDetailsCheckYourAnswersPage.clickOnLinks("change-organisation-telephone-number")
@@ -176,11 +209,16 @@ class AddOrganizationDetailsSpec extends BaseSpec {
       ChangeOrganisationTelephoneNumberPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Organisation details check your answers' page")
-      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(OrganisationDetailsCheckYourAnswersPage.pageTitle, OrganisationDetailsCheckYourAnswersPage.pageUrl) shouldBe true
+      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
+        OrganisationDetailsCheckYourAnswersPage.pageTitle,
+        OrganisationDetailsCheckYourAnswersPage.pageUrl
+      ) shouldBe true
 
     }
 
-    Scenario("2.Verify user can add organisation details as not registered to manage ISAs with HMRC and edit details from CYA page") {
+    Scenario(
+      "2.Verify user can add organisation details as not registered to manage ISAs with HMRC and edit details from CYA page"
+    ) {
 
       Given("the user is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/start")
@@ -192,7 +230,10 @@ class AddOrganizationDetailsSpec extends BaseSpec {
       AuthLoginPage.navigateTo(RegisteredIsaManagerPage.pageUrl)
 
       Then("the user is navigated to the 'Registered ISA Manager' page")
-      RegisteredIsaManagerPage.verifyPageTitle(RegisteredIsaManagerPage.pageTitle, RegisteredIsaManagerPage.pageUrl) shouldBe true
+      RegisteredIsaManagerPage.verifyPageTitle(
+        RegisteredIsaManagerPage.pageTitle,
+        RegisteredIsaManagerPage.pageUrl
+      ) shouldBe true
 
       Then(
         "the user clicks on the No radio button and then clicks on save and continue button on 'Registered ISA Manager' page"
@@ -200,9 +241,11 @@ class AddOrganizationDetailsSpec extends BaseSpec {
       RegisteredIsaManagerPage.clickRadioButton("No")
       RegisteredIsaManagerPage.clickSaveAndContinue()
 
-
       Then("the user is navigated to the 'Trading using different name' page")
-      TradingUsingDifferentNamePage.verifyPageTitle(TradingUsingDifferentNamePage.pageTitle, TradingUsingDifferentNamePage.pageUrl) shouldBe true
+      TradingUsingDifferentNamePage.verifyPageTitle(
+        TradingUsingDifferentNamePage.pageTitle,
+        TradingUsingDifferentNamePage.pageUrl
+      ) shouldBe true
 
       Then(
         "the user clicks on the No radio button and then clicks on save and continue button on 'Trading using different name' page"
@@ -211,14 +254,20 @@ class AddOrganizationDetailsSpec extends BaseSpec {
       TradingUsingDifferentNamePage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Firm reference number' page")
-      FirmReferenceNumberPage.verifyPageTitle(FirmReferenceNumberPage.pageTitle, FirmReferenceNumberPage.pageUrl) shouldBe true
+      FirmReferenceNumberPage.verifyPageTitle(
+        FirmReferenceNumberPage.pageTitle,
+        FirmReferenceNumberPage.pageUrl
+      ) shouldBe true
 
       When("the user enters the Firm reference number and clicks on save and continue on 'Firm reference number' page")
       FirmReferenceNumberPage.enterText("value", "7777777")
       FirmReferenceNumberPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Registered address correspondence' page")
-      RegisteredAddressCorrespondencePage.verifyPageTitle(RegisteredAddressCorrespondencePage.pageTitle, RegisteredAddressCorrespondencePage.pageUrl) shouldBe true
+      RegisteredAddressCorrespondencePage.verifyPageTitle(
+        RegisteredAddressCorrespondencePage.pageTitle,
+        RegisteredAddressCorrespondencePage.pageUrl
+      ) shouldBe true
 
       Then(
         "the user clicks on the No radio button and then clicks on save and continue button on 'registered-address-correspondence' page"
@@ -278,14 +327,20 @@ class AddOrganizationDetailsSpec extends BaseSpec {
       ConfirmCorrespondenceAddressPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Organisation telephone number' page")
-      OrganisationTelephoneNumberPage.verifyPageTitle(OrganisationTelephoneNumberPage.pageTitle, OrganisationTelephoneNumberPage.pageUrl) shouldBe true
+      OrganisationTelephoneNumberPage.verifyPageTitle(
+        OrganisationTelephoneNumberPage.pageTitle,
+        OrganisationTelephoneNumberPage.pageUrl
+      ) shouldBe true
 
       Then("the user enters the telephone number and clicks on save and continue on 'add-another-address' page")
       OrganisationTelephoneNumberPage.enterText("value", "07777 777 777")
       OrganisationTelephoneNumberPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Organisation details check your answers' page")
-      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(OrganisationDetailsCheckYourAnswersPage.pageTitle, OrganisationDetailsCheckYourAnswersPage.pageUrl) shouldBe true
+      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
+        OrganisationDetailsCheckYourAnswersPage.pageTitle,
+        OrganisationDetailsCheckYourAnswersPage.pageUrl
+      ) shouldBe true
 
       When("the user clicks on change link for Registered to manage ISAs")
       OrganisationDetailsCheckYourAnswersPage.clickOnLinks("change-registered-isa-manager")
@@ -301,14 +356,22 @@ class AddOrganizationDetailsSpec extends BaseSpec {
       ChangeRegisteredIsaManagerPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Organisation Z reference number' page")
-      OrganisationZReferenceNumberPage.verifyPageTitle(OrganisationZReferenceNumberPage.pageTitle, OrganisationZReferenceNumberPage.pageUrl) shouldBe true
+      OrganisationZReferenceNumberPage.verifyPageTitle(
+        OrganisationZReferenceNumberPage.pageTitle,
+        OrganisationZReferenceNumberPage.pageUrl
+      ) shouldBe true
 
-      Then("the user enters the Z reference value and clicks on save and continue on 'Organisation Z reference number' page")
+      Then(
+        "the user enters the Z reference value and clicks on save and continue on 'Organisation Z reference number' page"
+      )
       OrganisationZReferenceNumberPage.enterText("value", "Z1234")
       OrganisationZReferenceNumberPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Organisation details check your answers' page")
-      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(OrganisationDetailsCheckYourAnswersPage.pageTitle, OrganisationDetailsCheckYourAnswersPage.pageUrl) shouldBe true
+      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
+        OrganisationDetailsCheckYourAnswersPage.pageTitle,
+        OrganisationDetailsCheckYourAnswersPage.pageUrl
+      ) shouldBe true
 
       When("the user clicks on change link for Different trading name")
       OrganisationDetailsCheckYourAnswersPage.clickOnLinks("change-trading-using-different-name")
@@ -324,15 +387,20 @@ class AddOrganizationDetailsSpec extends BaseSpec {
       ChangeTradingUsingDifferentNamePage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Organisation trading name' page")
-      OrganisationTradingNamePage.verifyPageTitle(OrganisationTradingNamePage.pageTitle, OrganisationTradingNamePage.pageUrl) shouldBe true
+      OrganisationTradingNamePage.verifyPageTitle(
+        OrganisationTradingNamePage.pageTitle,
+        OrganisationTradingNamePage.pageUrl
+      ) shouldBe true
 
       Then("the user enters the trading name and clicks on save and continue on 'Organisation trading name' page")
       OrganisationTradingNamePage.enterText("value", "Trading name")
       OrganisationTradingNamePage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Organisation details check your answers' page")
-      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(OrganisationDetailsCheckYourAnswersPage.pageTitle, OrganisationDetailsCheckYourAnswersPage.pageUrl) shouldBe true
-
+      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
+        OrganisationDetailsCheckYourAnswersPage.pageTitle,
+        OrganisationDetailsCheckYourAnswersPage.pageUrl
+      ) shouldBe true
 
       When("the user clicks on change link for Registered address for correspondence")
       OrganisationDetailsCheckYourAnswersPage.clickOnLinks("change-registered-address-correspondence")
@@ -348,8 +416,10 @@ class AddOrganizationDetailsSpec extends BaseSpec {
       ChangeRegisteredAddressCorrespondencePage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'Organisation details check your answers' page")
-      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(OrganisationDetailsCheckYourAnswersPage.pageTitle, OrganisationDetailsCheckYourAnswersPage.pageUrl) shouldBe true
-
+      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
+        OrganisationDetailsCheckYourAnswersPage.pageTitle,
+        OrganisationDetailsCheckYourAnswersPage.pageUrl
+      ) shouldBe true
 
     }
 
