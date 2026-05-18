@@ -16,8 +16,8 @@
 
 package uk.gov.hmrc.ui.disa.pages
 
-object OrganisationTradingNamePage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/trading-name"
+object ChangeTradingUsingDifferentNamePage extends BasePage {
+  val pageUrl: String   = s"$baseUrl/change-trading-using-different-name"
   val pageTitle: String =
-    "What is your organisation’s trading name? - Organisation details - Manage ISAs - GOV.UK"
+    "Does your organisation trade using a different name? - Organisation details - Manage ISAs - GOV.UK"
 }

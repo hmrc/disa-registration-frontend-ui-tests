@@ -17,13 +17,12 @@
 package uk.gov.hmrc.ui.disa.specs
 
 import uk.gov.hmrc.ui.disa.pages.{AddAnotherAddressForYourOrganisationPage, AuthLoginPage, ChooseAnotherAddressForYourOrganisationPage, ConfirmCorrespondenceAddressPage, EnterYourOrganisationAddressPage, RegisteredAddressCorrespondencePage, TaskListPage}
-import uk.gov.hmrc.ui.disa.specs.tags.WIP
 
 class AddAnotherAddressForYourOrganisationSpec extends BaseSpec {
 
   Feature("Add an organisation") {
 
-    Scenario("1.Verify user can add another address with single result from post code search", WIP) {
+    Scenario("1.Verify user can add another address with single result from post code search") {
 
       Given("the user is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/start")
