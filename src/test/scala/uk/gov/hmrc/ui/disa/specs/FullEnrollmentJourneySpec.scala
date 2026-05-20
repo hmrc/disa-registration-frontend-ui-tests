@@ -17,20 +17,21 @@
 package uk.gov.hmrc.ui.disa.specs
 
 import uk.gov.hmrc.ui.disa.pages.*
+import uk.gov.hmrc.ui.disa.specs.tags.WIP
 
-class AddOrganizationDetailsSpec extends BaseSpec {
+class FullEnrollmentJourneySpec extends BaseSpec {
 
   Feature("Add an organisation") {
 
-    Scenario(
-      "1.Verify user can add organisation details as registered to manage ISAs with HMRC and then edits details"
-    ) {
+    Scenario("1.Verify user can complete enrollment as registered to manage ISAs with HMRC",WIP) {
 
       Given("the user is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/start")
 
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      // Adding organisation details
 
       When("the user navigates to the 'Registered ISA Manager' page")
       AuthLoginPage.navigateTo(RegisteredIsaManagerPage.pageUrl)
@@ -157,68 +158,271 @@ class AddOrganizationDetailsSpec extends BaseSpec {
         OrganisationDetailsCheckYourAnswersPage.pageUrl
       ) shouldBe true
 
-      When("the user clicks on change link for Change Trading name")
-      OrganisationDetailsCheckYourAnswersPage.clickOnLinks("change-trading-name")
+      Then("the user clicks on save and continue on 'Organisation details check your answers' page")
+      OrganisationDetailsCheckYourAnswersPage.clickSaveAndContinue()
 
-      Then("the user is navigated to the 'change-trading-name' page")
-      ChangeOrganisationTradingNamePage.verifyPageTitle(
-        ChangeOrganisationTradingNamePage.pageTitle,
-        ChangeOrganisationTradingNamePage.pageUrl
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      // Adding organisation email
+
+      When("the user navigates to the 'Organisation email address' page")
+      AuthLoginPage.navigateTo(OrganisationEmailAddressPage.pageUrl)
+
+      Then("the user is navigated to the 'Organisation email address' page")
+      OrganisationEmailAddressPage.verifyPageTitle(
+        OrganisationEmailAddressPage.pageTitle,
+        OrganisationEmailAddressPage.pageUrl
       ) shouldBe true
 
-      Then("the user changes the trading name")
-      ChangeOrganisationTradingNamePage.enterText("value", "Changed Trading org")
-      ChangeOrganisationTradingNamePage.clickSaveAndContinue()
+      Then("the user enters the email value and clicks on Save and continue button")
+      OrganisationEmailAddressPage.enterText("value", "codesent@sendcode.com")
+      OrganisationEmailAddressPage.clickSaveAndContinue()
 
-      Then("the user is navigated to the 'Organisation details check your answers' page")
-      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
-        OrganisationDetailsCheckYourAnswersPage.pageTitle,
-        OrganisationDetailsCheckYourAnswersPage.pageUrl
+      Then("the user is navigated to the 'Email code verification' page")
+      OrganisationEmailVerificationCodePage.verifyPageTitle(
+        OrganisationEmailVerificationCodePage.pageTitle,
+        OrganisationEmailVerificationCodePage.pageUrl
       ) shouldBe true
 
-      When("the user clicks on change link for Change FCA number")
-      OrganisationDetailsCheckYourAnswersPage.clickOnLinks("change-firm-reference-number")
+      Then("the user enters the code and clicks on Save and continue button")
+      OrganisationEmailVerificationCodePage.enterText("value", "ABCDEF")
+      OrganisationEmailVerificationCodePage.clickSaveAndContinue()
 
-      Then("the user is navigated to the 'change-firm-reference-number' page")
-      ChangeFirmReferenceNumberPage.verifyPageTitle(
-        ChangeFirmReferenceNumberPage.pageTitle,
-        ChangeFirmReferenceNumberPage.pageUrl
+      Then("the user is navigated to the 'Organisation Email CYA' page")
+      OrganisationEmailCheckYourAnswersPage.verifyPageTitle(
+        OrganisationEmailCheckYourAnswersPage.pageTitle,
+        OrganisationEmailCheckYourAnswersPage.pageUrl
       ) shouldBe true
 
-      Then("the user changes the FRN")
-      ChangeOrganisationTradingNamePage.enterText("value", "9992299")
-      ChangeOrganisationTradingNamePage.clickSaveAndContinue()
+      When("the user clicks on change link for change organisation email address")
+      OrganisationEmailCheckYourAnswersPage.clickOnLinks("change-organisation-email-address")
 
-      Then("the user is navigated to the 'Organisation details check your answers' page")
-      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
-        OrganisationDetailsCheckYourAnswersPage.pageTitle,
-        OrganisationDetailsCheckYourAnswersPage.pageUrl
+      Then("the user is navigated to the 'Change Organisation Email address' page")
+      OrganisationEmailCheckYourAnswersPage.verifyPageTitle(
+        ChangeOrganisationEmailAddressPage.pageTitle,
+        ChangeOrganisationEmailAddressPage.pageUrl
       ) shouldBe true
 
-      When("the user clicks on change link for Change organisation Telephone number")
-      OrganisationDetailsCheckYourAnswersPage.clickOnLinks("change-organisation-telephone-number")
+      Then("the user clicks on Save and continue button")
+      ChangeOrganisationEmailAddressPage.clickSaveAndContinue()
 
-      Then("the user is navigated to the 'change-organisation-telephone-number' page")
-      ChangeOrganisationTelephoneNumberPage.verifyPageTitle(
-        ChangeOrganisationTelephoneNumberPage.pageTitle,
-        ChangeOrganisationTelephoneNumberPage.pageUrl
+      Then("the user is navigated to the 'Organisation Email CYA' page")
+      OrganisationEmailCheckYourAnswersPage.verifyPageTitle(
+        OrganisationEmailCheckYourAnswersPage.pageTitle,
+        OrganisationEmailCheckYourAnswersPage.pageUrl
       ) shouldBe true
 
-      Then("the user changes the organisation telephone number")
-      ChangeOrganisationTelephoneNumberPage.enterText("value", "07777777777")
-      ChangeOrganisationTelephoneNumberPage.clickSaveAndContinue()
+      Then("the user clicks on Confirm and Save button")
+      OrganisationEmailCheckYourAnswersPage.clickConfirmAndSave()
 
-      Then("the user is navigated to the 'Organisation details check your answers' page")
-      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
-        OrganisationDetailsCheckYourAnswersPage.pageTitle,
-        OrganisationDetailsCheckYourAnswersPage.pageUrl
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      // Adding product details
+
+      When("the user navigates to the 'ISA-products' page")
+      AuthLoginPage.navigateTo(ISAProductsPage.pageUrl)
+
+      Then("the 'ISA Products' page title & url should be correct")
+      ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
+
+      When("the user selects ISA products and click on 'save and continue' button")
+      ISAProductsPage.selectISAProductsThenClickContinue()
+
+      Then("the 'Innovative Financial Products' Page title & url should be correct")
+      InnovativeFinancialProductsPage.verifyPageTitle(
+        InnovativeFinancialProductsPage.pageTitle,
+        InnovativeFinancialProductsPage.pageUrl
       ) shouldBe true
 
+      When(
+        "the user selects 'Peer-to-peer loans using a platform with 36H permissions' and click on 'save and continue' button"
+      )
+      InnovativeFinancialProductsPage.selectInnovativeProductsIncludingPlatformWith36HPermissionsThenClickContinue()
+
+      Then("the 'Peer To Peer Loans' page title & url should be correct")
+      PeerToPeerLoansPage.verifyPageTitle(PeerToPeerLoansPage.pageTitle, PeerToPeerLoansPage.pageUrl) shouldBe true
+
+      When("the user enters the platform organization used and click on 'save and continue' button")
+      PeerToPeerLoansPage.enterPlatformNameThenClickContinue()
+
+      Then("the 'FCA Platform Number' page title & url should be correct")
+      FcaPlatformNumberPage.verifyPageTitle(
+        FcaPlatformNumberPage.pageTitle,
+        FcaPlatformNumberPage.pageUrl
+      ) shouldBe true
+
+      When("the user enters the FCA platform number and click on 'save and continue' button")
+      FcaPlatformNumberPage.enterFCAPlatformNumberThenClickContinue()
+
+      Then("the 'ISA Products Check your Answers' page title should & url be correct")
+      IsaProductsCheckYourAnswersPage.verifyPageTitle(
+        IsaProductsCheckYourAnswersPage.pageTitle,
+        IsaProductsCheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on Confirm and Save button")
+      IsaProductsCheckYourAnswersPage.clickConfirmAndSave()
+
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      // Adding Certificates and authority details
+
+      Given("the user navigates 'Eligibility to manage ISAs' page")
+      AuthLoginPage.loginAsAFreshUser("/eligibility-to-manage-isas")
+
+      Then("the 'Eligibility To Manage ISAs' Page title & url should be correct")
+      EligibilityToManageIsasPage.verifyPageTitle(
+        EligibilityToManageIsasPage.pageTitle,
+        EligibilityToManageIsasPage.pageUrl
+      ) shouldBe true
+
+      When("the user click on 'Continue' button")
+      EligibilityToManageIsasPage.clickContinue()
+
+      Then("the 'Certificates Of Authority' Page title & url should be correct")
+      CertificatesOfAuthorityPage.verifyPageTitle(
+        CertificatesOfAuthorityPage.pageTitle,
+        CertificatesOfAuthorityPage.pageUrl
+      ) shouldBe true
+
+      When(
+        "the user selects 'No' and click on 'save and continue' button"
+      )
+      CertificatesOfAuthorityPage.selectNoAndContinue()
+
+      Then("the 'Financial Organisation' Page title & url should be correct")
+      FinancialOrganisationPage.verifyPageTitle(
+        FinancialOrganisationPage.pageTitle,
+        FinancialOrganisationPage.pageUrl
+      ) shouldBe true
+
+      When("the user selects financial organisations and click on 'save and continue' button")
+      FinancialOrganisationPage.selectFinancialOrganizationThenClickSaveAndContinue()
+
+      Then("the 'Certificates Of Authority Check Your Answers' Page title & url should be correct")
+      CertificatesOfAuthorityCheckYourAnswersPage.verifyPageTitle(
+        CertificatesOfAuthorityCheckYourAnswersPage.pageTitle,
+        CertificatesOfAuthorityCheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on Confirm and Save button")
+      CertificatesOfAuthorityCheckYourAnswersPage.clickConfirmAndSave()
+
+   //  Adding Liaison Officers
+
+      When("the user navigates to the 'liaison officer name' page")
+      LiaisonOfficerNamePage.navigateTo(LiaisonOfficerNamePage.pageUrl)
+
+      Then("the user is navigated to the 'liaison-officer-name' page")
+      LiaisonOfficerNamePage.verifyPageTitle(
+        LiaisonOfficerNamePage.pageTitle,
+        LiaisonOfficerNamePage.pageUrl
+      ) shouldBe true
+
+      Then("the user enters the full name and clicks on Save and continue button")
+      LiaisonOfficerNamePage.enterText("value", "Liaison One")
+      LiaisonOfficerNamePage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'liaison-officer-email' page")
+      LiaisonOfficerEmailPage.verifyPageTitle(
+        LiaisonOfficerEmailPage.pageTitle,
+        LiaisonOfficerEmailPage.pageUrl
+      ) shouldBe true
+
+      Then("the user enters the email value and clicks on Save and continue button")
+      LiaisonOfficerEmailPage.enterText("value", "loone@email.com")
+      LiaisonOfficerEmailPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'liaison-officer-phone-number' page")
+      LiaisonOfficerPhoneNumberPage.verifyPageTitle(
+        LiaisonOfficerPhoneNumberPage.pageTitle,
+        LiaisonOfficerPhoneNumberPage.pageUrl
+      ) shouldBe true
+
+      Then("the user enters the phone number and clicks on Save and continue button")
+      LiaisonOfficerPhoneNumberPage.enterText("value", "07733773373")
+      LiaisonOfficerPhoneNumberPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'liaison-officer-communication' page")
+      LiaisonOfficerCommunicationPage.verifyPageTitle(
+        LiaisonOfficerCommunicationPage.pageTitle,
+        LiaisonOfficerCommunicationPage.pageUrl
+      ) shouldBe true
+
+      Then("the user selects all communication modes and clicks on Save and continue button")
+      LiaisonOfficerCommunicationPage.selectCommunicationModes()
+      LiaisonOfficerCommunicationPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'liaison-officer-check-added-liaison-officer' page")
+      CheckAddedLiaisonOfficerPage.verifyPageTitle(
+        CheckAddedLiaisonOfficerPage.pageTitle,
+        CheckAddedLiaisonOfficerPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on Save and continue button on check-added-liaison-officer' page ")
+      CheckAddedLiaisonOfficerPage.clickOnLinks("added-liaison-officers")
+
+      Then("the user is navigated to the 'added-liaison-officer' page")
+      AddedLiaisonOfficersPage.verifyPageTitle(
+        AddedLiaisonOfficersPage.pageTitle,
+        AddedLiaisonOfficersPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on no radio button on 'added-liaison-officer' page ")
+      AddedLiaisonOfficersPage.clickRadioButton("No")
+
+      Then("the user clicks on Save and continue button on 'added-liaison-officer' page ")
+      AddedLiaisonOfficersPage.clickSaveAndContinue()
+
+      // launching check your answer page
+
+      When("the user navigates to the 'Check your answers' page")
+      AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks  change link for ISA products on 'Check your answers' page ")
+      CheckYourAnswersPage.clickOnLinks("change-certificates-of-authority")
+
+      Then("the user is navigated to the 'Change-Certificates' page")
+      ChangeCertificatesOfAuthorityPage.verifyPageTitle(
+        ChangeCertificatesOfAuthorityPage.pageTitle,
+        ChangeCertificatesOfAuthorityPage.pageUrl
+      ) shouldBe true
+
+
+      Then("the user clicks on Save and continue button on 'change-certificates' page ")
+      ChangeCertificatesOfAuthorityPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on Liaison officer change link on 'Check your answers' page ")
+      CheckYourAnswersPage.clickOnLinks("change-liaison-officer-name")
+
+      Then("the user is navigated to the 'liaison-officer-name' page")
+      ChangeLiaisonOfficerNamePage.verifyPageTitle(
+        ChangeLiaisonOfficerNamePage.pageTitle,
+        ChangeLiaisonOfficerNamePage.pageUrl
+      ) shouldBe true
+
+
+      Then("the user clicks on Save and continue button on 'change-liaison-name' page ")
+      ChangeLiaisonOfficerNamePage.clickSaveAndContinue()
+      
     }
 
-    Scenario(
-      "2.Verify user can add organisation details as not registered to manage ISAs with HMRC and edit details from CYA page"
-    ) {
+    Scenario("2.Verify user can add organisation details as not registered to manage ISAs with HMRC and edit details from CYA page") {
 
       Given("the user is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/start")
