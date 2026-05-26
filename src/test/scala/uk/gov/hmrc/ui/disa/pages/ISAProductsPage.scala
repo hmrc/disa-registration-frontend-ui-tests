@@ -24,10 +24,16 @@ object ISAProductsPage extends BasePage {
     "Which ISA products does your organisation offer? - ISA products - Manage ISAs - GOV.UK"
   private val innovativeFinanceCheckBox: By = By.id("value_4")
   private val cashISACheckBox: By           = By.id("value_0")
+  private val cashJuniorISACheckBox: By     = By.id("value_1")
 
   def selectISAProductsThenClickContinue(): Unit = {
     selectCheckbox(innovativeFinanceCheckBox)
     selectCheckbox(cashISACheckBox)
+    clickSaveAndContinue()
+  }
+  def changeISAProductsThenClickContinue(): Unit = {
+    selectCheckbox(innovativeFinanceCheckBox)
+    selectCheckbox(cashJuniorISACheckBox)
     clickSaveAndContinue()
   }
 }

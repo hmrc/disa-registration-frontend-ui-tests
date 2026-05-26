@@ -22,7 +22,7 @@ class ISAManagerRegistrationProductsSpec extends BaseSpec {
 
   Feature("ISA manager Registration") {
 
-    Scenario("Verify ISA Manager registration Journey") {
+    Scenario("Verify ISA Manager registration products Journey and verifying change links") {
       Given("the ISA manager is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/isa-products")
 
@@ -47,7 +47,8 @@ class ISAManagerRegistrationProductsSpec extends BaseSpec {
       PeerToPeerLoansPage.verifyPageTitle(PeerToPeerLoansPage.pageTitle, PeerToPeerLoansPage.pageUrl) shouldBe true
 
       When("the user enters the platform organization used and click on 'save and continue' button")
-      PeerToPeerLoansPage.enterPlatformNameThenClickContinue()
+      PeerToPeerLoansPage.enterText("value", "PlatformName")
+      PeerToPeerLoansPage.clickSaveAndContinue()
 
       Then("the 'FCA Platform Number' page title & url should be correct")
       FcaPlatformNumberPage.verifyPageTitle(
@@ -64,6 +65,110 @@ class ISAManagerRegistrationProductsSpec extends BaseSpec {
         IsaProductsCheckYourAnswersPage.pageUrl
       ) shouldBe true
 
+      When("the user clicks change link for ISA products on 'ISA Products Check your Answers' page ")
+      IsaProductsCheckYourAnswersPage.clickOnLinks("change-isa-products")
+
+      Then("the user is navigated to the 'Change-isa-products' page")
+      ChangeISAProductsPage.verifyPageTitle(
+        ChangeISAProductsPage.pageTitle,
+        ChangeISAProductsPage.pageUrl
+      ) shouldBe true
+
+      When("the user selects ISA products and click on 'save and continue' button")
+      ISAProductsPage.selectISAProductsThenClickContinue()
+
+      Then("the 'ISA Products Check your Answers' page title should & url be correct")
+      IsaProductsCheckYourAnswersPage.verifyPageTitle(
+        IsaProductsCheckYourAnswersPage.pageTitle,
+        IsaProductsCheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user navigates to the 'Check your answers' page")
+      AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks  change link for ISA products on 'Check your answers' page ")
+      CheckYourAnswersPage.clickOnLinks("change-isa-products")
+
+      Then("the user is navigated to the 'Change-isa-products' page")
+      ChangeISAProductsPage.verifyPageTitle(
+        ChangeISAProductsPage.pageTitle,
+        ChangeISAProductsPage.pageUrl
+      ) shouldBe true
+
+      When("the user selects ISA products and click on 'save and continue' button")
+      ISAProductsPage.changeISAProductsThenClickContinue()
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks  change link for ISA products on 'Check your answers' page ")
+      CheckYourAnswersPage.clickOnLinks("change-innovative-financial-products")
+
+      Then("the user is navigated to the 'change-innovative-financial-products' page")
+      ChangeISAProductsPage.verifyPageTitle(
+        ChangeInnovativeFinancialProductsPage.pageTitle,
+        ChangeInnovativeFinancialProductsPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on save and continue on 'change-innovative-financial-products' page")
+      ChangeInnovativeFinancialProductsPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks  change link for platform name on 'Check your answers' page ")
+      CheckYourAnswersPage.clickOnLinks("change-peer-to-peer-loans")
+
+      Then("the user is navigated to the 'change-peer-to-peer-loans' page")
+      ChangePeerToPeerLoansPage.verifyPageTitle(
+        ChangePeerToPeerLoansPage.pageTitle,
+        ChangePeerToPeerLoansPage.pageUrl
+      ) shouldBe true
+
+      Then(
+        "the user changes the platform number and clicks on save and continue on 'change-peer-to-peer-loans' page"
+      )
+      ChangePeerToPeerLoansPage.enterText("value", "PlatformChanged")
+      ChangePeerToPeerLoansPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks change link for FCA platform number on 'Check your answers' page ")
+      CheckYourAnswersPage.clickOnLinks("change-fca-platform-number")
+
+      Then("the user is navigated to the 'change-fca-platform-number' page")
+      ChangeFcaPlatformNumberPage.verifyPageTitle(
+        ChangeFcaPlatformNumberPage.pageTitle,
+        ChangeFcaPlatformNumberPage.pageUrl
+      ) shouldBe true
+
+      Then(
+        "the user changes the platform number and clicks on save and continue on 'change-peer-to-peer-loans' page"
+      )
+      ChangeFcaPlatformNumberPage.enterText("value", "3333333")
+      ChangeFcaPlatformNumberPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
     }
 
     Scenario("Verify ISA Manager registration Journey without peer to peer loans using a platform") {

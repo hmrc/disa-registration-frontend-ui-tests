@@ -214,6 +214,72 @@ class AddOrganisationDetailsSpec extends BaseSpec {
         OrganisationDetailsCheckYourAnswersPage.pageUrl
       ) shouldBe true
 
+      When("the user navigates to the 'Check your answers' page")
+      AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on change link for Change Trading name")
+      CheckYourAnswersPage.clickOnLinks("change-trading-name")
+
+      Then("the user is navigated to the 'change-trading-name' page")
+      ChangeOrganisationTradingNamePage.verifyPageTitle(
+        ChangeOrganisationTradingNamePage.pageTitle,
+        ChangeOrganisationTradingNamePage.pageUrl
+      ) shouldBe true
+
+      Then("the user changes the trading name")
+      ChangeOrganisationTradingNamePage.enterText("value", "Trading org")
+      ChangeOrganisationTradingNamePage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on change link for Change FCA number")
+      CheckYourAnswersPage.clickOnLinks("change-firm-reference-number")
+
+      Then("the user is navigated to the 'change-firm-reference-number' page")
+      ChangeFirmReferenceNumberPage.verifyPageTitle(
+        ChangeFirmReferenceNumberPage.pageTitle,
+        ChangeFirmReferenceNumberPage.pageUrl
+      ) shouldBe true
+
+      Then("the user changes the FRN")
+      ChangeOrganisationTradingNamePage.enterText("value", "9992299")
+      ChangeOrganisationTradingNamePage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on change link for Change organisation Telephone number")
+      CheckYourAnswersPage.clickOnLinks("change-organisation-telephone-number")
+
+      Then("the user is navigated to the 'change-organisation-telephone-number' page")
+      ChangeOrganisationTelephoneNumberPage.verifyPageTitle(
+        ChangeOrganisationTelephoneNumberPage.pageTitle,
+        ChangeOrganisationTelephoneNumberPage.pageUrl
+      ) shouldBe true
+
+      Then("the user changes the organisation telephone number")
+      ChangeOrganisationTelephoneNumberPage.enterText("value", "07777777777")
+      ChangeOrganisationTelephoneNumberPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
     }
 
     Scenario(

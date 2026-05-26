@@ -16,10 +16,17 @@
 
 package uk.gov.hmrc.ui.disa.pages
 
-object ChangeLiaisonOfficerEmailPage extends BasePage {
-  val pageUrl: String      = s"$baseUrl/change-liaison-officer-email"
-  val pageTitle: String    = "What is the email address of Changed user? - Liaison officers - Manage ISAs - GOV.UK"
-  val pageTitleTwo: String =
-    "What is the email address of Liaison One? - Liaison officers - Manage ISAs - GOV.UK"
+import org.openqa.selenium.By
+import uk.gov.hmrc.ui.disa.pages.InnovativeFinancialProductsPage.clickSaveAndContinue
 
+object ChangePeerToPeerLoansPage extends BasePage {
+  val pageUrl: String           = s"$baseUrl/change-peer-to-peer-loans"
+  val pageTitle: String         =
+    "Which platform does your organisation use to offer peer-to-peer loans? - ISA products - Manage ISAs - GOV.UK"
+  val platformNameTextField: By = By.id("value")
+
+  def enterPlatformNameThenClickContinue(): Unit = {
+    sendKeys(platformNameTextField, "PlatformName")
+    clickSaveAndContinue()
+  }
 }

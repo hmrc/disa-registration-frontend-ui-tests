@@ -1,5 +1,5 @@
 /*
- * Copyright 2026 HM Revenue & Customs
+ * Copyright 2024 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,13 +16,8 @@
 
 package uk.gov.hmrc.ui.disa.pages
 
-import uk.gov.hmrc.ui.disa.pages.SignOutPage.baseUrl
-
-object ChangeSignatoryJobTitlePage extends BasePage {
-  val pageUrl: String = s"$baseUrl/change-signatory-job-title"
-
-  val pageTitle: String    =
-    "What is the job title of Changed user within the organisation? - Signatories - Manage ISAs - GOV.UK"
-  val pageTitleTwo: String =
-    "What is the job title of Signatory One within the organisation? - Signatories - Manage ISAs - GOV.UK"
+object ChangeAddedSignatoriesPage extends BasePage {
+  val pageUrl: String      = s"$baseUrl/change-added-signatories"
+  val pageTitle: String    = "You have added a signatory - Signatories - Manage ISAs - GOV.UK"
+  val pageTitleTwo: String = "You have added 2 signatories - Signatories - Manage ISAs - GOV.UK"
 }

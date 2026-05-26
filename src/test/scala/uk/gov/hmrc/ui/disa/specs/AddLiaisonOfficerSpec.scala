@@ -116,6 +116,53 @@ class AddLiaisonOfficerSpec extends BaseSpec {
         CheckAddedLiaisonOfficerPage.pageUrl
       ) shouldBe true
 
+      When("the user navigates to the 'Check your answers' page")
+      AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on change link for name value ")
+      CheckYourAnswersPage.clickOnLinks("change-liaison-officer-name")
+
+      Then("the user is navigated to the 'change-liaison-officer-name' page")
+      ChangeLiaisonOfficerNamePage.verifyPageTitle(
+        ChangeLiaisonOfficerNamePage.pageTitle,
+        ChangeLiaisonOfficerNamePage.pageUrl
+      ) shouldBe true
+
+      Then("the user changes the name and clicks on Save and continue button")
+      ChangeLiaisonOfficerNamePage.enterText("value", "Liaison One")
+      ChangeLiaisonOfficerNamePage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on change link for email value ")
+      CheckYourAnswersPage.clickOnLinks("change-liaison-officer-email")
+
+      Then("the user is navigated to the 'liaison-officer-email' page")
+      ChangeLiaisonOfficerEmailPage.verifyPageTitle(
+        ChangeLiaisonOfficerEmailPage.pageTitleTwo,
+        ChangeLiaisonOfficerEmailPage.pageUrl
+      ) shouldBe true
+
+      Then("the user changes the email value  and clicks on Save and continue button")
+      ChangeLiaisonOfficerEmailPage.enterText("value", "loone@email.com")
+      ChangeLiaisonOfficerEmailPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
     }
 
     Scenario("2.Verify user can add more than one Liaison Officers and then remove one") {
@@ -175,7 +222,7 @@ class AddLiaisonOfficerSpec extends BaseSpec {
       ) shouldBe true
 
       Then("the user clicks on Save and continue button on check-added-liaison-officer' page ")
-      CheckAddedLiaisonOfficerPage.clickSaveAndContinue()
+      CheckAddedLiaisonOfficerPage.clickOnLinks("added-liaison-officers")
 
       Then("the user is navigated to the 'added-liaison-officer' page")
       AddedLiaisonOfficersPage.verifyPageTitle(
@@ -236,7 +283,7 @@ class AddLiaisonOfficerSpec extends BaseSpec {
       ) shouldBe true
 
       Then("the user clicks on Save and continue button on check-added-liaison-officer' page ")
-      CheckAddedLiaisonOfficerPage.clickSaveAndContinue()
+      CheckAddedLiaisonOfficerPage.clickOnLinks("added-liaison-officers")
 
       Then("the user is navigated to the 'added-liaison-officer' page")
       AddedLiaisonOfficersPage.verifyPageTitle(
@@ -284,6 +331,95 @@ class AddLiaisonOfficerSpec extends BaseSpec {
       AddedLiaisonOfficersPage.verifyPageTitle(
         AddedLiaisonOfficersPage.pageTitle,
         AddedLiaisonOfficersPage.pageUrl
+      ) shouldBe true
+
+      When("the user navigates to the 'Check your answers' page")
+      AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on change link for Add or remove another liaison officer")
+      CheckYourAnswersPage.clickOnLinks("change-added-liaison-officers")
+
+      Then("the user is navigated to the 'change-added-liaison-officers' page")
+      ChangeAddedLiaisonOfficersPage.verifyPageTitle(
+        ChangeAddedLiaisonOfficersPage.pageTitle,
+        ChangeAddedLiaisonOfficersPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on yes radio button on 'added-liaison-officer' page ")
+      AddedLiaisonOfficersPage.clickRadioButton("Yes")
+
+      Then("the user clicks on Save and continue button on 'added-liaison-officer' page ")
+      AddedLiaisonOfficersPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'liaison-officer-name' page")
+      LiaisonOfficerNamePage.verifyPageTitle(
+        LiaisonOfficerNamePage.pageTitle,
+        LiaisonOfficerNamePage.pageUrl
+      ) shouldBe true
+
+      Then("the user enters the full name and clicks on Save and continue button")
+      LiaisonOfficerNamePage.enterText("value", "Liaison One")
+      LiaisonOfficerNamePage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'liaison-officer-email' page")
+      LiaisonOfficerEmailPage.verifyPageTitle(
+        LiaisonOfficerEmailPage.pageTitle,
+        LiaisonOfficerEmailPage.pageUrl
+      ) shouldBe true
+
+      Then("the user enters the email value and clicks on Save and continue button")
+      LiaisonOfficerEmailPage.enterText("value", "lotwo@email.com")
+      LiaisonOfficerEmailPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'liaison-officer-phone-number' page")
+      LiaisonOfficerPhoneNumberPage.verifyPageTitle(
+        LiaisonOfficerPhoneNumberPage.pageTitle,
+        LiaisonOfficerPhoneNumberPage.pageUrl
+      ) shouldBe true
+
+      Then("the user enters the phone number and clicks on Save and continue button")
+      LiaisonOfficerPhoneNumberPage.enterText("value", "07733773372")
+      LiaisonOfficerPhoneNumberPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'liaison-officer-communication' page")
+      LiaisonOfficerCommunicationPage.verifyPageTitle(
+        LiaisonOfficerCommunicationPage.pageTitle,
+        LiaisonOfficerCommunicationPage.pageUrl
+      ) shouldBe true
+
+      Then("the user selects all communication modes and clicks on Save and continue button")
+      LiaisonOfficerCommunicationPage.selectCommunicationModes()
+      LiaisonOfficerCommunicationPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'liaison-officer-check-added-liaison-officer' page")
+      CheckAddedLiaisonOfficerPage.verifyPageTitle(
+        CheckAddedLiaisonOfficerPage.pageTitle,
+        CheckAddedLiaisonOfficerPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on Save and continue button on check-added-liaison-officer' page ")
+      CheckAddedLiaisonOfficerPage.clickOnLinks("added-liaison-officers")
+
+      Then("the user is navigated to the 'added-liaison-officer' page")
+      AddedLiaisonOfficersPage.verifyPageTitle(
+        AddedLiaisonOfficersPage.pageTitleTwo,
+        AddedLiaisonOfficersPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on No radio button on 'added-liaison-officer' page ")
+      AddedLiaisonOfficersPage.clickRadioButton("No")
+      AddedLiaisonOfficersPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
       ) shouldBe true
 
     }
