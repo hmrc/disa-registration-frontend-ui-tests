@@ -22,7 +22,9 @@ class ISAManagerEligibilitySpec extends BaseSpec {
 
   Feature("ISA manager eligibility check") {
 
-    Scenario("Verify ISA Manager eligibility Journey when they have certificate of authority") {
+    Scenario(
+      "Verify ISA Manager eligibility Journey when they have certificate of authority and checking change links features"
+    ) {
       Given("the ISA manager is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/eligibility-to-manage-isas")
 
@@ -57,6 +59,73 @@ class ISAManagerEligibilitySpec extends BaseSpec {
         CertificatesOfAuthorityCheckYourAnswersPage.pageTitle,
         CertificatesOfAuthorityCheckYourAnswersPage.pageUrl
       ) shouldBe true
+
+      When(
+        "the user clicks  change link for certificate of authority on 'Certificates Of Authority Check Your Answers' page "
+      )
+      CertificatesOfAuthorityCheckYourAnswersPage.clickOnLinks("change-certificates-of-authority")
+
+      Then("the user is navigated to the 'Change-Certificates' page")
+      ChangeCertificatesOfAuthorityPage.verifyPageTitle(
+        ChangeCertificatesOfAuthorityPage.pageTitle,
+        ChangeCertificatesOfAuthorityPage.pageUrl
+      ) shouldBe true
+
+      When(
+        "the user selects 'No' and click on 'save and continue' button"
+      )
+      ChangeCertificatesOfAuthorityPage.selectNoAndContinue()
+
+      Then("the 'Financial Organisation' Page title & url should be correct")
+      FinancialOrganisationPage.verifyPageTitle(
+        FinancialOrganisationPage.pageTitle,
+        FinancialOrganisationPage.pageUrl
+      ) shouldBe true
+
+      When("the user selects financial organisations and click on 'save and continue' button")
+      FinancialOrganisationPage.selectFinancialOrganizationThenClickSaveAndContinue()
+
+      Then("the 'Certificates Of Authority Check Your Answers' Page title should be correct")
+      CertificatesOfAuthorityCheckYourAnswersPage.verifyPageTitle(
+        CertificatesOfAuthorityCheckYourAnswersPage.pageTitle,
+        CertificatesOfAuthorityCheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user navigates to the 'Check your answers' page")
+      AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks  change link for certificate of authority on 'Check your answers' page ")
+      CheckYourAnswersPage.clickOnLinks("change-certificates-of-authority")
+
+      Then("the user is navigated to the 'Change-Certificates' page")
+      ChangeCertificatesOfAuthorityPage.verifyPageTitle(
+        ChangeCertificatesOfAuthorityPage.pageTitle,
+        ChangeCertificatesOfAuthorityPage.pageUrl
+      ) shouldBe true
+
+      When(
+        "the user selects 'yes' and click on 'save and continue' button"
+      )
+      ChangeCertificatesOfAuthorityPage.selectYesAndContinue()
+
+      Then("the 'FCA Articles' Page title & url should be correct")
+      FcaArticlesPage.verifyPageTitle(FcaArticlesPage.pageTitle, FcaArticlesPage.pageUrl) shouldBe true
+
+      When("the user selects FCA articles and click on 'save and continue' button")
+      FcaArticlesPage.selectFACArticlesThenClickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
     }
 
     Scenario("Verify ISA Manager eligibility Journey when they don't have certificate of authority") {

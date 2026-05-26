@@ -94,6 +94,53 @@ class AddSignatoryScreenSpec extends BaseSpec {
         CheckAddedSignatoryPage.pageUrl
       ) shouldBe true
 
+      When("the user navigates to the 'Check your answers' page")
+      AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on change link for name value ")
+      CheckYourAnswersPage.clickOnLinks("change-signatory-name")
+
+      Then("the user is navigated to the 'change-signatory-name' page")
+      ChangeSignatoryNamePage.verifyPageTitle(
+        ChangeSignatoryNamePage.pageTitle,
+        ChangeSignatoryNamePage.pageUrl
+      ) shouldBe true
+
+      When("the user changes the name and clicks on Save and continue button")
+      ChangeSignatoryNamePage.enterText("value", "Signatory One")
+      ChangeSignatoryNamePage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on change link for Job Title value ")
+      CheckYourAnswersPage.clickOnLinks("change-signatory-job-title")
+
+      Then("the user is navigated to the 'change-signatory-Job Title' page")
+      ChangeSignatoryJobTitlePage.verifyPageTitle(
+        ChangeSignatoryJobTitlePage.pageTitleTwo,
+        ChangeSignatoryJobTitlePage.pageUrl
+      ) shouldBe true
+
+      When("the user changes the Job Title value  and clicks on Save and continue button")
+      ChangeSignatoryJobTitlePage.enterText("value", "QA")
+      ChangeSignatoryJobTitlePage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
     }
 
     Scenario("Verify user can access multiple signatories screen and then remove one") {
@@ -131,7 +178,7 @@ class AddSignatoryScreenSpec extends BaseSpec {
       ) shouldBe true
 
       When("the user clicks on Save and continue button on check-added-signatory' page ")
-      CheckAddedSignatoryPage.clickSaveAndContinue()
+      CheckAddedSignatoryPage.clickOnLinks("added-signatories")
 
       Then("the user is navigated to the 'added-signatory' page")
       AddedSignatoriesPage.verifyPageTitle(AddedSignatoriesPage.pageTitle, AddedSignatoriesPage.pageUrl) shouldBe true
@@ -166,7 +213,7 @@ class AddSignatoryScreenSpec extends BaseSpec {
       ) shouldBe true
 
       Then("the user clicks on Save and continue button on check-added-signatory' page ")
-      CheckAddedSignatoryPage.clickSaveAndContinue()
+      CheckAddedSignatoryPage.clickOnLinks("added-signatories")
 
       Then("the user is navigated to the 'added-signatory' page")
       AddedSignatoriesPage.verifyPageTitle(
@@ -218,6 +265,70 @@ class AddSignatoryScreenSpec extends BaseSpec {
 
       Then("the user is navigated to the 'Task-list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      When("the user navigates to the 'Check your answers' page")
+      AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on change link for Add or remove another signatory")
+      CheckYourAnswersPage.clickOnLinks("change-added-signatories")
+
+      Then("the user is navigated to the 'change-added-signatories' page")
+      ChangeAddedSignatoriesPage.verifyPageTitle(
+        ChangeAddedSignatoriesPage.pageTitle,
+        ChangeAddedSignatoriesPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on Yes radio button on 'added-signatory' page ")
+      AddedSignatoriesPage.clickRadioButton("Yes")
+      AddedSignatoriesPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'signatory-name' page")
+      SignatoryNamePage.verifyPageTitle(SignatoryNamePage.pageTitle, SignatoryNamePage.pageUrl) shouldBe true
+
+      Then("the user enters the full name and clicks on Save and continue button")
+      SignatoryNamePage.enterText("value", "Signatory One")
+      SignatoryNamePage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'signatory-job-title' page")
+      SignatoryJobTitlePage.verifyPageTitle(
+        SignatoryJobTitlePage.pageTitle,
+        SignatoryJobTitlePage.pageUrl
+      ) shouldBe true
+
+      When("the user enters the JobTitle value and clicks on Save and continue button")
+      SignatoryJobTitlePage.enterText("value", "QA")
+      SignatoryJobTitlePage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'check-added-signatory' page")
+      CheckAddedSignatoryPage.verifyPageTitle(
+        CheckAddedSignatoryPage.pageTitle,
+        CheckAddedSignatoryPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on Save and continue button on check-added-signatory' page ")
+      CheckAddedSignatoryPage.clickOnLinks("added-signatories")
+
+      Then("the user is navigated to the 'added-signatory' page")
+      AddedSignatoriesPage.verifyPageTitle(
+        AddedSignatoriesPage.pageTitleTwo,
+        AddedSignatoriesPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on No radio button on 'added-signatory' page ")
+      AddedSignatoriesPage.clickRadioButton("No")
+      AddedSignatoriesPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
 
     }
   }

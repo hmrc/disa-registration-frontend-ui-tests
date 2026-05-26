@@ -27,4 +27,5 @@ object ChangeConnectedThirdPartiesPage extends BasePage {
 
   def unselectSecondOrg(): Unit =
     selectCheckbox(secondThirdPartyOrgCheckBox)
+
 }

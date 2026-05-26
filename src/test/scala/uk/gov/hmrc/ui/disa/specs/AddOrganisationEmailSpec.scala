@@ -22,7 +22,7 @@ class AddOrganisationEmailSpec extends BaseSpec {
 
   Feature("Add an organisation") {
 
-    Scenario("1.Verify user can add a organisation") {
+    Scenario("1.Verify user can add email information for an organisation") {
 
       Given("the user is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/start")
@@ -84,6 +84,34 @@ class AddOrganisationEmailSpec extends BaseSpec {
 
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      When("the user navigates to the 'Check your answers' page")
+      AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on change link for change organisation email address")
+      OrganisationEmailCheckYourAnswersPage.clickOnLinks("change-organisation-email-address")
+
+      Then("the user is navigated to the 'Change Organisation Email address' page")
+      OrganisationEmailCheckYourAnswersPage.verifyPageTitle(
+        ChangeOrganisationEmailAddressPage.pageTitle,
+        ChangeOrganisationEmailAddressPage.pageUrl
+      ) shouldBe true
+
+      Then("the user clicks on Save and continue button")
+      ChangeOrganisationEmailAddressPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+        CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
     }
 
   }

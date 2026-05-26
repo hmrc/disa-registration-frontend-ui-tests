@@ -16,10 +16,18 @@
 
 package uk.gov.hmrc.ui.disa.pages
 
-object ChangeLiaisonOfficerEmailPage extends BasePage {
-  val pageUrl: String      = s"$baseUrl/change-liaison-officer-email"
-  val pageTitle: String    = "What is the email address of Changed user? - Liaison officers - Manage ISAs - GOV.UK"
-  val pageTitleTwo: String =
-    "What is the email address of Liaison One? - Liaison officers - Manage ISAs - GOV.UK"
+import org.openqa.selenium.By
 
+object ChangeISAProductsPage extends BasePage {
+  val pageUrl: String                       = s"$baseUrl/change-isa-products"
+  val pageTitle: String                     =
+    "Which ISA products does your organisation offer? - ISA products - Manage ISAs - GOV.UK"
+  private val innovativeFinanceCheckBox: By = By.id("value_4")
+  private val cashISACheckBox: By           = By.id("value_0")
+
+  def selectISAProductsThenClickContinue(): Unit = {
+    selectCheckbox(innovativeFinanceCheckBox)
+    selectCheckbox(cashISACheckBox)
+    clickSaveAndContinue()
+  }
 }
