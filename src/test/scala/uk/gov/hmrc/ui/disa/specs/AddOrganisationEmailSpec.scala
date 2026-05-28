@@ -82,35 +82,41 @@ class AddOrganisationEmailSpec extends BaseSpec {
       Then("the user clicks on Confirm and Save button")
       OrganisationEmailCheckYourAnswersPage.clickConfirmAndSave()
 
-      Then("the user is navigated to the 'Task list' page")
+      Then("the user is navigated to the 'Manage ISAs' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      When("the user navigates to the 'Check your answers' page")
-      AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
+//      When("the user navigates to the 'Check your answers' page")
+//      AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
+//
+//      Then("the user is navigated to the 'Check your answers' page")
+//      CheckYourAnswersPage.verifyPageTitle(
+//        CheckYourAnswersPage.pageTitle,
+//        CheckYourAnswersPage.pageUrl
+//      ) shouldBe true
 
-      Then("the user is navigated to the 'Check your answers' page")
-      CheckYourAnswersPage.verifyPageTitle(
-        CheckYourAnswersPage.pageTitle,
-        CheckYourAnswersPage.pageUrl
-      ) shouldBe true
+//      When("the user clicks on change link for change organisation email address")
+//      OrganisationEmailCheckYourAnswersPage.clickOnLinks("change-organisation-email-address")
 
       When("the user clicks on change link for change organisation email address")
-      OrganisationEmailCheckYourAnswersPage.clickOnLinks("change-organisation-email-address")
+      OrganisationEmailCheckYourAnswersPage.clickOnByPartialLinkText("Change organisation email")
 
-      Then("the user is navigated to the 'Change Organisation Email address' page")
+      Then("the user is navigated to the 'Check your verified organisation email' page")
       OrganisationEmailCheckYourAnswersPage.verifyPageTitle(
-        ChangeOrganisationEmailAddressPage.pageTitle,
-        ChangeOrganisationEmailAddressPage.pageUrl
+        OrganisationEmailCheckYourAnswersPage.pageTitle,
+        OrganisationEmailCheckYourAnswersPage.pageUrl
       ) shouldBe true
 
-      Then("the user clicks on Save and continue button")
-      ChangeOrganisationEmailAddressPage.clickSaveAndContinue()
+      Then("the user clicks on Confirm and save button")
+      ChangeOrganisationEmailAddressPage.clickConfirmAndSave()
 
-      Then("the user is navigated to the 'Check your answers' page")
-      CheckYourAnswersPage.verifyPageTitle(
-        CheckYourAnswersPage.pageTitle,
-        CheckYourAnswersPage.pageUrl
-      ) shouldBe true
+//      Then("the user is navigated to the 'Check your answers' page")
+//      CheckYourAnswersPage.verifyPageTitle(
+//        CheckYourAnswersPage.pageTitle,
+//        CheckYourAnswersPage.pageUrl
+//      ) shouldBe true
+
+      Then("the user clicks on is navigated to the 'Manage ISAs' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
     }
 
