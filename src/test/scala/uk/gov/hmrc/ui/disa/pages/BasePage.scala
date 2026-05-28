@@ -39,6 +39,8 @@ trait BasePage extends Matchers with PageObject {
   val signOutButton: By                      = By.xpath("//a[contains(text(),'Sign out')]")
   val pageHeader: By                         = By.xpath("//h1")
   val confirmAndSaveButton: By               = By.xpath("//button[contains(text(),'Confirm and save')]")
+  val confirmAndSaveButtonForOrgDetails: By  =
+    By.cssSelector("a.govuk-button[href='/obligations/enrolment/isa/task-list']")
 
   def verifyPageUrl(): Boolean =
     getCurrentUrl == pageUrl
@@ -83,10 +85,8 @@ trait BasePage extends Matchers with PageObject {
   def enterText(id: String, textToEnter: String): Unit =
     sendKeys(By.id(id), textToEnter)
 
-  def clickOnByPartialLinkText(partialLinkText: String): Unit = {
-    verifyPageLoaded()
+  def clickOnByPartialLinkText(partialLinkText: String): Unit =
     click(By.partialLinkText(partialLinkText))
-  }
 
   def clickOnLinks(button: String): Unit = {
     val locator = By.xpath(s"//*[contains(@href, '$button')]")
@@ -107,6 +107,9 @@ trait BasePage extends Matchers with PageObject {
 
   def clickConfirmAndSave(): Unit =
     click(confirmAndSaveButton)
+
+  def clickConfirmAndSaveForCheckOrgDetails(): Unit =
+    click(confirmAndSaveButtonForOrgDetails)
 
   def clickContinue(): Unit =
     click(continueButton)
