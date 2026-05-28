@@ -20,7 +20,7 @@ import org.openqa.selenium.By
 
 object TaskListPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/task-list"
-  val pageTitle: String = "Task List - Manage ISAs - GOV.UK"
+  val pageTitle: String = "Manage ISAs - Manage ISAs - GOV.UK"
 
   def clickSignatories(): Unit =
     click(By.linkText("Signatories"))
