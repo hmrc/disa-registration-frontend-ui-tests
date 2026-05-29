@@ -42,9 +42,8 @@ trait BasePage extends Matchers with PageObject {
   val confirmAndSaveButtonForOrgDetails: By  =
     By.cssSelector("a.govuk-button[href='/obligations/enrolment/isa/task-list']")
 
-  def taskStatusLocator(taskName: String): By = {
+  def taskStatusLocator(taskName: String): By =
     By.xpath(s"//li[.//a[normalize-space(text())='$taskName']]//div[contains(@class, 'govuk-task-list__status')]")
-  }
 
   def verifyPageUrl(): Boolean =
     getCurrentUrl == pageUrl
@@ -73,7 +72,7 @@ trait BasePage extends Matchers with PageObject {
 
   def verifyTaskStatus(taskName: String, expectedStatus: String): Unit = {
     val actualStatus = getText(taskStatusLocator(taskName))
-    actualStatus should include (expectedStatus)
+    actualStatus should include(expectedStatus)
   }
 
   private def fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)

@@ -32,12 +32,14 @@ class AddOrganisationEmailSpec extends BaseSpec {
 
       /* we need to put steps to add org details when navigation is available. */
 
-      When("the 'Add organisation email' status is 'Not yet started' the user navigates to the 'Organisation email address' page")
-      TaskListPage.verifyTaskStatus("Add organisation email" ,"Not yet started")
-      AuthLoginPage.navigateTo(OrganisationEmailAddressPage.pageUrl)
+      When(
+        "the 'Add organisation email' status is 'Not yet started' the user navigates to the 'Organisation email address' page"
+      )
+      TaskListPage.verifyTaskStatus("Add organisation email", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("Add organisation email")
 
-      When("the user navigates to the 'Organisation email address' page")
-      AuthLoginPage.navigateTo(OrganisationEmailAddressPage.pageUrl)
+//      When("the user navigates to the 'Organisation email address' page")
+//      AuthLoginPage.navigateTo(OrganisationEmailAddressPage.pageUrl)
 
       Then("the user is navigated to the 'Organisation email address' page")
       OrganisationEmailAddressPage.verifyPageTitle(
@@ -123,7 +125,7 @@ class AddOrganisationEmailSpec extends BaseSpec {
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
       And("the 'Change organisation email' status is 'Verified'")
-      TaskListPage.verifyTaskStatus("Change organisation email" ,"Verified")
+      TaskListPage.verifyTaskStatus("Change organisation email", "Verified")
 
     }
 

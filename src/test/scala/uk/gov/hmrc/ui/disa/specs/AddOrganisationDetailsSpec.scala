@@ -35,8 +35,8 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       When(
         "the 'Add organisation information' status is 'Not yet started' the user navigates to the 'Add organisation information' page"
       )
-      TaskListPage.verifyTaskStatus("Add organisation information" ,"Not yet started")
-      AuthLoginPage.navigateTo(RegisteredIsaManagerPage.pageUrl)
+      TaskListPage.verifyTaskStatus("Add organisation information", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("Add organisation information")
 
       Then("the user is navigated to the 'Registered ISA Manager' page")
       RegisteredIsaManagerPage.verifyPageTitle(
@@ -291,7 +291,7 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
       And("the 'Change organisation information' status is 'Completed'")
-      TaskListPage.verifyTaskStatus("Change organisation information" ,"Completed")
+      TaskListPage.verifyTaskStatus("Change organisation information", "Completed")
 
     }
 
@@ -308,8 +308,9 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       When(
         "the 'Add organisation information' status is 'Not yet started' the user navigates to the 'Add organisation information' page"
       )
-      TaskListPage.verifyTaskStatus("Add organisation information" ,"Not yet started")
-      AuthLoginPage.navigateTo(RegisteredIsaManagerPage.pageUrl)
+      TaskListPage.verifyTaskStatus("Add organisation information", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("Add organisation information")
+//      AuthLoginPage.navigateTo(RegisteredIsaManagerPage.pageUrl)
 
       // Navigation to the REgistered ISA Manager page is handled in the above code
 //      When("the user navigates to the 'Registered ISA Manager' page")
@@ -514,7 +515,7 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
       And("the 'Change organisation information' status is 'Completed'")
-      TaskListPage.verifyTaskStatus("Change organisation information" ,"Completed")
+      TaskListPage.verifyTaskStatus("Change organisation information", "Completed")
     }
 
   }
