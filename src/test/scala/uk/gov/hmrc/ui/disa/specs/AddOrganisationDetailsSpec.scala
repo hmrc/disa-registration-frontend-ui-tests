@@ -32,7 +32,10 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       Then("the user is navigated to the 'Manage ISAs' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      When("the user navigates to the 'Registered ISA Manager' page")
+      When(
+        "the 'Add organisation information' status is 'Not yet started' the user navigates to the 'Add organisation information' page"
+      )
+      TaskListPage.verifyTaskStatus("Not yet started") shouldBe true
       AuthLoginPage.navigateTo(RegisteredIsaManagerPage.pageUrl)
 
       Then("the user is navigated to the 'Registered ISA Manager' page")
@@ -261,18 +264,19 @@ class AddOrganisationDetailsSpec extends BaseSpec {
 //        CheckYourAnswersPage.pageUrl
 //      ) shouldBe true
 
-      When("the user clicks on change link for Change organisation Telephone number")
-      CheckYourAnswersPage.clickOnLinks("change-organisation-telephone-number")
-
-      Then("the user is navigated to the 'change-organisation-telephone-number' page")
-      ChangeOrganisationTelephoneNumberPage.verifyPageTitle(
-        ChangeOrganisationTelephoneNumberPage.pageTitle,
-        ChangeOrganisationTelephoneNumberPage.pageUrl
-      ) shouldBe true
-
-      Then("the user changes the organisation telephone number")
-      ChangeOrganisationTelephoneNumberPage.enterText("value", "07777777777")
-      ChangeOrganisationTelephoneNumberPage.clickSaveAndContinue()
+      // IS A DUPLICATED TEST: there is a test above which changes the phone number already
+//      When("the user clicks on change link for Change organisation Telephone number")
+//      CheckYourAnswersPage.clickOnLinks("change-organisation-telephone-number")
+//
+//      Then("the user is navigated to the 'change-organisation-telephone-number' page")
+//      ChangeOrganisationTelephoneNumberPage.verifyPageTitle(
+//        ChangeOrganisationTelephoneNumberPage.pageTitle,
+//        ChangeOrganisationTelephoneNumberPage.pageUrl
+//      ) shouldBe true
+//
+//      Then("the user changes the organisation telephone number")
+//      ChangeOrganisationTelephoneNumberPage.enterText("value", "07777777777")
+//      ChangeOrganisationTelephoneNumberPage.clickSaveAndContinue()
 
 //      Then("the user is navigated to the 'Check your answers' page")
 //      CheckYourAnswersPage.verifyPageTitle(
@@ -286,6 +290,9 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       Then("the user clicks on is navigated to the 'Manage ISAs' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
+      And("the 'Change organisation information' status is 'Completed'")
+      TaskListPage.verifyTaskStatus("Completed") shouldBe true
+
     }
 
     Scenario(
@@ -298,8 +305,15 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      When("the user navigates to the 'Registered ISA Manager' page")
+      When(
+        "the 'Add organisation information' status is 'Not yet started' the user navigates to the 'Add organisation information' page"
+      )
+      TaskListPage.verifyTaskStatus("Not yet started") shouldBe true
       AuthLoginPage.navigateTo(RegisteredIsaManagerPage.pageUrl)
+
+      // Navigation to the REgistered ISA Manager page is handled in the above code
+//      When("the user navigates to the 'Registered ISA Manager' page")
+//      AuthLoginPage.navigateTo(RegisteredIsaManagerPage.pageUrl)
 
       Then("the user is navigated to the 'Registered ISA Manager' page")
       RegisteredIsaManagerPage.verifyPageTitle(
@@ -498,6 +512,9 @@ class AddOrganisationDetailsSpec extends BaseSpec {
 
       Then("the user clicks on is navigated to the 'Manage ISAs' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      And("the 'Change organisation information' status is 'Completed'")
+      TaskListPage.verifyTaskStatus("Completed") shouldBe true
     }
 
   }

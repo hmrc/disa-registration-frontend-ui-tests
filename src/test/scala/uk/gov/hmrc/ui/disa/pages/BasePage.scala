@@ -41,6 +41,7 @@ trait BasePage extends Matchers with PageObject {
   val confirmAndSaveButton: By               = By.xpath("//button[contains(text(),'Confirm and save')]")
   val confirmAndSaveButtonForOrgDetails: By  =
     By.cssSelector("a.govuk-button[href='/obligations/enrolment/isa/task-list']")
+  val taskStatus: By                         = By.id("task-list-1-status")
 
   def verifyPageUrl(): Boolean =
     getCurrentUrl == pageUrl
@@ -61,6 +62,16 @@ trait BasePage extends Matchers with PageObject {
     val actualHeader = getText(pageHeader)
     if (actualHeader != pageHeaderText) {
       println(s"[Header Mismatch] Expected: '$pageHeaderText' | Actual: '$actualHeader'")
+      false
+    } else {
+      true
+    }
+  }
+
+  def verifyTaskStatus(pageTaskStatus: String): Boolean = {
+    val actualStatus = getText(taskStatus)
+    if (actualStatus != pageTaskStatus) {
+      println(s"[Header Mismatch] Expected: '$pageTaskStatus' | Actual: '$actualStatus'")
       false
     } else {
       true
