@@ -41,7 +41,10 @@ trait BasePage extends Matchers with PageObject {
   val confirmAndSaveButton: By               = By.xpath("//button[contains(text(),'Confirm and save')]")
   val confirmAndSaveButtonForOrgDetails: By  =
     By.cssSelector("a.govuk-button[href='/obligations/enrolment/isa/task-list']")
-  val taskStatus: By                         = By.id("task-list-1-status")
+
+  def taskStatusLocator(taskName: String): By = {
+    By.xpath(s"//li[.//a[normalize-space(text())='$taskName']]//div[contains(@class, 'govuk-task-list__status')]")
+  }
 
   def verifyPageUrl(): Boolean =
     getCurrentUrl == pageUrl
@@ -68,14 +71,9 @@ trait BasePage extends Matchers with PageObject {
     }
   }
 
-  def verifyTaskStatus(pageTaskStatus: String): Boolean = {
-    val actualStatus = getText(taskStatus)
-    if (actualStatus != pageTaskStatus) {
-      println(s"[Header Mismatch] Expected: '$pageTaskStatus' | Actual: '$actualStatus'")
-      false
-    } else {
-      true
-    }
+  def verifyTaskStatus(taskName: String, expectedStatus: String): Unit = {
+    val actualStatus = getText(taskStatusLocator(taskName))
+    actualStatus should include (expectedStatus)
   }
 
   private def fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
