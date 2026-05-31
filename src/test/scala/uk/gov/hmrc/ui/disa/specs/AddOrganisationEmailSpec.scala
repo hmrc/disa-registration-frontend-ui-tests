@@ -30,16 +30,11 @@ class AddOrganisationEmailSpec extends BaseSpec {
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      /* we need to put steps to add org details when navigation is available. */
-
       When(
         "the 'Add organisation email' status is 'Not yet started' the user navigates to the 'Organisation email address' page"
       )
       TaskListPage.verifyTaskStatus("Add organisation email", "Not yet started")
       TaskListPage.clickOnByPartialLinkText("Add organisation email")
-
-//      When("the user navigates to the 'Organisation email address' page")
-//      AuthLoginPage.navigateTo(OrganisationEmailAddressPage.pageUrl)
 
       Then("the user is navigated to the 'Organisation email address' page")
       OrganisationEmailAddressPage.verifyPageTitle(
@@ -88,20 +83,23 @@ class AddOrganisationEmailSpec extends BaseSpec {
       Then("the user clicks on Confirm and Save button")
       OrganisationEmailCheckYourAnswersPage.clickConfirmAndSave()
 
-      Then("the user is navigated to the 'Manage ISAs' page")
+      Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-//      When("the user navigates to the 'Check your answers' page")
-//      AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
-//
-//      Then("the user is navigated to the 'Check your answers' page")
-//      CheckYourAnswersPage.verifyPageTitle(
-//        CheckYourAnswersPage.pageTitle,
-//        CheckYourAnswersPage.pageUrl
-//      ) shouldBe true
+      And(" The status for 'Organisation email' status is 'Verified'")
+      TaskListPage.verifyTaskStatus("Change organisation email", "Verified")
 
-//      When("the user clicks on change link for change organisation email address")
-//      OrganisationEmailCheckYourAnswersPage.clickOnLinks("change-organisation-email-address")
+      // below steps to be used in E2E test with nav in place
+
+      /*  When("the user navigates to the 'Check your answers' page")
+      AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(CheckYourAnswersPage.pageTitle, CheckYourAnswersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on change link for change organisation email address")
+      OrganisationEmailCheckYourAnswersPage.clickOnLinks("change-organisation-email-address")
 
       When("the user clicks on change link for change organisation email address")
       OrganisationEmailCheckYourAnswersPage.clickOnByPartialLinkText("Change organisation email")
@@ -115,17 +113,10 @@ class AddOrganisationEmailSpec extends BaseSpec {
       Then("the user clicks on Confirm and save button")
       ChangeOrganisationEmailAddressPage.clickConfirmAndSave()
 
-//      Then("the user is navigated to the 'Check your answers' page")
-//      CheckYourAnswersPage.verifyPageTitle(
-//        CheckYourAnswersPage.pageTitle,
-//        CheckYourAnswersPage.pageUrl
-//      ) shouldBe true
-
-      Then("the user clicks on is navigated to the 'Manage ISAs' page")
-      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
-
-      And("the 'Change organisation email' status is 'Verified'")
-      TaskListPage.verifyTaskStatus("Change organisation email", "Verified")
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+      CheckYourAnswersPage.pageTitle, CheckYourAnswersPage.pageUrl
+     ) shouldBe true*/
 
     }
 

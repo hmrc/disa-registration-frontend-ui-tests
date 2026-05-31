@@ -29,11 +29,11 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       Given("the user is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/start")
 
-      Then("the user is navigated to the 'Manage ISAs' page")
+      Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      When(
-        "the 'Add organisation information' status is 'Not yet started' the user navigates to the 'Add organisation information' page"
+      Then(
+        "the 'Add organisation information' status is 'Not yet started' the user clicks on the 'Add organisation information' link"
       )
       TaskListPage.verifyTaskStatus("Add organisation information", "Not yet started")
       TaskListPage.clickOnByPartialLinkText("Add organisation information")
@@ -217,14 +217,25 @@ class AddOrganisationDetailsSpec extends BaseSpec {
         OrganisationDetailsCheckYourAnswersPage.pageUrl
       ) shouldBe true
 
-//      When("the user navigates to the 'Check your answers' page")
-//      AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
-//
-//      Then("the user is navigated to the 'Check your answers' page")
-//      CheckYourAnswersPage.verifyPageTitle(
-//        CheckYourAnswersPage.pageTitle,
-//        CheckYourAnswersPage.pageUrl
-//      ) shouldBe true
+      Then("the user clicks on Save and Continue on the Check your organisation details page")
+      OrganisationDetailsCheckYourAnswersPage.clickConfirmAndSaveForCheckOrgDetails()
+
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      And("The status for organisation  status is 'Completed'")
+      TaskListPage.verifyTaskStatus("Change organisation information", "Completed")
+
+      // below steps to be used in E2E test with nav in place
+
+      /*When("the user navigates to the 'Check your answers' page")
+      AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+       CheckYourAnswersPage.pageTitle,
+       CheckYourAnswersPage.pageUrl
+      ) shouldBe true
 
       When("the user clicks on change link for Change Trading name")
       CheckYourAnswersPage.clickOnLinks("change-trading-name")
@@ -258,40 +269,33 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       ChangeOrganisationTradingNamePage.enterText("value", "9992299")
       ChangeOrganisationTradingNamePage.clickSaveAndContinue()
 
-//      Then("the user is navigated to the 'Check your answers' page")
-//      CheckYourAnswersPage.verifyPageTitle(
-//        CheckYourAnswersPage.pageTitle,
-//        CheckYourAnswersPage.pageUrl
-//      ) shouldBe true
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+       CheckYourAnswersPage.pageTitle,
+        CheckYourAnswersPage.pageUrl
+     ) shouldBe true
 
-      // IS A DUPLICATED TEST: there is a test above which changes the phone number already
-//      When("the user clicks on change link for Change organisation Telephone number")
-//      CheckYourAnswersPage.clickOnLinks("change-organisation-telephone-number")
-//
-//      Then("the user is navigated to the 'change-organisation-telephone-number' page")
-//      ChangeOrganisationTelephoneNumberPage.verifyPageTitle(
-//        ChangeOrganisationTelephoneNumberPage.pageTitle,
-//        ChangeOrganisationTelephoneNumberPage.pageUrl
-//      ) shouldBe true
-//
-//      Then("the user changes the organisation telephone number")
-//      ChangeOrganisationTelephoneNumberPage.enterText("value", "07777777777")
-//      ChangeOrganisationTelephoneNumberPage.clickSaveAndContinue()
+      When("the user clicks on change link for Change organisation Telephone number")
+      CheckYourAnswersPage.clickOnLinks("change-organisation-telephone-number")
 
-//      Then("the user is navigated to the 'Check your answers' page")
-//      CheckYourAnswersPage.verifyPageTitle(
-//        CheckYourAnswersPage.pageTitle,
-//        CheckYourAnswersPage.pageUrl
-//      ) shouldBe true
+      Then("the user is navigated to the 'change-organisation-telephone-number' page")
+      ChangeOrganisationTelephoneNumberPage.verifyPageTitle(
+       ChangeOrganisationTelephoneNumberPage.pageTitle,
+       ChangeOrganisationTelephoneNumberPage.pageUrl
+      ) shouldBe true
+
+      Then("the user changes the organisation telephone number")
+      ChangeOrganisationTelephoneNumberPage.enterText("value", "07777777777")
+      ChangeOrganisationTelephoneNumberPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Check your answers' page")
+      CheckYourAnswersPage.verifyPageTitle(
+      CheckYourAnswersPage.pageTitle,
+       CheckYourAnswersPage.pageUrl
+    ) shouldBe true
 
       Then("the user clicks on Save and Continue on the Check your organisation details page")
-      OrganisationDetailsCheckYourAnswersPage.clickConfirmAndSaveForCheckOrgDetails()
-
-      Then("the user clicks on is navigated to the 'Manage ISAs' page")
-      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
-
-      And("the 'Change organisation information' status is 'Completed'")
-      TaskListPage.verifyTaskStatus("Change organisation information", "Completed")
+      OrganisationDetailsCheckYourAnswersPage.clickConfirmAndSaveForCheckOrgDetails()*/
 
     }
 

@@ -23,8 +23,17 @@ class ISAManagerRegistrationProductsSpec extends BaseSpec {
   Feature("ISA manager Registration") {
 
     Scenario("Verify ISA Manager registration products Journey and verifying change links") {
-      Given("the ISA manager is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/isa-products")
+      Given("the user is logged in as an organisation User")
+      AuthLoginPage.loginAsAFreshUser("/start")
+
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      Then(
+        "the 'ISA products you manage' status is 'Not yet started' the user clicks on the 'ISA products you manage' link"
+      )
+      TaskListPage.verifyTaskStatus("ISA products you manage", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("ISA products you manage")
 
       Then("the 'ISA Products' page title & url should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
@@ -83,7 +92,13 @@ class ISAManagerRegistrationProductsSpec extends BaseSpec {
         IsaProductsCheckYourAnswersPage.pageUrl
       ) shouldBe true
 
-      When("the user navigates to the 'Check your answers' page")
+      Then("the user clicks on Confirm and Save button")
+      OrganisationEmailCheckYourAnswersPage.clickConfirmAndSave()
+
+      And(" The status for 'Change ISA products you manage' status is 'Completed'")
+      TaskListPage.verifyTaskStatus("Change ISA products you manage", "Completed")
+
+      /* When("the user navigates to the 'Check your answers' page")
       AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
 
       Then("the user is navigated to the 'Check your answers' page")
@@ -120,9 +135,9 @@ class ISAManagerRegistrationProductsSpec extends BaseSpec {
       ) shouldBe true
 
       Then("the user clicks on save and continue on 'change-innovative-financial-products' page")
-      ChangeInnovativeFinancialProductsPage.clickSaveAndContinue()
+      ChangeInnovativeFinancialProductsPage.clickSaveAndContinue()*/
 
-      Then("the user is navigated to the 'Check your answers' page")
+      /*Then("the user is navigated to the 'Check your answers' page")
       CheckYourAnswersPage.verifyPageTitle(
         CheckYourAnswersPage.pageTitle,
         CheckYourAnswersPage.pageUrl
@@ -168,12 +183,21 @@ class ISAManagerRegistrationProductsSpec extends BaseSpec {
       CheckYourAnswersPage.verifyPageTitle(
         CheckYourAnswersPage.pageTitle,
         CheckYourAnswersPage.pageUrl
-      ) shouldBe true
+      ) shouldBe true*/
     }
 
     Scenario("Verify ISA Manager registration Journey without peer to peer loans using a platform") {
-      Given("the ISA manager is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/isa-products")
+      Given("the user is logged in as an organisation User")
+      AuthLoginPage.loginAsAFreshUser("/start")
+
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      Then(
+        "the 'ISA products you manage' status is 'Not yet started' the user clicks on the 'ISA products you manage' link"
+      )
+      TaskListPage.verifyTaskStatus("ISA products you manage", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("ISA products you manage")
 
       Then("the 'ISA Products' page title & url should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true

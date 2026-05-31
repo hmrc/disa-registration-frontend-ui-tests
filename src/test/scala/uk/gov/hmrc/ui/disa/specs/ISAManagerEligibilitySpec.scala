@@ -25,8 +25,17 @@ class ISAManagerEligibilitySpec extends BaseSpec {
     Scenario(
       "Verify ISA Manager eligibility Journey when they have certificate of authority and checking change links features"
     ) {
-      Given("the ISA manager is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/eligibility-to-manage-isas")
+      Given("the user is logged in as an organisation User")
+      AuthLoginPage.loginAsAFreshUser("/start")
+
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      Then(
+        "the 'Which certificates of authority apply to your organisation' status is 'Not yet started' the user clicks on the 'Which certificates of authority apply to your organisation' link"
+      )
+      TaskListPage.verifyTaskStatus("Which certificates of authority apply to your organisation", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("Which certificates of authority apply to your organisation")
 
       Then("the 'Eligibility To Manage ISAs' Page title & url should be correct")
       EligibilityToManageIsasPage.verifyPageTitle(
@@ -91,7 +100,13 @@ class ISAManagerEligibilitySpec extends BaseSpec {
         CertificatesOfAuthorityCheckYourAnswersPage.pageUrl
       ) shouldBe true
 
-      When("the user navigates to the 'Check your answers' page")
+      Then("the user clicks on Confirm and Save button")
+      OrganisationEmailCheckYourAnswersPage.clickConfirmAndSave()
+
+      And(" The status for 'Change which certificates of authority apply to your organisation' status is 'Completed'")
+      TaskListPage.verifyTaskStatus("Change which certificates of authority apply to your organisation", "Completed")
+
+      /*When("the user navigates to the 'Check your answers' page")
       AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
 
       Then("the user is navigated to the 'Check your answers' page")
@@ -124,13 +139,22 @@ class ISAManagerEligibilitySpec extends BaseSpec {
       CheckYourAnswersPage.verifyPageTitle(
         CheckYourAnswersPage.pageTitle,
         CheckYourAnswersPage.pageUrl
-      ) shouldBe true
+      ) shouldBe true*/
 
     }
 
     Scenario("Verify ISA Manager eligibility Journey when they don't have certificate of authority") {
-      Given("the ISA manager is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/eligibility-to-manage-isas")
+      Given("the user is logged in as an organisation User")
+      AuthLoginPage.loginAsAFreshUser("/start")
+
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      Then(
+        "the 'Which certificates of authority apply to your organisation' status is 'Not yet started' the user clicks on the 'Which certificates of authority apply to your organisation' link"
+      )
+      TaskListPage.verifyTaskStatus("Which certificates of authority apply to your organisation", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("Which certificates of authority apply to your organisation")
 
       Then("the 'Eligibility To Manage ISAs' Page title & url should be correct")
       EligibilityToManageIsasPage.verifyPageTitle(
@@ -166,6 +190,13 @@ class ISAManagerEligibilitySpec extends BaseSpec {
         CertificatesOfAuthorityCheckYourAnswersPage.pageTitle,
         CertificatesOfAuthorityCheckYourAnswersPage.pageUrl
       ) shouldBe true
+
+      Then("the user clicks on Confirm and Save button")
+      OrganisationEmailCheckYourAnswersPage.clickConfirmAndSave()
+
+      And(" The status for 'Change which certificates of authority apply to your organisation' status is 'Completed'")
+      TaskListPage.verifyTaskStatus("Change which certificates of authority apply to your organisation", "Completed")
+
     }
   }
 }

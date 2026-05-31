@@ -25,8 +25,17 @@ class SignOutSpec extends BaseSpec {
     Scenario(
       "Verify 'saved answers sign out page' displayed correctly for the users who already saved answers and logs out"
     ) {
-      Given("the ISA manager is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/isa-products")
+      Given("the user is logged in as an organisation User")
+      AuthLoginPage.loginAsAFreshUser("/start")
+
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      Then(
+        "the 'ISA products you manage' status is 'Not yet started' the user clicks on the 'ISA products you manage' link"
+      )
+      TaskListPage.verifyTaskStatus("ISA products you manage", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("ISA products you manage")
 
       Then("The 'ISA Products' page title & url should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true
@@ -60,8 +69,17 @@ class SignOutSpec extends BaseSpec {
     Scenario(
       "Verify 'sign out page' displayed correctly for the users who logs out without saving any answer"
     ) {
-      Given("the ISA manager is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/isa-products")
+      Given("the user is logged in as an organisation User")
+      AuthLoginPage.loginAsAFreshUser("/start")
+
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      Then(
+        "the 'ISA products you manage' status is 'Not yet started' the user clicks on the 'ISA products you manage' link"
+      )
+      TaskListPage.verifyTaskStatus("ISA products you manage", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("ISA products you manage")
 
       Then("The 'ISA Products' page title & url should be correct")
       ISAProductsPage.verifyPageTitle(ISAProductsPage.pageTitle, ISAProductsPage.pageUrl) shouldBe true

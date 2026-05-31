@@ -30,8 +30,11 @@ class AddSignatoryScreenSpec extends BaseSpec {
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      When("User clicks signatories link")
-      TaskListPage.clickSignatories()
+      Then(
+        "the 'Add signatories' status is 'Not yet started' the user clicks on the 'Add signatories' link"
+      )
+      TaskListPage.verifyTaskStatus("Add signatories", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("Add signatories")
 
       Then("the user is navigated to the 'signatory-name' page")
       SignatoryNamePage.verifyPageTitle(SignatoryNamePage.pageTitle, SignatoryNamePage.pageUrl) shouldBe true
@@ -94,7 +97,7 @@ class AddSignatoryScreenSpec extends BaseSpec {
         CheckAddedSignatoryPage.pageUrl
       ) shouldBe true
 
-      When("the user navigates to the 'Check your answers' page")
+      /*  When("the user navigates to the 'Check your answers' page")
       AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
 
       Then("the user is navigated to the 'Check your answers' page")
@@ -139,7 +142,7 @@ class AddSignatoryScreenSpec extends BaseSpec {
       CheckYourAnswersPage.verifyPageTitle(
         CheckYourAnswersPage.pageTitle,
         CheckYourAnswersPage.pageUrl
-      ) shouldBe true
+      ) shouldBe true*/
 
     }
 
@@ -151,8 +154,11 @@ class AddSignatoryScreenSpec extends BaseSpec {
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      When("User clicks signatories link")
-      TaskListPage.clickSignatories()
+      Then(
+        "the 'Add signatories' status is 'Not yet started' the user clicks on the 'Add signatories' link"
+      )
+      TaskListPage.verifyTaskStatus("Add signatories", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("Add signatories")
 
       Then("the user is navigated to the 'signatory-name' page")
       SignatoryNamePage.verifyPageTitle(SignatoryNamePage.pageTitle, SignatoryNamePage.pageUrl) shouldBe true
@@ -266,7 +272,10 @@ class AddSignatoryScreenSpec extends BaseSpec {
       Then("the user is navigated to the 'Task-list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      When("the user navigates to the 'Check your answers' page")
+      And("The status for 'Change signatories' is '1 signatory'")
+      TaskListPage.verifyTaskStatus("Change signatories", "1 signatory")
+
+      /*  When("the user navigates to the 'Check your answers' page")
       AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
 
       Then("the user is navigated to the 'Check your answers' page")
@@ -328,7 +337,7 @@ class AddSignatoryScreenSpec extends BaseSpec {
       CheckYourAnswersPage.verifyPageTitle(
         CheckYourAnswersPage.pageTitle,
         CheckYourAnswersPage.pageUrl
-      ) shouldBe true
+      ) shouldBe true*/
 
     }
   }

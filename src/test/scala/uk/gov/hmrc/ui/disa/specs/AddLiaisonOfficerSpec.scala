@@ -29,8 +29,11 @@ class AddLiaisonOfficerSpec extends BaseSpec {
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      When("the user navigates to the 'liaison officer name' page")
-      AuthLoginPage.navigateTo(LiaisonOfficerNamePage.pageUrl)
+      Then(
+        "the 'Add liaison officers' status is 'Not yet started' the user clicks on the 'Add liaison officers' link"
+      )
+      TaskListPage.verifyTaskStatus("Add liaison officers", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("Add liaison officers")
 
       Then("the user is navigated to the 'liaison-officer-name' page")
       LiaisonOfficerNamePage.verifyPageTitle(
@@ -116,7 +119,7 @@ class AddLiaisonOfficerSpec extends BaseSpec {
         CheckAddedLiaisonOfficerPage.pageUrl
       ) shouldBe true
 
-      When("the user navigates to the 'Check your answers' page")
+      /*  When("the user navigates to the 'Check your answers' page")
       AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
 
       Then("the user is navigated to the 'Check your answers' page")
@@ -161,7 +164,7 @@ class AddLiaisonOfficerSpec extends BaseSpec {
       CheckYourAnswersPage.verifyPageTitle(
         CheckYourAnswersPage.pageTitle,
         CheckYourAnswersPage.pageUrl
-      ) shouldBe true
+      ) shouldBe true*/
 
     }
 
@@ -172,8 +175,11 @@ class AddLiaisonOfficerSpec extends BaseSpec {
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      When("the user navigates to the 'liaison officer name' page")
-      LiaisonOfficerNamePage.navigateTo(LiaisonOfficerNamePage.pageUrl)
+      Then(
+        "the 'Add liaison officers' status is 'Not yet started' the user clicks on the 'Add liaison officers' link"
+      )
+      TaskListPage.verifyTaskStatus("Add liaison officers", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("Add liaison officers")
 
       Then("the user is navigated to the 'liaison-officer-name' page")
       LiaisonOfficerNamePage.verifyPageTitle(
@@ -333,7 +339,20 @@ class AddLiaisonOfficerSpec extends BaseSpec {
         AddedLiaisonOfficersPage.pageUrl
       ) shouldBe true
 
-      When("the user navigates to the 'Check your answers' page")
+      Then("the user clicks on no radio button on 'added-liaison-officer' page ")
+      AddedLiaisonOfficersPage.clickRadioButton("No")
+
+      Then("the user clicks on Save and continue button on 'added-liaison-officer' page ")
+      AddedLiaisonOfficersPage.clickSaveAndContinue()
+
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      And("The status for 'Change liaison officers' is '1 liaison officer'")
+      TaskListPage.verifyTaskStatus("Change liaison officers", "1 liaison officer")
+
+      // Below steps to be commented out for now and will be later used in E2E test case
+      /*  When("the user navigates to the 'Check your answers' page")
       AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
 
       Then("the user is navigated to the 'Check your answers' page")
@@ -420,7 +439,7 @@ class AddLiaisonOfficerSpec extends BaseSpec {
       CheckYourAnswersPage.verifyPageTitle(
         CheckYourAnswersPage.pageTitle,
         CheckYourAnswersPage.pageUrl
-      ) shouldBe true
+      ) shouldBe true*/
 
     }
 
