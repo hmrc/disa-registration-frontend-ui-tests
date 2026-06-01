@@ -36,7 +36,7 @@ class AddAnotherAddressForYourOrganisationSpec extends BaseSpec {
       AuthLoginPage.navigateTo(RegisteredAddressCorrespondencePage.pageUrl)
 
       Then(
-        "the user clicks on the No radio button and then clicks on save and continue buttonon 'registered-address-correspondence' page"
+        "the user clicks on the No radio button and then clicks on save and continue button 'registered-address-correspondence' page"
       )
       RegisteredAddressCorrespondencePage.clickRadioButton("No")
       RegisteredAddressCorrespondencePage.clickSaveAndContinue()

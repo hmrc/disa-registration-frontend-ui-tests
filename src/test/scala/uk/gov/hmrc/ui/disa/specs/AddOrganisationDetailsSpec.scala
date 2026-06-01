@@ -32,8 +32,11 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      When("the user navigates to the 'Registered ISA Manager' page")
-      AuthLoginPage.navigateTo(RegisteredIsaManagerPage.pageUrl)
+      Then(
+        "the 'Add organisation information' status is 'Not yet started' the user clicks on the 'Add organisation information' link"
+      )
+      TaskListPage.verifyTaskStatus("Add organisation information", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("Add organisation information")
 
       Then("the user is navigated to the 'Registered ISA Manager' page")
       RegisteredIsaManagerPage.verifyPageTitle(
@@ -151,7 +154,7 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       OrganisationTelephoneNumberPage.enterText("value", "07777 777 777")
       OrganisationTelephoneNumberPage.clickSaveAndContinue()
 
-      Then("the user is navigated to the 'Organisation details check your answers' page")
+      Then("the user is navigated to the 'Check your organisation details' page")
       OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
         OrganisationDetailsCheckYourAnswersPage.pageTitle,
         OrganisationDetailsCheckYourAnswersPage.pageUrl
@@ -170,7 +173,7 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       ChangeOrganisationTradingNamePage.enterText("value", "Changed Trading org")
       ChangeOrganisationTradingNamePage.clickSaveAndContinue()
 
-      Then("the user is navigated to the 'Organisation details check your answers' page")
+      Then("the user is navigated to the 'Check your organisation details' page")
       OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
         OrganisationDetailsCheckYourAnswersPage.pageTitle,
         OrganisationDetailsCheckYourAnswersPage.pageUrl
@@ -189,7 +192,7 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       ChangeOrganisationTradingNamePage.enterText("value", "9992299")
       ChangeOrganisationTradingNamePage.clickSaveAndContinue()
 
-      Then("the user is navigated to the 'Organisation details check your answers' page")
+      Then("the user is navigated to the 'Check your organisation details' page")
       OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
         OrganisationDetailsCheckYourAnswersPage.pageTitle,
         OrganisationDetailsCheckYourAnswersPage.pageUrl
@@ -208,19 +211,30 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       ChangeOrganisationTelephoneNumberPage.enterText("value", "07777777777")
       ChangeOrganisationTelephoneNumberPage.clickSaveAndContinue()
 
-      Then("the user is navigated to the 'Organisation details check your answers' page")
+      Then("the user is navigated to the 'Check your organisation details' page")
       OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
         OrganisationDetailsCheckYourAnswersPage.pageTitle,
         OrganisationDetailsCheckYourAnswersPage.pageUrl
       ) shouldBe true
 
-      When("the user navigates to the 'Check your answers' page")
+      Then("the user clicks on Save and Continue on the Check your organisation details page")
+      OrganisationDetailsCheckYourAnswersPage.clickConfirmAndSaveForCheckOrgDetails()
+
+      Then("the user is navigated to the 'Task list' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      And("The status for organisation  status is 'Completed'")
+      TaskListPage.verifyTaskStatus("Change organisation information", "Completed")
+
+      // below steps to be used in E2E test with nav in place
+
+      /*When("the user navigates to the 'Check your answers' page")
       AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
 
       Then("the user is navigated to the 'Check your answers' page")
       CheckYourAnswersPage.verifyPageTitle(
-        CheckYourAnswersPage.pageTitle,
-        CheckYourAnswersPage.pageUrl
+       CheckYourAnswersPage.pageTitle,
+       CheckYourAnswersPage.pageUrl
       ) shouldBe true
 
       When("the user clicks on change link for Change Trading name")
@@ -236,10 +250,10 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       ChangeOrganisationTradingNamePage.enterText("value", "Trading org")
       ChangeOrganisationTradingNamePage.clickSaveAndContinue()
 
-      Then("the user is navigated to the 'Check your answers' page")
-      CheckYourAnswersPage.verifyPageTitle(
-        CheckYourAnswersPage.pageTitle,
-        CheckYourAnswersPage.pageUrl
+      Then("the user is navigated to the 'Check your organisation details' page")
+      OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
+        OrganisationDetailsCheckYourAnswersPage.pageTitle,
+        OrganisationDetailsCheckYourAnswersPage.pageUrl
       ) shouldBe true
 
       When("the user clicks on change link for Change FCA number")
@@ -257,17 +271,17 @@ class AddOrganisationDetailsSpec extends BaseSpec {
 
       Then("the user is navigated to the 'Check your answers' page")
       CheckYourAnswersPage.verifyPageTitle(
-        CheckYourAnswersPage.pageTitle,
+       CheckYourAnswersPage.pageTitle,
         CheckYourAnswersPage.pageUrl
-      ) shouldBe true
+     ) shouldBe true
 
       When("the user clicks on change link for Change organisation Telephone number")
       CheckYourAnswersPage.clickOnLinks("change-organisation-telephone-number")
 
       Then("the user is navigated to the 'change-organisation-telephone-number' page")
       ChangeOrganisationTelephoneNumberPage.verifyPageTitle(
-        ChangeOrganisationTelephoneNumberPage.pageTitle,
-        ChangeOrganisationTelephoneNumberPage.pageUrl
+       ChangeOrganisationTelephoneNumberPage.pageTitle,
+       ChangeOrganisationTelephoneNumberPage.pageUrl
       ) shouldBe true
 
       Then("the user changes the organisation telephone number")
@@ -276,9 +290,12 @@ class AddOrganisationDetailsSpec extends BaseSpec {
 
       Then("the user is navigated to the 'Check your answers' page")
       CheckYourAnswersPage.verifyPageTitle(
-        CheckYourAnswersPage.pageTitle,
-        CheckYourAnswersPage.pageUrl
-      ) shouldBe true
+      CheckYourAnswersPage.pageTitle,
+       CheckYourAnswersPage.pageUrl
+    ) shouldBe true
+
+      Then("the user clicks on Save and Continue on the Check your organisation details page")
+      OrganisationDetailsCheckYourAnswersPage.clickConfirmAndSaveForCheckOrgDetails()*/
 
     }
 
@@ -292,8 +309,16 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      When("the user navigates to the 'Registered ISA Manager' page")
-      AuthLoginPage.navigateTo(RegisteredIsaManagerPage.pageUrl)
+      When(
+        "the 'Add organisation information' status is 'Not yet started' the user navigates to the 'Add organisation information' page"
+      )
+      TaskListPage.verifyTaskStatus("Add organisation information", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("Add organisation information")
+//      AuthLoginPage.navigateTo(RegisteredIsaManagerPage.pageUrl)
+
+      // Navigation to the REgistered ISA Manager page is handled in the above code
+//      When("the user navigates to the 'Registered ISA Manager' page")
+//      AuthLoginPage.navigateTo(RegisteredIsaManagerPage.pageUrl)
 
       Then("the user is navigated to the 'Registered ISA Manager' page")
       RegisteredIsaManagerPage.verifyPageTitle(
@@ -402,7 +427,7 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       OrganisationTelephoneNumberPage.enterText("value", "07777 777 777")
       OrganisationTelephoneNumberPage.clickSaveAndContinue()
 
-      Then("the user is navigated to the 'Organisation details check your answers' page")
+      Then("the user is navigated to the 'Check your organisation details' page")
       OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
         OrganisationDetailsCheckYourAnswersPage.pageTitle,
         OrganisationDetailsCheckYourAnswersPage.pageUrl
@@ -433,7 +458,7 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       OrganisationZReferenceNumberPage.enterText("value", "Z1234")
       OrganisationZReferenceNumberPage.clickSaveAndContinue()
 
-      Then("the user is navigated to the 'Organisation details check your answers' page")
+      Then("the user is navigated to the 'Check your organisation details' page")
       OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
         OrganisationDetailsCheckYourAnswersPage.pageTitle,
         OrganisationDetailsCheckYourAnswersPage.pageUrl
@@ -462,7 +487,7 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       OrganisationTradingNamePage.enterText("value", "Trading name")
       OrganisationTradingNamePage.clickSaveAndContinue()
 
-      Then("the user is navigated to the 'Organisation details check your answers' page")
+      Then("the user is navigated to the 'Check your organisation details' page")
       OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
         OrganisationDetailsCheckYourAnswersPage.pageTitle,
         OrganisationDetailsCheckYourAnswersPage.pageUrl
@@ -481,12 +506,20 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       ChangeRegisteredAddressCorrespondencePage.clickRadioButton("Yes")
       ChangeRegisteredAddressCorrespondencePage.clickSaveAndContinue()
 
-      Then("the user is navigated to the 'Organisation details check your answers' page")
+      Then("the user is navigated to the 'Check your organisation details' page")
       OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
         OrganisationDetailsCheckYourAnswersPage.pageTitle,
         OrganisationDetailsCheckYourAnswersPage.pageUrl
       ) shouldBe true
 
+      Then("the user clicks on Save and Continue on the Check your organisation details page")
+      OrganisationDetailsCheckYourAnswersPage.clickConfirmAndSaveForCheckOrgDetails()
+
+      Then("the user clicks on is navigated to the 'Manage ISAs' page")
+      TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
+
+      And("the 'Change organisation information' status is 'Completed'")
+      TaskListPage.verifyTaskStatus("Change organisation information", "Completed")
     }
 
   }

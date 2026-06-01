@@ -30,10 +30,11 @@ class AddOrganisationEmailSpec extends BaseSpec {
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      /* we need to put steps to add org details when navigation is available. */
-
-      When("the user navigates to the 'Organisation email address' page")
-      AuthLoginPage.navigateTo(OrganisationEmailAddressPage.pageUrl)
+      When(
+        "the 'Add organisation email' status is 'Not yet started' the user navigates to the 'Organisation email address' page"
+      )
+      TaskListPage.verifyTaskStatus("Add organisation email", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("Add organisation email")
 
       Then("the user is navigated to the 'Organisation email address' page")
       OrganisationEmailAddressPage.verifyPageTitle(
@@ -85,32 +86,37 @@ class AddOrganisationEmailSpec extends BaseSpec {
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      When("the user navigates to the 'Check your answers' page")
+      And(" The status for 'Organisation email' status is 'Verified'")
+      TaskListPage.verifyTaskStatus("Change organisation email", "Verified")
+
+      // below steps to be used in E2E test with nav in place
+
+      /*  When("the user navigates to the 'Check your answers' page")
       AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
 
       Then("the user is navigated to the 'Check your answers' page")
-      CheckYourAnswersPage.verifyPageTitle(
-        CheckYourAnswersPage.pageTitle,
-        CheckYourAnswersPage.pageUrl
+      CheckYourAnswersPage.verifyPageTitle(CheckYourAnswersPage.pageTitle, CheckYourAnswersPage.pageUrl
       ) shouldBe true
 
       When("the user clicks on change link for change organisation email address")
       OrganisationEmailCheckYourAnswersPage.clickOnLinks("change-organisation-email-address")
 
-      Then("the user is navigated to the 'Change Organisation Email address' page")
+      When("the user clicks on change link for change organisation email address")
+      OrganisationEmailCheckYourAnswersPage.clickOnByPartialLinkText("Change organisation email")
+
+      Then("the user is navigated to the 'Check your verified organisation email' page")
       OrganisationEmailCheckYourAnswersPage.verifyPageTitle(
-        ChangeOrganisationEmailAddressPage.pageTitle,
-        ChangeOrganisationEmailAddressPage.pageUrl
+        OrganisationEmailCheckYourAnswersPage.pageTitle,
+        OrganisationEmailCheckYourAnswersPage.pageUrl
       ) shouldBe true
 
-      Then("the user clicks on Save and continue button")
-      ChangeOrganisationEmailAddressPage.clickSaveAndContinue()
+      Then("the user clicks on Confirm and save button")
+      ChangeOrganisationEmailAddressPage.clickConfirmAndSave()
 
       Then("the user is navigated to the 'Check your answers' page")
       CheckYourAnswersPage.verifyPageTitle(
-        CheckYourAnswersPage.pageTitle,
-        CheckYourAnswersPage.pageUrl
-      ) shouldBe true
+      CheckYourAnswersPage.pageTitle, CheckYourAnswersPage.pageUrl
+     ) shouldBe true*/
 
     }
 

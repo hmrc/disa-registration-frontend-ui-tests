@@ -30,8 +30,11 @@ class AddThirdPartySpec extends BaseSpec {
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      When("the user navigates to the 'ISA products managed by third party' page")
-      AuthLoginPage.navigateTo(ThirdPartyProductManagePage.pageUrl)
+      Then(
+        "the 'Add organisations you outsource to' status is 'Not yet started' the user clicks on the 'Add organisations you outsource to' link"
+      )
+      TaskListPage.verifyTaskStatus("Add organisations you outsource to", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("Add organisations you outsource to")
 
       Then("the user is navigated to the 'ISA products managed by third party' page")
       ThirdPartyProductManagePage.verifyPageTitle(
@@ -195,7 +198,10 @@ class AddThirdPartySpec extends BaseSpec {
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      When("the user navigates to the 'Check your answers' page")
+      And("The status for 'Change organisations you outsource to' is '1 third party'")
+      TaskListPage.verifyTaskStatus("Change organisations you outsource to", "1 third party")
+
+      /*  When("the user navigates to the 'Check your answers' page")
       AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
 
       Then("the user is navigated to the 'Check your answers' page")
@@ -276,7 +282,7 @@ class AddThirdPartySpec extends BaseSpec {
       CheckYourAnswersPage.verifyPageTitle(
         CheckYourAnswersPage.pageTitle,
         CheckYourAnswersPage.pageUrl
-      ) shouldBe true
+      ) shouldBe true*/
 
     }
 
@@ -287,8 +293,11 @@ class AddThirdPartySpec extends BaseSpec {
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      When("the user navigates to the 'ISA products managed by third party' page")
-      AuthLoginPage.navigateTo(ThirdPartyProductManagePage.pageUrl)
+      Then(
+        "the 'Add organisations you outsource to' status is 'Not yet started' the user clicks on the 'Add organisations you outsource to' link"
+      )
+      TaskListPage.verifyTaskStatus("Add organisations you outsource to", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("Add organisations you outsource to")
 
       Then("the user is navigated to the 'ISA products managed by third party' page")
       ThirdPartyProductManagePage.verifyPageTitle(
@@ -475,6 +484,9 @@ class AddThirdPartySpec extends BaseSpec {
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
+      And("The status for 'Change organisations you outsource to' is '1 third party'")
+      TaskListPage.verifyTaskStatus("Change organisations you outsource to", "1 third party")
+
     }
 
     Scenario("3.Verify user can add more than one Third party organisations and then able to connect them") {
@@ -484,8 +496,11 @@ class AddThirdPartySpec extends BaseSpec {
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      When("the user navigates to the 'ISA products managed by third party' page")
-      AuthLoginPage.navigateTo(ThirdPartyProductManagePage.pageUrl)
+      Then(
+        "the 'Add organisations you outsource to' status is 'Not yet started' the user clicks on the 'Add organisations you outsource to' link"
+      )
+      TaskListPage.verifyTaskStatus("Add organisations you outsource to", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("Add organisations you outsource to")
 
       Then("the user is navigated to the 'ISA products managed by third party' page")
       ThirdPartyProductManagePage.verifyPageTitle(
@@ -870,7 +885,10 @@ class AddThirdPartySpec extends BaseSpec {
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      // Verifying change links from final CYA page
+      And("The status for 'Change organisations you outsource to' is '3 third parties'")
+      TaskListPage.verifyTaskStatus("Change organisations you outsource to", "3 third parties")
+
+      /*
       When("the user navigates to the 'Check your answers' page")
       AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
 
@@ -927,7 +945,7 @@ class AddThirdPartySpec extends BaseSpec {
         "the user selects the second organisation from the list then clicks on save and continue to 'added third party organisation' page "
       )
       ChangeConnectedThirdPartiesPage.unselectSecondOrg()
-      ChangeConnectedThirdPartiesPage.clickSaveAndContinue()
+      ChangeConnectedThirdPartiesPage.clickSaveAndContinue()*/
 
     }
 
