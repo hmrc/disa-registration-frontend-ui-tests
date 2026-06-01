@@ -43,6 +43,21 @@ object AuthLoginPage extends BasePage {
     submitAuthPage()
   }
 
+  private def submitAuthWithEnrollmentInfo(
+    redirectionUrl: String,
+    enrolmentKey: String,
+    IdentifierName: String,
+    IdentifierValue: String
+  ): Unit = {
+    loadPage
+    sendKeys(redirectionUrlById, s"$baseUrl$redirectionUrl")
+    selectByVisibleText(affinityGroupById, "Organisation")
+    sendKeys(By.id("enrolment[0].name"), enrolmentKey)
+    sendKeys(By.id("input-0-0-name"), IdentifierName)
+    sendKeys(By.id("input-0-0-value"), IdentifierValue)
+    submitAuthPage()
+  }
+
   def launchAuthPage(redirectionUrl: String): Unit = {
     loadPage
     sendKeys(redirectionUrlById, s"$baseUrl$redirectionUrl")
@@ -52,6 +67,14 @@ object AuthLoginPage extends BasePage {
 
   def loginAsAFreshUser(redirectionUrl: String): Unit =
     submitAuth(redirectionUrl)
+
+  def loginAsEnrolledUser(
+    redirectionUrl: String,
+    enrolmentKey: String,
+    IdentifierName: String,
+    IdentifierValue: String
+  ): Unit =
+    submitAuthWithEnrollmentInfo(redirectionUrl, enrolmentKey, IdentifierName, IdentifierValue)
 
   def enterCredId(credId: String): Unit =
     Driver.instance.findElement(By.id("authorityId")).sendKeys(credId)
