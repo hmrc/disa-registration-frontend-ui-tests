@@ -19,7 +19,7 @@ package uk.gov.hmrc.ui.disa.pages
 import uk.gov.hmrc.ui.disa.pages.SignOutPage.baseUrl
 
 object OrganisationIsEnrolledPage extends BasePage {
-  val pageUrl: String              = s"$baseUrl/organisation-is-enrolled"
-  val pageApplicationTitle: String = "Your organisation has enrolled on the Manage ISAs service - Manage ISAs - GOV.UK"
+  val pageUrl: String   = s"$baseUrl/organisation-is-enrolled"
+  val pageTitle: String = "Your organisation has enrolled on the Manage ISAs service - Manage ISAs - GOV.UK"
 
 }
