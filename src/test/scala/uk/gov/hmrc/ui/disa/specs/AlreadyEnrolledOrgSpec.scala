@@ -20,9 +20,9 @@ import uk.gov.hmrc.ui.disa.pages.*
 
 class AlreadyEnrolledOrgSpec extends BaseSpec {
 
-  Feature("the ISA manager logs in as an already enrolled organisation User") {
+  Feature("the ISA manager logs in as an already enrolled or pending enrollment organisation User") {
 
-    Scenario("Verify 'Organisation Is Enrolled Page' displayed correctly for the users who are already enrolled") {
+    Scenario("1. Verify 'Organisation Is Enrolled Page' displayed correctly for the users who are already enrolled") {
       Given("the ISA manager logs in as an already enrolled organisation User")
       AuthLoginPage.loginAsEnrolledUser("/start", "HMRC-DISA-ORG", "ZREF", "Z1234")
 
@@ -33,5 +33,18 @@ class AlreadyEnrolledOrgSpec extends BaseSpec {
       ) shouldBe true
 
     }
+
+    Scenario("2. Verify 'Organisation Is Enrolled Page' displayed correctly for the users with pending enrollment") {
+      Given("the ISA manager logs in as an already enrolled organisation User")
+      AuthLoginPage.loginAsPendingEnrollmentUser("/start", "groupId-state-pending")
+
+      Then("The 'Organisation is Enrolled' page is displayed")
+      OrganisationIsEnrolledPage.verifyPageTitle(
+        OrganisationIsEnrolledPage.pageTitle,
+        OrganisationIsEnrolledPage.pageUrl
+      ) shouldBe true
+
+    }
+
   }
 }
