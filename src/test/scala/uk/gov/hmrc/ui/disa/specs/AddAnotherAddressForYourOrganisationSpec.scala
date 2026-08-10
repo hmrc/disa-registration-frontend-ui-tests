@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.ui.disa.specs
 
-import uk.gov.hmrc.ui.disa.pages.{AddAnotherAddressForYourOrganisationPage, AuthLoginPage, ChooseAnotherAddressForYourOrganisationPage, ConfirmCorrespondenceAddressPage, EnterYourOrganisationAddressPage, RegisteredAddressCorrespondencePage, TaskListPage}
+import uk.gov.hmrc.ui.disa.pages.{AddAnotherAddressForYourOrganisationPage, AuthLoginPage, ChooseAnotherAddressForYourOrganisationPage, CompanyTypePage, ConfirmCorrespondenceAddressPage, EnterYourOrganisationAddressPage, RegisteredAddressCorrespondencePage, TaskListPage}
 
 class AddAnotherAddressForYourOrganisationSpec extends BaseSpec {
 
@@ -25,7 +25,15 @@ class AddAnotherAddressForYourOrganisationSpec extends BaseSpec {
     Scenario("1.Verify user can add another address with single result from post code search") {
 
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/start")
+      AuthLoginPage.loginAsAFreshUser("/company-type")
+
+      Then("the user is navigated to the 'Company Type' page")
+      CompanyTypePage.verifyPageTitle(CompanyTypePage.pageTitle, CompanyTypePage.pageUrl) shouldBe true
+
+      Then(
+        "the user clicks on the Limited Company radio button and then clicks on save and continue button on 'Registered ISA Manager' page"
+      )
+      CompanyTypePage.selectLimitedCompanyAndContinue()
 
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
@@ -87,7 +95,15 @@ class AddAnotherAddressForYourOrganisationSpec extends BaseSpec {
     Scenario("2.Verify user can add another address when displayed with multiple results after post code search") {
 
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/start")
+      AuthLoginPage.loginAsAFreshUser("/company-type")
+
+      Then("the user is navigated to the 'Company Type' page")
+      CompanyTypePage.verifyPageTitle(CompanyTypePage.pageTitle, CompanyTypePage.pageUrl) shouldBe true
+
+      Then(
+        "the user clicks on the Limited Company radio button and then clicks on save and continue button on 'Registered ISA Manager' page"
+      )
+      CompanyTypePage.selectLimitedCompanyAndContinue()
 
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true

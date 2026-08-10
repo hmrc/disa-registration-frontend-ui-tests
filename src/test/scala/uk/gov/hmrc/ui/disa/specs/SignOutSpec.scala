@@ -26,7 +26,15 @@ class SignOutSpec extends BaseSpec {
       "Verify 'saved answers sign out page' displayed correctly for the users who already saved answers and logs out"
     ) {
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/start")
+      AuthLoginPage.loginAsAFreshUser("/company-type")
+
+      Then("the user is navigated to the 'Company Type' page")
+      CompanyTypePage.verifyPageTitle(CompanyTypePage.pageTitle, CompanyTypePage.pageUrl) shouldBe true
+
+      Then(
+        "the user clicks on the Limited Company radio button and then clicks on save and continue button on 'Registered ISA Manager' page"
+      )
+      CompanyTypePage.selectLimitedCompanyAndContinue()
 
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
@@ -70,7 +78,15 @@ class SignOutSpec extends BaseSpec {
       "Verify 'sign out page' displayed correctly for the users who logs out without saving any answer"
     ) {
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/start")
+      AuthLoginPage.loginAsAFreshUser("/company-type")
+
+      Then("the user is navigated to the 'Company Type' page")
+      CompanyTypePage.verifyPageTitle(CompanyTypePage.pageTitle, CompanyTypePage.pageUrl) shouldBe true
+
+      Then(
+        "the user clicks on the Limited Company radio button and then clicks on save and continue button on 'Registered ISA Manager' page"
+      )
+      CompanyTypePage.selectLimitedCompanyAndContinue()
 
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true

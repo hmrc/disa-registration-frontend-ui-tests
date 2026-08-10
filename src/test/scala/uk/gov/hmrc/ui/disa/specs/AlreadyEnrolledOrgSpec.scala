@@ -24,7 +24,7 @@ class AlreadyEnrolledOrgSpec extends BaseSpec {
 
     Scenario("1. Verify 'Organisation Is Enrolled Page' displayed correctly for the users who are already enrolled") {
       Given("the ISA manager logs in as an already enrolled organisation User")
-      AuthLoginPage.loginAsEnrolledUser("/start", "HMRC-DISA-ORG", "ZREF", "Z1234")
+      AuthLoginPage.loginAsEnrolledUser("/company-type", "HMRC-DISA-ORG", "ZREF", "Z1234")
 
       Then("The 'Organisation is Enrolled' page is displayed")
       OrganisationIsEnrolledPage.verifyPageTitle(
@@ -36,7 +36,7 @@ class AlreadyEnrolledOrgSpec extends BaseSpec {
 
     Scenario("2. Verify 'Organisation Is Enrolled Page' displayed correctly for the users with pending enrollment") {
       Given("the ISA manager logs in as an already enrolled organisation User")
-      AuthLoginPage.loginAsPendingEnrollmentUser("/start", "groupId-state-pending")
+      AuthLoginPage.loginAsPendingEnrollmentUser("/company-type", "groupId-state-pending")
 
       Then("The 'Organisation is Enrolled' page is displayed")
       OrganisationIsEnrolledPage.verifyPageTitle(
