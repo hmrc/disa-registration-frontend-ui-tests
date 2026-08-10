@@ -24,7 +24,7 @@ class ISAManagerRegistrationProductsSpec extends BaseSpec {
 
     Scenario("Verify ISA Manager registration products Journey and verifying change links") {
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/start")
+      AuthLoginPage.loginAsAFreshUser("/company-type")
 
       Then("the user is navigated to the 'Company Type' page")
       CompanyTypePage.verifyPageTitle(CompanyTypePage.pageTitle, CompanyTypePage.pageUrl) shouldBe true
@@ -196,7 +196,7 @@ class ISAManagerRegistrationProductsSpec extends BaseSpec {
 
     Scenario("Verify ISA Manager registration Journey without peer to peer loans using a platform") {
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/start")
+      AuthLoginPage.loginAsAFreshUser("/company-type")
 
       Then("the user is navigated to the 'Company Type' page")
       CompanyTypePage.verifyPageTitle(CompanyTypePage.pageTitle, CompanyTypePage.pageUrl) shouldBe true

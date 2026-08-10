@@ -25,7 +25,7 @@ class AddThirdPartySpec extends BaseSpec {
     Scenario("1.Verify user can add Third party organisations and edit the details") {
 
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/start")
+      AuthLoginPage.loginAsAFreshUser("/company-type")
 
       Then("the user is navigated to the 'Company Type' page")
       CompanyTypePage.verifyPageTitle(CompanyTypePage.pageTitle, CompanyTypePage.pageUrl) shouldBe true
@@ -296,7 +296,7 @@ class AddThirdPartySpec extends BaseSpec {
 
     Scenario("2.Verify user can add more than one Third party organisations and then remove one") {
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/start")
+      AuthLoginPage.loginAsAFreshUser("/company-type")
 
       Then("the user is navigated to the 'Company Type' page")
       CompanyTypePage.verifyPageTitle(CompanyTypePage.pageTitle, CompanyTypePage.pageUrl) shouldBe true
@@ -507,7 +507,7 @@ class AddThirdPartySpec extends BaseSpec {
 
     Scenario("3.Verify user can add more than one Third party organisations and then able to connect them") {
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/start")
+      AuthLoginPage.loginAsAFreshUser("/company-type")
 
       Then("the user is navigated to the 'Company Type' page")
       CompanyTypePage.verifyPageTitle(CompanyTypePage.pageTitle, CompanyTypePage.pageUrl) shouldBe true

@@ -29,7 +29,7 @@ class AddOrganisationDetailsSpec extends BaseSpec {
     ) {
 
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/start")
+      AuthLoginPage.loginAsAFreshUser("/company-type")
 
       Then("the user is navigated to the 'Company Type' page")
       CompanyTypePage.verifyPageTitle(CompanyTypePage.pageTitle, CompanyTypePage.pageUrl) shouldBe true
@@ -314,7 +314,7 @@ class AddOrganisationDetailsSpec extends BaseSpec {
     ) {
 
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/start")
+      AuthLoginPage.loginAsAFreshUser("/company-type")
 
       Then("the user is navigated to the 'Company Type' page")
       CompanyTypePage.verifyPageTitle(CompanyTypePage.pageTitle, CompanyTypePage.pageUrl) shouldBe true

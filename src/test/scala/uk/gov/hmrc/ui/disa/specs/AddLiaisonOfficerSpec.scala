@@ -24,7 +24,7 @@ class AddLiaisonOfficerSpec extends BaseSpec {
 
     Scenario("1.Verify user can add a Liaison Officer and then able to edit the added liaison officer") {
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/start")
+      AuthLoginPage.loginAsAFreshUser("/company-type")
 
       Then("the user is navigated to the 'Company Type' page")
       CompanyTypePage.verifyPageTitle(CompanyTypePage.pageTitle, CompanyTypePage.pageUrl) shouldBe true
@@ -178,7 +178,7 @@ class AddLiaisonOfficerSpec extends BaseSpec {
 
     Scenario("2.Verify user can add more than one Liaison Officers and then remove one") {
       Given("the user is logged in as an organisation User")
-      AuthLoginPage.loginAsAFreshUser("/start")
+      AuthLoginPage.loginAsAFreshUser("/company-type")
 
       Then("the user is navigated to the 'Company Type' page")
       CompanyTypePage.verifyPageTitle(CompanyTypePage.pageTitle, CompanyTypePage.pageUrl) shouldBe true

@@ -21,19 +21,14 @@ import uk.gov.hmrc.ui.disa.pages.DeclarationForIsaManagersPage.baseUrl
 import uk.gov.hmrc.ui.disa.pages.FcaPlatformNumberPage.clickSaveAndContinue
 
 object CompanyTypePage extends BasePage {
-  val pageUrl: String                 = s"$baseUrl/company-type"
-  val pageTitle: String               =
+  val pageUrl: String            = s"$baseUrl/company-type"
+  val pageTitle: String          =
     "What type of organisation are you registering? - Manage ISAs - GOV.UK"
-  private val LimitedCompany: By      = By.id("value_0")
-  private val EuropeanInstitution: By = By.id("value_1")
+  private val LimitedCompany: By = By.id("value_0")
 
   def selectLimitedCompanyAndContinue(): Unit = {
     selectCheckbox(LimitedCompany)
     clickSaveAndContinue()
   }
 
-  def selectEuropeanInstitutionContinue(): Unit = {
-    selectCheckbox(EuropeanInstitution)
-    clickSaveAndContinue()
-  }
 }

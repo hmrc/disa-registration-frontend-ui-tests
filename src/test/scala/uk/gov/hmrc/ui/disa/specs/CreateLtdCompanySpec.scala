@@ -24,7 +24,7 @@ class CreateLtdCompanySpec extends BaseSpec {
 
     Scenario("Verify that upon successful cred id submission task list page is displayed") {
       Given("the ISA manager is logged in as an organisation User")
-      AuthLoginPage.launchAuthPage("/start")
+      AuthLoginPage.launchAuthPage("/company-type")
       AuthLoginPage.enterCredId("grs-create-journey-success")
       AuthLoginPage.clickSubmit()
 
@@ -43,7 +43,7 @@ class CreateLtdCompanySpec extends BaseSpec {
 
     Scenario("Verify that when user enters cred id with Business verification failure lock out page is displayed") {
       Given("the ISA manager is logged in as an organisation User")
-      AuthLoginPage.launchAuthPage("/start")
+      AuthLoginPage.launchAuthPage("/company-type")
       AuthLoginPage.enterCredId("grs-retrieval-bv-fail")
       AuthLoginPage.clickSubmit()
 
