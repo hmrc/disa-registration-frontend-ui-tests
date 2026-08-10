@@ -27,6 +27,14 @@ class AddOrganisationEmailSpec extends BaseSpec {
       Given("the user is logged in as an organisation User")
       AuthLoginPage.loginAsAFreshUser("/start")
 
+      Then("the user is navigated to the 'Company Type' page")
+      CompanyTypePage.verifyPageTitle(CompanyTypePage.pageTitle, CompanyTypePage.pageUrl) shouldBe true
+
+      Then(
+        "the user clicks on the Limited Company radio button and then clicks on save and continue button on 'Registered ISA Manager' page"
+      )
+      CompanyTypePage.selectLimitedCompanyAndContinue()
+
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
