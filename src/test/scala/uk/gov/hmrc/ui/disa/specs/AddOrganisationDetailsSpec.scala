@@ -17,15 +17,13 @@
 package uk.gov.hmrc.ui.disa.specs
 
 import uk.gov.hmrc.ui.disa.pages.*
-import uk.gov.hmrc.ui.disa.specs.tags.WIP
 
 class AddOrganisationDetailsSpec extends BaseSpec {
 
   Feature("Add an organisation") {
 
     Scenario(
-      "1.Verify user can add organisation details as registered to manage ISAs with HMRC and then edits details",
-      WIP
+      "1.Verify user can add organisation details as registered to manage ISAs with HMRC and then edits details"
     ) {
 
       Given("the user is logged in as an organisation User")
@@ -43,10 +41,10 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
       Then(
-        "the 'Add organisation information' status is 'Not yet started' the user clicks on the 'Add organisation information' link"
+        "the 'Add organisation details' status is 'Not yet started' the user clicks on the 'Add organisation information' link"
       )
-      TaskListPage.verifyTaskStatus("Add organisation information", "Not yet started")
-      TaskListPage.clickOnByPartialLinkText("Add organisation information")
+      TaskListPage.verifyTaskStatus("Add organisation details", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("Add organisation details")
 
       Then("the user is navigated to the 'Registered ISA Manager' page")
       RegisteredIsaManagerPage.verifyPageTitle(
@@ -111,10 +109,10 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       ) shouldBe true
 
       Then(
-        "the user clicks on the No radio button and then clicks on save and continue button on 'registered-address-correspondence' page"
+        "the user clicks on the No radio button and then clicks on confirm and continue button on 'registered-address-correspondence' page"
       )
       RegisteredAddressCorrespondencePage.clickRadioButton("No")
-      RegisteredAddressCorrespondencePage.clickSaveAndContinue()
+      RegisteredAddressCorrespondencePage.clickConfirmAndContinue()
 
       Then("the user is navigated to the 'add-another-address' page")
       AddAnotherAddressForYourOrganisationPage.verifyPageTitle(
@@ -152,7 +150,7 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       )
 
       Then("the user clicks on Save and continue button")
-      ConfirmCorrespondenceAddressPage.clickSaveAndContinue()
+      ConfirmCorrespondenceAddressPage.clickConfirmAndContinue()
 
       Then("the user is navigated to the 'Organisation telephone number' page")
       OrganisationTelephoneNumberPage.verifyPageTitle(
@@ -234,7 +232,7 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
       And("The status for organisation  status is 'Completed'")
-      TaskListPage.verifyTaskStatus("Change organisation information", "Completed")
+      TaskListPage.verifyTaskStatus("Change organisation details", "Completed")
 
       // below steps to be used in E2E test with nav in place
 
@@ -330,8 +328,8 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       When(
         "the 'Add organisation information' status is 'Not yet started' the user navigates to the 'Add organisation information' page"
       )
-      TaskListPage.verifyTaskStatus("Add organisation information", "Not yet started")
-      TaskListPage.clickOnByPartialLinkText("Add organisation information")
+      TaskListPage.verifyTaskStatus("Add organisation details", "Not yet started")
+      TaskListPage.clickOnByPartialLinkText("Add organisation details")
 //      AuthLoginPage.navigateTo(RegisteredIsaManagerPage.pageUrl)
 
       // Navigation to the REgistered ISA Manager page is handled in the above code
@@ -379,10 +377,10 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       ) shouldBe true
 
       Then(
-        "the user clicks on the No radio button and then clicks on save and continue button on 'registered-address-correspondence' page"
+        "the user clicks on the No radio button and then clicks on confirm and continue button on 'registered-address-correspondence' page"
       )
       RegisteredAddressCorrespondencePage.clickRadioButton("No")
-      RegisteredAddressCorrespondencePage.clickSaveAndContinue()
+      RegisteredAddressCorrespondencePage.clickConfirmAndContinue()
 
       Then("the user is navigated to the 'add-another-address' page")
       AddAnotherAddressForYourOrganisationPage.verifyPageTitle(
@@ -432,8 +430,8 @@ class AddOrganisationDetailsSpec extends BaseSpec {
         ConfirmCorrespondenceAddressPage.pageUrl
       )
 
-      Then("the user  clicks on Save and continue button")
-      ConfirmCorrespondenceAddressPage.clickSaveAndContinue()
+      Then("the user  clicks on Confirm and continue button")
+      ConfirmCorrespondenceAddressPage.clickConfirmAndContinue()
 
       Then("the user is navigated to the 'Organisation telephone number' page")
       OrganisationTelephoneNumberPage.verifyPageTitle(
@@ -520,9 +518,9 @@ class AddOrganisationDetailsSpec extends BaseSpec {
         ChangeRegisteredAddressCorrespondencePage.pageUrl
       ) shouldBe true
 
-      Then("the user changes the Registered Address Correspondence to Yes and clicks on Save and continue button")
+      Then("the user changes the Registered Address Correspondence to Yes and clicks on Confirm and continue button")
       ChangeRegisteredAddressCorrespondencePage.clickRadioButton("Yes")
-      ChangeRegisteredAddressCorrespondencePage.clickSaveAndContinue()
+      ChangeRegisteredAddressCorrespondencePage.clickConfirmAndContinue()
 
       Then("the user is navigated to the 'Check your organisation details' page")
       OrganisationDetailsCheckYourAnswersPage.verifyPageTitle(
@@ -536,8 +534,8 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       Then("the user clicks on is navigated to the 'Manage ISAs' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
-      And("the 'Change organisation information' status is 'Completed'")
-      TaskListPage.verifyTaskStatus("Change organisation information", "Completed")
+      And("the 'Change organisation details' status is 'Completed'")
+      TaskListPage.verifyTaskStatus("Change organisation details", "Completed")
     }
 
   }

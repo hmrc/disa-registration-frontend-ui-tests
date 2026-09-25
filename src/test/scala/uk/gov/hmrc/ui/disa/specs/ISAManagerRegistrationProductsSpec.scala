@@ -100,8 +100,8 @@ class ISAManagerRegistrationProductsSpec extends BaseSpec {
         IsaProductsCheckYourAnswersPage.pageUrl
       ) shouldBe true
 
-      Then("the user clicks on Confirm and Save button")
-      OrganisationEmailCheckYourAnswersPage.clickConfirmAndSave()
+      Then("the user clicks on Confirm and Continue button")
+      OrganisationEmailCheckYourAnswersPage.clickConfirmAndContinue()
 
       And(" The status for 'Change ISA products you manage' status is 'Completed'")
       TaskListPage.verifyTaskStatus("Change ISA products you manage", "Completed")

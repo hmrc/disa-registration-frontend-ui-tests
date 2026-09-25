@@ -108,8 +108,8 @@ class ISAManagerEligibilitySpec extends BaseSpec {
         CertificatesOfAuthorityCheckYourAnswersPage.pageUrl
       ) shouldBe true
 
-      Then("the user clicks on Confirm and Save button")
-      OrganisationEmailCheckYourAnswersPage.clickConfirmAndSave()
+      Then("the user clicks on Confirm and Continue button")
+      OrganisationEmailCheckYourAnswersPage.clickConfirmAndContinue()
 
       And(" The status for 'Change which certificates of authority apply to your organisation' status is 'Completed'")
       TaskListPage.verifyTaskStatus("Change which certificates of authority apply to your organisation", "Completed")
@@ -207,8 +207,8 @@ class ISAManagerEligibilitySpec extends BaseSpec {
         CertificatesOfAuthorityCheckYourAnswersPage.pageUrl
       ) shouldBe true
 
-      Then("the user clicks on Confirm and Save button")
-      OrganisationEmailCheckYourAnswersPage.clickConfirmAndSave()
+      Then("the user clicks on Confirm and Continue button")
+      OrganisationEmailCheckYourAnswersPage.clickConfirmAndContinue()
 
       And(" The status for 'Change which certificates of authority apply to your organisation' status is 'Completed'")
       TaskListPage.verifyTaskStatus("Change which certificates of authority apply to your organisation", "Completed")

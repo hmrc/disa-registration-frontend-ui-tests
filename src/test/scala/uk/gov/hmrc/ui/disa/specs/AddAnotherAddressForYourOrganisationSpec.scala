@@ -47,7 +47,7 @@ class AddAnotherAddressForYourOrganisationSpec extends BaseSpec {
         "the user clicks on the No radio button and then clicks on save and continue button 'registered-address-correspondence' page"
       )
       RegisteredAddressCorrespondencePage.clickRadioButton("No")
-      RegisteredAddressCorrespondencePage.clickSaveAndContinue()
+      RegisteredAddressCorrespondencePage.clickConfirmAndContinue()
 
       Then("the user is navigated to the 'add-another-address' page")
       AddAnotherAddressForYourOrganisationPage.verifyPageTitle(
@@ -114,10 +114,10 @@ class AddAnotherAddressForYourOrganisationSpec extends BaseSpec {
       AuthLoginPage.navigateTo(RegisteredAddressCorrespondencePage.pageUrl)
 
       Then(
-        "the user clicks on the No radio button and then clicks on save and continue on 'registered-address-correspondence' page"
+        "the user clicks on the No radio button and then clicks on confirm and continue on 'registered-address-correspondence' page"
       )
       RegisteredAddressCorrespondencePage.clickRadioButton("No")
-      RegisteredAddressCorrespondencePage.clickSaveAndContinue()
+      RegisteredAddressCorrespondencePage.clickConfirmAndContinue()
 
       Then("the user is navigated to the 'add-another-address' page")
       AddAnotherAddressForYourOrganisationPage.verifyPageTitle(
