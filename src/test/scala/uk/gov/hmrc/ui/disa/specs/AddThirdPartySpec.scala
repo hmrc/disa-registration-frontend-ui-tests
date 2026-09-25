@@ -207,7 +207,7 @@ class AddThirdPartySpec extends BaseSpec {
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
       And("The status for 'Change organisations you outsource to' is '1 third party'")
-      TaskListPage.verifyTaskStatus("Change organisations you outsource to", "1 third party")
+      TaskListPage.verifyTaskStatus("Change organisations you outsource to", "1 third-party")
 
       /*  When("the user navigates to the 'Check your answers' page")
       AuthLoginPage.navigateTo(CheckYourAnswersPage.pageUrl)
@@ -501,7 +501,7 @@ class AddThirdPartySpec extends BaseSpec {
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
       And("The status for 'Change organisations you outsource to' is '1 third party'")
-      TaskListPage.verifyTaskStatus("Change organisations you outsource to", "1 third party")
+      TaskListPage.verifyTaskStatus("Change organisations you outsource to", "1 third-party")
 
     }
 
@@ -904,13 +904,13 @@ class AddThirdPartySpec extends BaseSpec {
       Then(
         "the user clicks on save and continue to 'check added third party organisation' page "
       )
-      CheckAddedThirdPartiesPage.clickSaveAndContinue()
+      CheckAddedThirdPartiesPage.clickConfirmAndContinue()
 
       Then("the user is navigated to the 'Task list' page")
       TaskListPage.verifyPageTitle(TaskListPage.pageTitle, TaskListPage.pageUrl) shouldBe true
 
       And("The status for 'Change organisations you outsource to' is '3 third parties'")
-      TaskListPage.verifyTaskStatus("Change organisations you outsource to", "3 third parties")
+      TaskListPage.verifyTaskStatus("Change organisations you outsource to", "3 third-parties")
 
       /*
       When("the user navigates to the 'Check your answers' page")
