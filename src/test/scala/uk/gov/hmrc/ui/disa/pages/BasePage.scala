@@ -41,7 +41,7 @@ trait BasePage extends Matchers with PageObject {
   val pageHeader: By                         = By.xpath("//h1")
   val confirmAndSaveButton: By               = By.xpath("//button[contains(text(),'Confirm and save')]")
   val confirmAndSaveButtonForOrgDetails: By  =
-    By.cssSelector("a.govuk-button[href='/obligations/enrolment/isa/task-list']")
+    By.cssSelector("a.govuk-button[href='/register-for-manage-isas/task-list']")
 
   def taskStatusLocator(taskName: String): By =
     By.xpath(s"//li[.//a[normalize-space(text())='$taskName']]//div[contains(@class, 'govuk-task-list__status')]")
