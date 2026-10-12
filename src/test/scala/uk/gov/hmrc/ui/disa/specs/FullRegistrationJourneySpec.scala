@@ -32,7 +32,7 @@ class FullRegistrationJourneySpec extends BaseSpec {
       CompanyTypePage.verifyPageTitle(CompanyTypePage.pageTitle, CompanyTypePage.pageUrl) shouldBe true
 
       Then(
-        "the user clicks on the Limited Company radio button and then clicks on save and continue button on 'Company Type' page"
+        "the user clicks on the Limited Company radio button and then clicks on save and continue button on 'Registered ISA Manager' page"
       )
       CompanyTypePage.selectLimitedCompanyAndContinue()
 
@@ -87,9 +87,7 @@ class FullRegistrationJourneySpec extends BaseSpec {
         OrganisationTradingNamePage.pageUrl
       ) shouldBe true
 
-      Then(
-        "the user enters the 'Organisation trading name' page and clicks on save and continue on 'Organisation Z reference number' page"
-      )
+      Then("the user enters the trading name and clicks on save and continue on 'Organisation Z reference number' page")
       OrganisationTradingNamePage.enterText("value", "Trading org")
       OrganisationTradingNamePage.clickSaveAndContinue()
 
@@ -141,7 +139,7 @@ class FullRegistrationJourneySpec extends BaseSpec {
         EnterYourOrganisationAddressPage.pageUrl
       )
 
-      Then("the user clicks on Save and continue button")
+      Then("the user changes the address  and clicks on Save and continue button")
       EnterYourOrganisationAddressPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'confirm-correspondence-address' page")
@@ -159,9 +157,7 @@ class FullRegistrationJourneySpec extends BaseSpec {
         OrganisationTelephoneNumberPage.pageUrl
       ) shouldBe true
 
-      Then(
-        "the user enters the telephone number and clicks on save and continue on 'Organisation telephone number' page"
-      )
+      Then("the user enters the telephone number and clicks on save and continue on 'add-another-address' page")
       OrganisationTelephoneNumberPage.enterText("value", "07777 777 777")
       OrganisationTelephoneNumberPage.clickSaveAndContinue()
 
@@ -359,13 +355,13 @@ class FullRegistrationJourneySpec extends BaseSpec {
       Then("the user selects all communication modes and clicks on Save and continue button")
       LiaisonOfficerCommunicationPage.selectCommunicationModes()
       LiaisonOfficerCommunicationPage.clickSaveAndContinue()
-
+      //
       Then("the user is navigated to the 'liaison-officer-check-added-liaison-officer' page")
       CheckAddedLiaisonOfficerPage.verifyPageTitle(
         CheckAddedLiaisonOfficerPage.pageTitle,
         CheckAddedLiaisonOfficerPage.pageUrl
       ) shouldBe true
-      CheckAddedLiaisonOfficerPage.clickConfirmAndContinueLink()
+      CheckAddedLiaisonOfficerPage.clickConfirmAndContinue1()
 
       Then("the user clicks on no radio button on 'added-liaison-officer' page ")
       AddedLiaisonOfficersPage.clickRadioButton("No")
@@ -407,7 +403,7 @@ class FullRegistrationJourneySpec extends BaseSpec {
       ) shouldBe true
 
       Then("the user clicks on Confirm and continue button on 'added-signatory' page ")
-      AddedSignatoriesPage.clickConfirmAndContinueLink()
+      AddedSignatoriesPage.clickConfirmAndContinue1()
 
       Then("the user clicks on No radio button on 'added-signatory' page ")
       AddedSignatoriesPage.clickRadioButton("No")
@@ -493,7 +489,7 @@ class FullRegistrationJourneySpec extends BaseSpec {
       ) shouldBe true
 
       Then("the user clicks on Confirm and continue button on 'check added third party' page ")
-      CheckAddedThirdPartyPage.clickConfirmAndContinueLink()
+      CheckAddedThirdPartyPage.clickConfirmAndContinue1()
 
       Then("the user clicks on no radio button and then save and continue on 'added third party organisation' page ")
       AddedThirdPartiesPage.clickRadioButton("No")
@@ -512,21 +508,15 @@ class FullRegistrationJourneySpec extends BaseSpec {
       TaskListPage.clickOnByPartialLinkText("Check answers and submit")
 
       Then("the user is navigated to the 'check all your answers before you submit' page")
-      CheckYourAnswersPage.verifyPageTitle(CheckYourAnswersPage.pageTitle, CheckYourAnswersPage.pageUrl) shouldBe true
+      CheckYourAnswersPage.verifyPageTitle(CheckYourAnswersPage.pageTitle1, CheckYourAnswersPage.pageUrl) shouldBe true
 
       When("the user clicks on Confirm and continue button on 'check all your answers before you submit' page ")
       CheckYourAnswersPage.clickConfirmAndContinue()
 
-      And("the user should see ISA manager declaration screen")
-      DeclarationForIsaManagersPage.verifyPageTitle(
-        DeclarationForIsaManagersPage.pageTitle,
-        DeclarationForIsaManagersPage.pageUrl
-      ) shouldBe true
+      Then("the user clicks on Confirm and submit button")
+      CheckYourAnswersPage.clickConfirmAndSubmit()
 
-      When("the user clicks on Confirm and continue button on 'ISA manager declaration screen' page ")
-      DeclarationForIsaManagersPage.clickConfirmAndSubmit()
-
-      And("the user should see enrolment completed screen")
+      And("the user should see enrollment completed screen")
       EnrolmentCompletePage.verifyPageTitle(
         EnrolmentCompletePage.pageTitle,
         EnrolmentCompletePage.pageUrl
