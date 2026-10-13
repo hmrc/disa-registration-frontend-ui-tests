@@ -513,8 +513,14 @@ class FullRegistrationJourneySpec extends BaseSpec {
       When("the user clicks on Confirm and continue button on 'check all your answers before you submit' page ")
       CheckYourAnswersPage.clickConfirmAndContinue()
 
-      Then("the user clicks on Confirm and submit button")
-      CheckYourAnswersPage.clickConfirmAndSubmit()
+      And("the user should see ISA manager declaration screen")
+      DeclarationForIsaManagersPage.verifyPageTitle(
+        DeclarationForIsaManagersPage.pageTitle,
+        DeclarationForIsaManagersPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on Confirm and continue button on 'ISA manager declaration screen' page ")
+      DeclarationForIsaManagersPage.clickConfirmAndSubmit()
 
       And("the user should see enrollment completed screen")
       EnrolmentCompletePage.verifyPageTitle(
