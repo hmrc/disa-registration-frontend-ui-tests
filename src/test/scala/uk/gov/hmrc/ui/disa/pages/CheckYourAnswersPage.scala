@@ -18,6 +18,6 @@ package uk.gov.hmrc.ui.disa.pages
 
 object CheckYourAnswersPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/check-your-answers"
-  val pageTitle: String = "Check your answers - Manage ISAs - GOV.UK"
+  val pageTitle: String = "Check all your answers before you submit - Manage ISAs - GOV.UK"
 
 }
