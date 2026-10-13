@@ -512,7 +512,7 @@ class FullRegistrationJourneySpec extends BaseSpec {
       TaskListPage.clickOnByPartialLinkText("Check answers and submit")
 
       Then("the user is navigated to the 'check all your answers before you submit' page")
-      CheckYourAnswersPage.verifyPageTitle(CheckYourAnswersPage.pageTitle1, CheckYourAnswersPage.pageUrl) shouldBe true
+      CheckYourAnswersPage.verifyPageTitle(CheckYourAnswersPage.pageTitle, CheckYourAnswersPage.pageUrl) shouldBe true
 
       When("the user clicks on Confirm and continue button on 'check all your answers before you submit' page ")
       CheckYourAnswersPage.clickConfirmAndContinue()
