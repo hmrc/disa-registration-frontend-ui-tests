@@ -33,7 +33,7 @@ class AddOrganisationDetailsSpec extends BaseSpec {
       CompanyTypePage.verifyPageTitle(CompanyTypePage.pageTitle, CompanyTypePage.pageUrl) shouldBe true
 
       Then(
-        "the user clicks on the Limited Company radio button and then clicks on save and continue button on 'Registered ISA Manager' page"
+        "the user clicks on the Limited Company radio button and then clicks on save and continue button on 'Company Type' page"
       )
       CompanyTypePage.selectLimitedCompanyAndContinue()
 
@@ -140,7 +140,7 @@ class AddOrganisationDetailsSpec extends BaseSpec {
         EnterYourOrganisationAddressPage.pageUrl
       )
 
-      Then("the user changes the address  and clicks on Save and continue button")
+      Then("the user clicks on Save and continue button")
       EnterYourOrganisationAddressPage.clickSaveAndContinue()
 
       Then("the user is navigated to the 'confirm-correspondence-address' page")

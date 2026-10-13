@@ -36,10 +36,12 @@ trait BasePage extends Matchers with PageObject {
   val generateRandomZReference: () => String = () => ZReferenceGenerator.generate()
   val saveAndContinueButton: By              = By.xpath("//button[contains(text(),'Save and continue')]")
   val confirmAndContinueButton: By           = By.xpath("//button[contains(text(),'Confirm and continue')]")
+  val confirmAndContinueLink: By             = By.xpath("//a[contains(normalize-space(), 'Confirm and continue')]")
   val continueButton: By                     = By.xpath("//a[contains(text(),'Continue')]")
   val signOutButton: By                      = By.xpath("//a[contains(text(),'Sign out')]")
   val pageHeader: By                         = By.xpath("//h1")
   val confirmAndSaveButton: By               = By.xpath("//button[contains(text(),'Confirm and save')]")
+  val confirmAndSubmitButton: By             = By.xpath("//button[contains(text(),'Confirm and submit')]")
   val confirmAndSaveButtonForOrgDetails: By  =
     By.cssSelector("a.govuk-button[href='/register-for-manage-isas/task-list']")
 
@@ -116,6 +118,12 @@ trait BasePage extends Matchers with PageObject {
 
   def clickConfirmAndContinue(): Unit =
     click(confirmAndContinueButton)
+
+  def clickConfirmAndContinueLink(): Unit =
+    click(confirmAndContinueLink)
+
+  def clickConfirmAndSubmit(): Unit =
+    click(confirmAndSubmitButton)
 
   def clickConfirmAndSave(): Unit =
     click(confirmAndSaveButton)
